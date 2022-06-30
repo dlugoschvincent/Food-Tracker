@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-netlify';
 // import adapter from '@sveltejs/adapter-node';
 
 import preprocess from 'svelte-preprocess';
@@ -15,12 +15,12 @@ const config = {
     methodOverride: {
       allowed: ['PUT', 'PATCH', 'DELETE']
     },
-    adapter: adapter(),
-    vite: () => ({
-      build: {
-        target: ['esnext']
-      }
-    })
+    adapter: adapter()
+    // vite: () => ({
+    //   build: {
+    //     target: ['esnext']
+    //   }
+    // })
   }
 };
 
