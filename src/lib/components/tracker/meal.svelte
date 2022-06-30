@@ -6,7 +6,7 @@
   export let meal: string;
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 
-  $: date = new Date($page.params.date);
+  $: date = new Date(parseInt($page.params.date));
   $: currentNotSelectedDate = !(date.toDateString() === new Date().toDateString());
 </script>
 

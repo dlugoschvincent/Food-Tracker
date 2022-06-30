@@ -1,4 +1,4 @@
 <script>
   import { goto } from '$app/navigation';
-  goto(`/${new Date().toDateString()}`);
+  goto(`/${new Date().getTime()}`);
 </script>
