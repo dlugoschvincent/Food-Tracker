@@ -21,6 +21,7 @@ specifiers:
   postgres: ^3.2.4
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.11
+  stream: ^0.0.2
   svelte: ^3.48.0
   svelte-check: ^2.8.0
   svelte-preprocess: ^4.10.7
@@ -51,6 +52,7 @@ devDependencies:
   postcss: 8.4.14
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.11_prettier@2.7.1
+  stream: 0.0.2
   svelte: 3.48.0
   svelte-check: 2.8.0_s3dopqgs4h45owyu2kxaf6kyfu
   svelte-preprocess: 4.10.7_jr4mgafwdbjtobsadg2hrd5qfy
@@ -846,6 +848,10 @@ packages:
 
   /electron-to-chromium/1.4.174:
     resolution: {integrity: sha512-JER+w+9MV2MBVFOXxP036bLlNOnzbYAWrWU8sNUwoOO69T3w4564WhM5H5atd8VVS8U4vpi0i0kdoYzm1NPQgQ==}
+    dev: true
+
+  /emitter-component/1.1.1:
+    resolution: {integrity: sha512-G+mpdiAySMuB7kesVRLuyvYRqDmshB7ReKEVuyBPkzQlmiDiLrt7hHHIy4Aff552bgknVN7B2/d3lzhGO5dvpQ==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -2069,6 +2075,12 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    dev: true
+
+  /stream/0.0.2:
+    resolution: {integrity: sha512-gCq3NDI2P35B2n6t76YJuOp7d6cN/C7Rt0577l91wllh0sY9ZBuw9KaSGqH/b0hzn3CWWJbpbW0W0WvQ1H/Q7g==}
+    dependencies:
+      emitter-component: 1.1.1
     dev: true
 
   /string-width/4.2.3:

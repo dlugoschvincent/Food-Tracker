@@ -1,7 +1,6 @@
 <script lang="ts">
   import { supabase } from '$lib/supabaseclient';
   import type { definitions } from 'types/database';
-  import { servings } from '$lib/stores/servingStore';
   import Icon from '@iconify/svelte';
   export let serving: definitions['UserAteFood'] & { Food: definitions['Food'] };
 
@@ -10,7 +9,6 @@
       .from<definitions['UserAteFood'] & { Food: definitions['Food'] }>('UserAteFood')
       .delete()
       .eq('meal_id', mealId);
-    servings.update((s) => s.filter((s) => s.meal_id !== mealId));
   }
 </script>
 
