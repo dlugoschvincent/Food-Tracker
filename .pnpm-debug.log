@@ -1,0 +1,23 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 info pnpm": {
+    "err": {
+      "name": "Error",
+      "message": "not found: instal",
+      "code": "ENOENT",
+      "stack": "Error: not found: instal\n    at getNotFoundError (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:41670:51)\n    at Function.whichSync [as sync] (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:41747:13)\n    at getCommandAbsolutePathSync (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:43312:44)\n    at default_1 (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:43321:32)\n    at /home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:172142:39"
+    }
+  },
+  "2 error pnpm": {
+    "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+    "prefix": "/home/v/Uni/Webentwicklung/Project",
+    "err": {
+      "name": "pnpm",
+      "message": "not found: instal",
+      "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+      "stack": "Error: not found: instal\n    at getNotFoundError (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:41670:51)\n    at Function.whichSync [as sync] (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:41747:13)\n    at getCommandAbsolutePathSync (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:43312:44)\n    at default_1 (/home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:43321:32)\n    at /home/v/.node/corepack/pnpm/7.1.0/dist/pnpm.cjs:172142:39"
+    }
+  }
+}
