@@ -5,7 +5,7 @@
 <nav class="bg-orange-300">
   <div class="container mx-auto grid grid-flow-col items-center justify-between p-4">
     <div class="text-xl">
-      <a href="/">Home</a>
+      <a href="/{new Date().getTime()}">Home</a>
     </div>
     <div class="hidden items-center justify-end gap-8 sm:flex">
       <Logout />
