@@ -14,6 +14,7 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "update-types": "npx openapi-typescript \"https://bdfuxqqzjbhtavckyave.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkZnV4cXF6amJodGF2Y2t5YXZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTUwNjg2MjYsImV4cCI6MTk3MDY0NDYyNn0.3qyLXGVLvFoeK7AwLg30ZCQHm7tJQskXV8aZi3VnEho\" --output types/database/index.ts"
   },
+  "sideEffects": true,
   "devDependencies": {
     "@iconify/svelte": "^2.2.1",
     "@playwright/test": "^1.23.0",
