@@ -1,6 +1,8 @@
 <script context="module" lang="ts">
   import type { Load } from './__types/[date]';
   import { supabase } from '$lib/supabaseclient';
+  import { navigating } from '$app/stores';
+  import { fade } from 'svelte/transition';
 
   export const load: Load = async ({ params }) => {
     if (isNaN(parseInt(params.date))) return {};
@@ -26,4 +28,8 @@
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 </script>
 
-<Tracker {servings} />
+{#if $navigating}
+  <div>Waiting</div>
+{:else}
+  <Tracker {servings} />
+{/if}
