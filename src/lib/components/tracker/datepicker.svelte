@@ -13,7 +13,7 @@
     <Icon width="20" icon="akar-icons:arrow-left" />
   </a>
   {#if $navigating}
-    <div in:fade={{ duration: 200 }} class="place-self-center align-middle text-xl">Waiting...</div>
+    <div class="place-self-center align-middle text-xl">Waiting...</div>
   {:else}
     <div in:fade={{ duration: 200 }} class="place-self-center align-middle text-xl">
       {currentDate.toDateString()}
