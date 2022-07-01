@@ -12,7 +12,7 @@
 </script>
 
 <form
-  class="col-span-2 grid gap-2"
+  class="col-span-2 grid gap-4"
   on:submit|preventDefault={(event) => {
     login(new FormData(event.currentTarget));
   }}>
