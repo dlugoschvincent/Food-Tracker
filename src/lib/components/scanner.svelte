@@ -8,8 +8,7 @@
   import { onDestroy, onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
-  import { fade, scale } from 'svelte/transition';
-  let scannerWidth: number;
+  import { fade } from 'svelte/transition';
   let html5QrcodeScanner: Html5QrcodeScanner;
   async function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
     // handle the scanned code as you like, for example:
@@ -41,9 +40,7 @@
   onMount(() => {
     let config = {
       fps: 10,
-      qrbox: { width: scannerWidth * 0.5, height: 80 },
       rememberLastUsedCamera: true,
-      // Only support camera scan type.
       supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
     };
     html5QrcodeScanner = new Html5QrcodeScanner('reader', config, /* verbose= */ false);
@@ -51,9 +48,6 @@
   });
 </script>
 
-<div
-  in:fade={{ duration: 1000, delay: 500 }}
-  bind:clientWidth={scannerWidth}
-  class="mx-auto grid gap-4 md:max-w-sm">
+<div in:fade={{ duration: 1000, delay: 500 }} class="mx-auto grid gap-4 md:max-w-sm">
   <div id="reader" />
 </div>
