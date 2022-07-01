@@ -16,7 +16,7 @@
   {#if $navigating}
     <div in:fade|local={{ duration: 200, delay:200 }} class="place-self-center align-middle text-xl">Waiting...</div>
   {:else}
-    <div in:fade|local={{ duration: 200 }} class="place-self-center align-middle text-xl">
+    <div in:fade|local={{ duration: 200, delay:200 }} class="place-self-center align-middle text-xl">
       {$selectedDate.toDateString()}
     </div>
   {/if}
