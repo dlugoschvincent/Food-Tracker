@@ -41,14 +41,13 @@
   onMount(() => {
     let config = {
       fps: 10,
-      qrbox: { width: scannerWidth * 0.8, height: 80 },
+      qrbox: { width: scannerWidth * 0.5, height: 80 },
       rememberLastUsedCamera: true,
       // Only support camera scan type.
       supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
     };
     html5QrcodeScanner = new Html5QrcodeScanner('reader', config, /* verbose= */ false);
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-    console.log(scannerWidth);
   });
 </script>
 
