@@ -28,6 +28,6 @@
     type="password"
     name="password"
     placeholder="Password" />
-  <button class="rounded-md bg-orange-400 p-2" type="submit">Sign Up</button>
+  <button class="col-span-2 rounded-md bg-orange-400 p-2" type="submit">Sign Up</button>
   {#if errorMessage} <div class="col-span-2 text-xs text-red-600">{errorMessage}</div>{/if}
 </form>

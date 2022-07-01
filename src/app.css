@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .disable-anchor {
-  @apply pointer-events-none bg-slate-400;
+  @apply pointer-events-none touch-none bg-slate-400;
 }
