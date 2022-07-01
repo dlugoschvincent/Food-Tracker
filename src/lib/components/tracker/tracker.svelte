@@ -3,7 +3,7 @@
   import Meal from '$lib/components/tracker/meal.svelte';
   import type { definitions } from 'types/database';
   import { groupBy } from 'lodash-es';
-  import { fade ,scale} from 'svelte/transition';
+  import { fade } from 'svelte/transition';
 
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 
