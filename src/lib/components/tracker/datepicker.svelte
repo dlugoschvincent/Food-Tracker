@@ -3,7 +3,7 @@
   import { navigating } from '$app/stores';
   import { fade, scale } from 'svelte/transition';
   import { selectedDate } from '$lib/stores/dateStore';
-
+  import { DoubleBounce } from 'svelte-loading-spinners';
   $: currentDate = new Date($selectedDate);
   $: prevDate = new Date(new Date(currentDate).setDate(currentDate.getDate() - 1));
   $: nextDate = new Date(new Date(currentDate).setDate(currentDate.getDate() + 1));
@@ -18,11 +18,13 @@
   </a>
 
   {#if !$navigating}
-    <div transition:scale|local={{ duration: 200 }} class="place-self-center align-middle text-xl">
+    <div in:scale|local={{ duration: 200 }} class="place-self-center align-middle text-xl">
       {$selectedDate.toDateString()}
     </div>
   {:else}
-    <!-- <div class="place-self-center hidden" in:fade={{delay:400}}>Waiting...</div> -->
+    <div in:fade class="place-self-center">
+      <DoubleBounce color="#fdba74" size="30" />
+    </div>
   {/if}
 
   <a
