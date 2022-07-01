@@ -39,7 +39,7 @@
     let config = {
       fps: 60,
       qrbox: { width: scannerWidth * 0.3, height: 50 },
-      aspectRatio: 1,
+      aspectRatio: 16/9,
       rememberLastUsedCamera: true,
       supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
     };
