@@ -38,7 +38,7 @@
   onMount(() => {
     let config = {
       fps: 60,
-      qrbox: { width: scannerWidth * 0.4, height: scannerWidth * 0.3 },
+      qrbox: { width: scannerWidth * 0.3, height: 50 },
       aspectRatio: 1,
       rememberLastUsedCamera: true,
       supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
