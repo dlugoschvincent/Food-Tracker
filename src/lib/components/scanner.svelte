@@ -5,10 +5,11 @@
     Html5QrcodeSupportedFormats
   } from 'html5-qrcode';
   import type { Html5QrcodeResult } from 'html5-qrcode/core';
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
 
+  let scannerWidth: number;
   let html5QrcodeScanner: Html5QrcodeScanner;
   async function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
     // handle the scanned code as you like, for example:
@@ -29,23 +30,28 @@
     }
   }
 
+  onDestroy(() => {
+    html5QrcodeScanner.clear();
+  });
+
   function onScanFailure(error: string) {
     // handle the error as you like, for example:
   }
 
-  let config = {
-    fps: 10,
-    qrbox: { width: 200, height: 50 },
-    rememberLastUsedCamera: true,
-    // Only support camera scan type.
-    supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
-  };
   onMount(() => {
+    let config = {
+      fps: 10,
+      qrbox: { width: scannerWidth * 0.8, height: 80 },
+      rememberLastUsedCamera: true,
+      // Only support camera scan type.
+      supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
+    };
     html5QrcodeScanner = new Html5QrcodeScanner('reader', config, /* verbose= */ false);
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    console.log(scannerWidth);
   });
 </script>
 
-<div class="col-span-1 grid gap-4 md:max-w-xl">
+<div bind:clientWidth={scannerWidth} class="mx-auto grid gap-4 md:max-w-sm">
   <div id="reader" />
 </div>
