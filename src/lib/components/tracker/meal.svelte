@@ -1,13 +1,12 @@
 <script lang="ts">
   import Serving from '$lib/components/tracker/serving.svelte';
   import Icon from '@iconify/svelte';
+  import { selectedDate } from '$lib/stores/dateStore';
   import type { definitions } from 'types/database';
-  import { page } from '$app/stores';
   export let meal: string;
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 
-  $: date = new Date(parseInt($page.params.date));
-  $: currentNotSelectedDate = !(date.toDateString() === new Date().toDateString());
+  $: currentNotSelectedDate = !($selectedDate.toDateString() === new Date().toDateString());
 </script>
 
 <div class="grid rounded-md border-2 border-orange-200">

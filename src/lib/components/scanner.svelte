@@ -8,7 +8,7 @@
   import { onDestroy, onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
-
+  import { fade, scale } from 'svelte/transition';
   let scannerWidth: number;
   let html5QrcodeScanner: Html5QrcodeScanner;
   async function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
@@ -51,6 +51,9 @@
   });
 </script>
 
-<div bind:clientWidth={scannerWidth} class="mx-auto grid gap-4 md:max-w-sm">
+<div
+  in:fade={{ duration: 1000, delay: 1000 }}
+  bind:clientWidth={scannerWidth}
+  class="mx-auto grid gap-4 md:max-w-sm">
   <div id="reader" />
 </div>

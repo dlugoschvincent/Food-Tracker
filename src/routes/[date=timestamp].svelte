@@ -1,10 +1,12 @@
 <script context="module" lang="ts">
-  import type { Load } from './__types/[date]';
+  import type { Load } from './__types/[date=timestamp]';
   import { supabase } from '$lib/supabaseclient';
+  import { selectedDate } from '$lib/stores/dateStore';
 
   export const load: Load = async ({ params }) => {
-    if (isNaN(parseInt(params.date))) return {};
     const date = new Date(parseInt(params.date));
+    selectedDate.set(date);
+
     const { data: servings } = await supabase
       .from<definitions['UserAteFood'] & { Food: definitions['Food'] }>('UserAteFood')
       .select(`grams, meal_id, meal, Food(name)`)
