@@ -15,7 +15,7 @@
       <h2 class="my-auto ">{meal}:</h2>
       <a
         href="./scan?meal={meal}"
-        class:currentNotSelectedDate
+        class:disable-anchor={currentNotSelectedDate}
         class="justify-self-end rounded-full bg-orange-300 p-2">
         <Icon width="20" icon="akar-icons:plus" />
       </a>
@@ -27,9 +27,3 @@
     {/each}
   {/if}
 </div>
-
-<style>
-  .currentNotSelectedDate {
-    @apply pointer-events-none bg-slate-400;
-  }
-</style>

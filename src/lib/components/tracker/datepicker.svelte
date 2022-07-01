@@ -10,18 +10,24 @@
 </script>
 
 <div class="grid grid-flow-col justify-between rounded-md border-2 border-transparent p-2">
-  <a href="/{prevDate.getTime()}" class="rounded-full bg-orange-300 p-2">
+  <a
+    href="/{prevDate.getTime()}"
+    class:disable-anchor={$navigating}
+    class="rounded-full bg-orange-300 p-2">
     <Icon width="20" icon="akar-icons:arrow-left" />
   </a>
   {#if !$navigating}
     <div
-      out:fade|local={{duration:200}}
+      out:fade|local={{ duration: 200 }}
       in:fade|local={{ duration: 200, delay: 200 }}
       class="place-self-center align-middle text-xl">
       {$selectedDate.toDateString()}
     </div>
   {/if}
-  <a href="/{nextDate.getTime()}" class="rounded-full bg-orange-300 p-2">
+  <a
+    href="/{nextDate.getTime()}"
+    class:disable-anchor={$navigating}
+    class="rounded-full bg-orange-300 p-2">
     <Icon width="20" icon="akar-icons:arrow-right" />
   </a>
 </div>

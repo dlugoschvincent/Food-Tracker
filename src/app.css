@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.disable-anchor {
+  @apply pointer-events-none bg-slate-400;
+}
