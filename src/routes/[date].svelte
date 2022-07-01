@@ -21,15 +21,9 @@
 </script>
 
 <script lang="ts">
-  import { fade } from 'svelte/transition';
-  import { navigating } from '$app/stores';
   import Tracker from '$lib/components/tracker/tracker.svelte';
   import type { definitions } from 'types/database';
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 </script>
 
-{#if $navigating}
-  <div in:fade class="text-center text-xl">Waiting</div>
-{:else}
-  <Tracker {servings} />
-{/if}
+<Tracker {servings} />

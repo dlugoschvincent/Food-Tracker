@@ -3,6 +3,7 @@
   import Meal from '$lib/components/tracker/meal.svelte';
   import type { definitions } from 'types/database';
   import { groupBy } from 'lodash-es';
+
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 
   $: groupedServings = groupBy(servings, 'meal');
