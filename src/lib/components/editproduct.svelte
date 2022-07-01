@@ -113,8 +113,6 @@
   <button type="submit" class="rounded-md border-2 bg-red-500 p-2">Delete</button>
 </form>
 
-<!-- method="post"
-action="/products/{$page.params.product}?meal={$page.url.searchParams.get('meal')}" -->
 <form on:submit|preventDefault={eat} class="grid auto-rows-max gap-4">
   <div class="grid">
     <label for="grams" class="text-sm">Grams</label>
@@ -126,6 +124,5 @@ action="/products/{$page.params.product}?meal={$page.url.searchParams.get('meal'
       name="grams" />
   </div>
   <input type="hidden" value={$user?.id} name="userId" />
-  <!-- <input type="hidden" value={$page.url.searchParams.get('meal')} name="meal" /> -->
   <button type="submit" class="rounded-md border-2 bg-orange-500 p-2">Eat</button>
 </form>
