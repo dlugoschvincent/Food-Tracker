@@ -3,7 +3,7 @@
   import { navigating } from '$app/stores';
   import { fade, scale } from 'svelte/transition';
   import { selectedDate } from '$lib/stores/dateStore';
-  import { DoubleBounce } from 'svelte-loading-spinners';
+  import { Circle } from 'svelte-loading-spinners';
   $: currentDate = new Date($selectedDate);
   $: prevDate = new Date(new Date(currentDate).setDate(currentDate.getDate() - 1));
   $: nextDate = new Date(new Date(currentDate).setDate(currentDate.getDate() + 1));
@@ -23,7 +23,7 @@
     </div>
   {:else}
     <div in:fade class="place-self-center">
-      <DoubleBounce color="#fdba74" size="30" />
+      <Circle color="#fdba74" size="30" />
     </div>
   {/if}
 
