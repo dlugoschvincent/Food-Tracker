@@ -52,7 +52,7 @@
 </script>
 
 <div
-  in:fade={{ duration: 1000, delay: 1000 }}
+  in:fade={{ duration: 1000, delay: 500 }}
   bind:clientWidth={scannerWidth}
   class="mx-auto grid gap-4 md:max-w-sm">
   <div id="reader" />

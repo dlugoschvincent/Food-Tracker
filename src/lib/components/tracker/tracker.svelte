@@ -10,7 +10,7 @@
   $: groupedServings = groupBy(servings, 'meal');
 </script>
 
-<div transition:fade|local={{duration:1000}} class="grid gap-4">
+<div transition:fade|local={{duration:200}} class="grid gap-4">
   <Datepicker />
   <Meal servings={groupedServings.Breakfast} meal="Breakfast" />
   <Meal servings={groupedServings.Lunch} meal="Lunch" />

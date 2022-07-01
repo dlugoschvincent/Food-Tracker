@@ -14,9 +14,9 @@
     <Icon width="20" icon="akar-icons:arrow-left" />
   </a>
   {#if $navigating}
-    <div class="place-self-center align-middle text-xl">Waiting...</div>
+    <div in:fade|local={{ duration: 200, delay:200 }} class="place-self-center align-middle text-xl">Waiting...</div>
   {:else}
-    <div in:fade={{ duration: 200 }} class="place-self-center align-middle text-xl">
+    <div in:fade|local={{ duration: 200 }} class="place-self-center align-middle text-xl">
       {$selectedDate.toDateString()}
     </div>
   {/if}

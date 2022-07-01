@@ -15,7 +15,7 @@
 </script>
 
 {#if !deleted}
-  <div transition:slide class="grid grid-flow-col border-t-2 border-orange-100 p-2">
+  <div transition:slide={{duration:200}} class="grid grid-flow-col border-t-2 border-orange-100 p-2">
     <div class="my-auto">{serving.Food.name}</div>
     <div class="my-auto justify-self-end">{serving.grams}g</div>
     <button
