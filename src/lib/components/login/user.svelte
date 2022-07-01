@@ -8,13 +8,13 @@
 <div class="grid w-64 grid-cols-2 gap-2 rounded-md border-2 border-orange-200 p-4">
   <button
     class:bg-orange-500={method === 'login'}
-    class="rounded-md bg-orange-300 p-2"
+    class="col-span-1 rounded-md bg-orange-300 p-2"
     on:click={() => {
       method = 'login';
     }}>Sign Up</button>
   <button
     class:bg-orange-500={method === 'signup'}
-    class="rounded-md bg-orange-300 p-2"
+    class="col-span-1 rounded-md bg-orange-300 p-2"
     on:click={() => {
       method = 'signup';
     }}>Login</button>

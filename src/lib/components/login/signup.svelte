@@ -18,16 +18,16 @@
   }}>
   <input
     required
-    class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+    class="col-span-2 rounded-md border-2 border-orange-100 p-2 outline-orange-300"
     type="email"
     name="email"
     placeholder="Email" />
   <input
     required
-    class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+    class="col-span-2 rounded-md border-2 border-orange-100 p-2 outline-orange-300"
     type="password"
     name="password"
     placeholder="Password" />
   <button class="rounded-md bg-orange-400 p-2" type="submit">Sign Up</button>
-  {#if errorMessage} <div class="text-xs text-red-600">{errorMessage}</div>{/if}
+  {#if errorMessage} <div class="col-span-2 text-xs text-red-600">{errorMessage}</div>{/if}
 </form>

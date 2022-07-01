@@ -8,7 +8,7 @@
   $: groupedServings = groupBy(servings, 'meal');
 </script>
 
-<div  class="grid gap-4">
+<div class="grid gap-4">
   <Datepicker />
   <Meal servings={groupedServings.Breakfast} meal="Breakfast" />
   <Meal servings={groupedServings.Lunch} meal="Lunch" />
