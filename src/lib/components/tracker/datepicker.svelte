@@ -15,6 +15,7 @@
   </a>
   {#if !$navigating}
     <div
+      out:fade|local={{duration:200}}
       in:fade|local={{ duration: 200, delay: 200 }}
       class="place-self-center align-middle text-xl">
       {$selectedDate.toDateString()}
