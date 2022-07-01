@@ -9,9 +9,9 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import { fade } from 'svelte/transition';
+  let scannerWidth: number;
   let html5QrcodeScanner: Html5QrcodeScanner;
   async function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
-    // handle the scanned code as you like, for example:
     console.log(`Code matched = ${decodedText}`, decodedResult);
     if (
       (decodedResult.result.format?.format === Html5QrcodeSupportedFormats.EAN_13 ||
@@ -33,13 +33,13 @@
     html5QrcodeScanner.clear();
   });
 
-  function onScanFailure(error: string) {
-    // handle the error as you like, for example:
-  }
+  function onScanFailure(error: string) {}
 
   onMount(() => {
     let config = {
-      fps: 10,
+      fps: 60,
+      qrbox: { width: scannerWidth * 0.4, height: scannerWidth * 0.3 },
+      aspectRatio: 1,
       rememberLastUsedCamera: true,
       supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
     };
@@ -48,6 +48,9 @@
   });
 </script>
 
-<div in:fade={{ duration: 1000, delay: 500 }} class="mx-auto grid gap-4 md:max-w-sm">
+<div
+  in:fade={{ duration: 1000, delay: 500 }}
+  bind:clientWidth={scannerWidth}
+  class="mx-auto grid gap-4 md:max-w-sm">
   <div id="reader" />
 </div>
