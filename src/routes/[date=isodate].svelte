@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
-  import type { Load } from './__types/[date=timestamp]';
+  import type { Load } from './__types/[date=isodate]';
   import { supabase } from '$lib/supabaseclient';
   import { selectedDate } from '$lib/stores/dateStore';
 
   export const load: Load = async ({ params }) => {
-    const date = new Date(parseInt(params.date));
+    const date = new Date(params.date);
     selectedDate.set(date);
 
     const { data: servings } = await supabase

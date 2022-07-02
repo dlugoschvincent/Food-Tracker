@@ -11,7 +11,7 @@
 
 <div class="grid grid-flow-col justify-between rounded-md border-2 border-transparent p-2">
   <a
-    href="/{prevDate.getTime()}"
+    href="/{prevDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating}
     class="rounded-full bg-orange-300 p-2">
     <Icon width="20" icon="akar-icons:arrow-left" />
@@ -28,7 +28,7 @@
   {/if}
 
   <a
-    href="/{nextDate.getTime()}"
+    href="/{nextDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating}
     class="rounded-full bg-orange-300 p-2">
     <Icon width="20" icon="akar-icons:arrow-right" />
