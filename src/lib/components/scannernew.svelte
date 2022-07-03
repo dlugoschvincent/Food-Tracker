@@ -1,12 +1,12 @@
 <script lang="ts">
   import Koder from '@maslick/koder';
   import { onMount } from 'svelte';
-  let canvas: HTMLCanvasElement;
-  let video: HTMLVideoElement = document.createElement('video');
+  let canvas: HTMLCanvasElement = document.createElement('canvas');
+  let video: HTMLVideoElement ;
   let res: string | null = null;
   onMount(async () => {
     let stream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'environment', aspectRatio: 1, width: 540 }
+      video: { facingMode: 'environment', aspectRatio: 1 }
     });
     video.srcObject = stream;
     video.play();
@@ -39,6 +39,6 @@
 </script>
 
 <div class="mx-auto sm:max-w-sm">
-  <canvas class="w-full" bind:this={canvas} />
+  <video bind:this={video} />
 </div>
 <div>{res}</div>
