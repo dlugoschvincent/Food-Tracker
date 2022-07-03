@@ -13,7 +13,7 @@
   <div>
     <div class="grid grid-flow-col border-orange-100 p-2">
       <h2 class="my-auto ">{meal}:</h2>
-      <a href="./scan?meal={meal}" class="justify-self-end rounded-full bg-orange-300 p-2">
+      <a href="./scan?meal={meal}" class="justify-self-end rounded-full bg-orange-300 p-2" aria-label="Add {meal}">
         <Icon width="20" icon={plusIcon} />
       </a>
     </div>

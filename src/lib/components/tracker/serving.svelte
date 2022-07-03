@@ -30,7 +30,7 @@
     <button
       class="justify-self-end rounded-full bg-red-500 p-2"
       on:click={() => deleteServing(serving.meal_id)}
-      ><Icon width="20" icon={crossIcon} />
+      ><Icon width="20" icon={crossIcon} aria-label="Delete serving" />
     </button>
   </div>
 {/if}

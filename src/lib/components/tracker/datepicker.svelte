@@ -7,7 +7,7 @@
   import { fade, scale } from 'svelte/transition';
   import { selectedDate } from '$lib/stores/dateStore';
   import { Circle } from 'svelte-loading-spinners';
-  
+
   $: selectedDateClone = new Date($selectedDate);
   $: prevDate = new Date(new Date(selectedDateClone).setDate(selectedDateClone.getDate() - 1));
   $: nextDate = new Date(new Date(selectedDateClone).setDate(selectedDateClone.getDate() + 1));
@@ -18,7 +18,8 @@
   <a
     href="/{prevDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating}
-    class="rounded-full bg-orange-300 p-2">
+    class="rounded-full bg-orange-300 p-2"
+    aria-label="Previous date">
     <Icon width="20" icon={arrowLeft} />
   </a>
 
@@ -35,7 +36,8 @@
   <a
     href="/{nextDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating || isCurrentDate}
-    class="rounded-full bg-orange-300 p-2">
+    class="rounded-full bg-orange-300 p-2"
+    aria-label="Next date">
     <Icon width="20" icon={arrowRight} />
   </a>
 </div>
