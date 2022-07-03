@@ -63,14 +63,14 @@
   });
 </script>
 
-<div class="grid">
+<div class="grid ">
   {#if loading}
-    <div class="place-self-center">
+    <div class="place-self-center ">
       <Circle color="#fdba74" size="30" />
     </div>
   {/if}
-  <div class="mx-auto sm:max-w-sm">
+  <div class="mx-auto sm:max-w-sm ">
     <!-- svelte-ignore a11y-media-has-caption -->
-    <video playsinline bind:this={video} />
+    <video class="rounded-md" playsinline bind:this={video} />
   </div>
 </div>
