@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Scanner from '$lib/components/scanner.svelte';
+  import Scannernew from '$lib/components/scannernew.svelte';
 </script>
 
-<Scanner />
+<Scannernew />
