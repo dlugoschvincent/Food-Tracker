@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import {
     Html5QrcodeScanner,
     Html5QrcodeScanType,
@@ -53,4 +53,4 @@
   bind:clientWidth={scannerWidth}
   class="mx-auto grid gap-4 md:max-w-sm">
   <div id="reader" />
-</div>
+</div> -->
