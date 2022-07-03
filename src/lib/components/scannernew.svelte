@@ -2,11 +2,11 @@
   import Koder from '@maslick/koder';
   import { onMount } from 'svelte';
   let canvas: HTMLCanvasElement;
-  const video: HTMLVideoElement = document.createElement('video');
+  let video: HTMLVideoElement = document.createElement('video');
   let res: string | null = null;
   onMount(async () => {
     let stream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'environment' }
+      video: { facingMode: 'environment', aspectRatio: 1, width: 360 }
     });
     video.srcObject = stream;
     video.play();
@@ -15,31 +15,30 @@
     let oldTime = 0;
     function tick(time: number) {
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
+        canvas.width = Math.min(window.innerWidth, video.videoWidth);
+        canvas.height = Math.min(window.innerHeight, video.videoHeight);
         ctx?.drawImage(video, 0, 0);
         if (time - oldTime > 600) {
           oldTime = time;
           let imageData = ctx?.getImageData(0, 0, video.videoWidth, video.videoHeight);
-          // const t0 = new Date().getTime();
           res = koder.decode(imageData?.data, imageData?.width, imageData?.height);
-          // const t1 = new Date().getTime();
-          // console.log(`Scanned in ${t1 - t0} ms`); // Scanned in 7 ms
         }
       }
-      if (res === null) {
-        requestAnimationFrame(tick);
-      } else {
+      if (res !== null && (res.length === 13 || res.length === 8) && res.charAt(0) === '4') {
         video.pause();
         stream.getTracks().forEach(function (track) {
           track.stop();
         });
         video.srcObject = null;
+      } else {
+        requestAnimationFrame(tick);
       }
     }
     requestAnimationFrame(tick);
   });
 </script>
 
-<canvas bind:this={canvas} />
+<div class="mx-auto sm:max-w-sm">
+  <canvas class="w-full" bind:this={canvas} />
+</div>
 <div>{res}</div>
