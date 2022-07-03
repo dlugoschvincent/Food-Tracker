@@ -1,13 +1,17 @@
 <script lang="ts">
-  import { supabase } from '$lib/supabaseclient';
-  import type { definitions } from 'types/database';
   import Icon from '@iconify/svelte';
+  import crossIcon from '@iconify/icons-akar-icons/cross';
+
+  import { supabase } from '$lib/supabaseclient';
   import { slide } from 'svelte/transition';
   import { navigating } from '$app/stores';
+
+  import type { definitions } from 'types/database';
 
   export let serving: definitions['UserAteFood'] & { Food: definitions['Food'] };
 
   let deleted: boolean = false;
+
   async function deleteServing(mealId: number) {
     deleted = true;
     await supabase
@@ -26,7 +30,7 @@
     <button
       class="justify-self-end rounded-full bg-red-500 p-2"
       on:click={() => deleteServing(serving.meal_id)}
-      ><Icon width="20" icon="akar-icons:cross" />
+      ><Icon width="20" icon={crossIcon} />
     </button>
   </div>
 {/if}

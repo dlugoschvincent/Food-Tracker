@@ -1,20 +1,20 @@
 <script lang="ts">
   import Serving from '$lib/components/tracker/serving.svelte';
   import Icon from '@iconify/svelte';
+  import plusIcon from '@iconify/icons-akar-icons/plus';
+
   import type { definitions } from 'types/database';
+
   export let meal: string;
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
-
 </script>
 
 <div class="grid rounded-md border-2 border-orange-200">
   <div>
     <div class="grid grid-flow-col border-orange-100 p-2">
       <h2 class="my-auto ">{meal}:</h2>
-      <a
-        href="./scan?meal={meal}"
-        class="justify-self-end rounded-full bg-orange-300 p-2">
-        <Icon width="20" icon="akar-icons:plus" />
+      <a href="./scan?meal={meal}" class="justify-self-end rounded-full bg-orange-300 p-2">
+        <Icon width="20" icon={plusIcon} />
       </a>
     </div>
   </div>
