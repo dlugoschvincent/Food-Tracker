@@ -1,12 +1,10 @@
 <script lang="ts">
   import Serving from '$lib/components/tracker/serving.svelte';
   import Icon from '@iconify/svelte';
-  import { selectedDate } from '$lib/stores/dateStore';
   import type { definitions } from 'types/database';
   export let meal: string;
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 
-  $: currentNotSelectedDate = !($selectedDate.toDateString() === new Date().toDateString());
 </script>
 
 <div class="grid rounded-md border-2 border-orange-200">
@@ -15,7 +13,6 @@
       <h2 class="my-auto ">{meal}:</h2>
       <a
         href="./scan?meal={meal}"
-        class:disable-anchor={currentNotSelectedDate}
         class="justify-self-end rounded-full bg-orange-300 p-2">
         <Icon width="20" icon="akar-icons:plus" />
       </a>

@@ -4,6 +4,7 @@
   import { user } from '$lib/stores/userStore';
   import { supabase } from '$lib/supabaseclient';
   import { goto } from '$app/navigation';
+  import { selectedDate } from '$lib/stores/dateStore';
   export let product: definitions['Food'];
   $: kiloJoules = Math.round(
     product.protein * 176 + product.carbohydrates * 172 + product.fat * 400
@@ -17,10 +18,11 @@
         food_id: product.bar_code,
         meal: $page.url.searchParams.get('meal') as string,
         grams: parseInt(formData.get('grams') as string),
-        user_id: $user?.id
+        user_id: $user?.id,
+        created_at: $selectedDate.toISOString()
       });
     if (data) {
-      goto($page.url.origin);
+      goto(`/${$selectedDate.toISOString().slice(0, 10)}`);
     }
   }
 </script>

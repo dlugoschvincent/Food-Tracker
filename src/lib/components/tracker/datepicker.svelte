@@ -4,9 +4,10 @@
   import { fade, scale } from 'svelte/transition';
   import { selectedDate } from '$lib/stores/dateStore';
   import { Circle } from 'svelte-loading-spinners';
-  $: currentDate = new Date($selectedDate);
-  $: prevDate = new Date(new Date(currentDate).setDate(currentDate.getDate() - 1));
-  $: nextDate = new Date(new Date(currentDate).setDate(currentDate.getDate() + 1));
+  $: selectedDateClone = new Date($selectedDate);
+  $: prevDate = new Date(new Date(selectedDateClone).setDate(selectedDateClone.getDate() - 1));
+  $: nextDate = new Date(new Date(selectedDateClone).setDate(selectedDateClone.getDate() + 1));
+  $: isCurrentDate = $selectedDate.toDateString() === new Date().toDateString();
 </script>
 
 <div class="grid grid-flow-col justify-between rounded-md border-2 border-transparent p-2">
@@ -29,7 +30,7 @@
 
   <a
     href="/{nextDate.toISOString().slice(0, 10)}"
-    class:disable-anchor={$navigating}
+    class:disable-anchor={$navigating || isCurrentDate}
     class="rounded-full bg-orange-300 p-2">
     <Icon width="20" icon="akar-icons:arrow-right" />
   </a>
