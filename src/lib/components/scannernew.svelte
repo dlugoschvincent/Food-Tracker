@@ -6,7 +6,7 @@
   let res: string | null = null;
   onMount(async () => {
     let stream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'environment', aspectRatio: 1, width: 360 }
+      video: { facingMode: 'environment', aspectRatio: 1, width: 540 }
     });
     video.srcObject = stream;
     video.play();
