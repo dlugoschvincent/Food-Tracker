@@ -1,6 +1,8 @@
-import { supabase } from '$lib/supabaseclient';
-import type { RequestHandler } from './__types/[product]';
 import type { definitions } from 'types/database';
+
+import { supabase } from '$lib/supabaseclient';
+
+import type { RequestHandler } from './__types/[product]';
 
 export const get: RequestHandler = async ({ params }) => {
   const { data: product, status } = await supabase

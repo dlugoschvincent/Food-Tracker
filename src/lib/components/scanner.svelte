@@ -1,56 +1,61 @@
-<!-- <script lang="ts">
-  import {
-    Html5QrcodeScanner,
-    Html5QrcodeScanType,
-    Html5QrcodeSupportedFormats
-  } from 'html5-qrcode';
-  import type { Html5QrcodeResult } from 'html5-qrcode/core';
+<script lang="ts">
+  import Koder from '@maslick/koder';
   import { onDestroy, onMount } from 'svelte';
-  import { goto } from '$app/navigation';
-  import { page } from '$app/stores';
-  import { fade } from 'svelte/transition';
-  let scannerWidth: number;
-  let html5QrcodeScanner: Html5QrcodeScanner;
-  async function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
-    console.log(`Code matched = ${decodedText}`, decodedResult);
-    if (
-      (decodedResult.result.format?.format === Html5QrcodeSupportedFormats.EAN_13 ||
-        decodedResult.result.format?.format === Html5QrcodeSupportedFormats.EAN_8) &&
-      decodedText.charAt(0) === '4'
-    ) {
-      html5QrcodeScanner.clear();
-      let res = await fetch('./scan', {
-        method: 'POST',
-        body: JSON.stringify({ barCode: decodedText })
-      });
-      if (res) {
-        goto(`/products/${decodedText}?meal=${$page.url.searchParams.get('meal')}`);
-      }
-    }
+  import { Circle } from 'svelte-loading-spinners';
+
+  export let scanResult: string | null;
+
+  const canvas: HTMLCanvasElement = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  let video: HTMLVideoElement;
+  let loading = true;
+  let stream: MediaStream;
+
+  function closeStream() {
+    stream?.getTracks().forEach((track) => track.stop());
+  }
+  async function attachCameraToVideo(video: HTMLVideoElement) {
+    stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'environment', aspectRatio: 1 }
+    });
+    video.srcObject = stream;
+    video.play();
   }
 
-  onDestroy(() => {
-    html5QrcodeScanner.clear();
+  onMount(async () => {
+    await attachCameraToVideo(video);
+    loading = false;
+    const koder = await new Koder().initialized;
+    let oldTime = 0;
+    async function tick(time: number) {
+      if (!video) return closeStream();
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx?.drawImage(video, 0, 0);
+        if (time - oldTime > 500) {
+          oldTime = time;
+          let imageData = ctx?.getImageData(0, 0, video.videoWidth, video.videoHeight);
+          scanResult = koder.decode(imageData?.data, imageData?.width, imageData?.height);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   });
 
-  function onScanFailure(error: string) {}
-
-  onMount(() => {
-    let config = {
-      fps: 60,
-      qrbox: { width: scannerWidth * 0.3, height: 50 },
-      aspectRatio: 1,
-      rememberLastUsedCamera: true,
-      supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
-    };
-    html5QrcodeScanner = new Html5QrcodeScanner('reader', config, /* verbose= */ false);
-    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+  onDestroy(() => {
+    closeStream();
   });
 </script>
 
-<div
-  in:fade={{ duration: 1000, delay: 500 }}
-  bind:clientWidth={scannerWidth}
-  class="mx-auto grid gap-4 md:max-w-sm">
-  <div id="reader" />
-</div> -->
+<div class="mx-auto grid sm:max-w-sm">
+  {#if loading}
+    <div class="place-self-center">
+      <Circle color="#fdba74" size="60" />
+    </div>
+  {/if}
+  <!-- svelte-ignore a11y-media-has-caption -->
+  <video class="rounded-md" playsinline bind:this={video} />
+</div>

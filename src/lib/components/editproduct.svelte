@@ -5,7 +5,9 @@
   import { supabase } from '$lib/supabaseclient';
   import { goto } from '$app/navigation';
   import { selectedDate } from '$lib/stores/dateStore';
+
   export let product: definitions['Food'];
+
   $: kiloJoules = Math.round(
     product.protein * 176 + product.carbohydrates * 172 + product.fat * 400
   );
