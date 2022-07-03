@@ -25,7 +25,6 @@
 <script lang="ts">
   import Tracker from '$lib/components/tracker/tracker.svelte';
   import type { definitions } from 'types/database';
-
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 </script>
 
