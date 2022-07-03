@@ -5,8 +5,10 @@
   const video: HTMLVideoElement = document.createElement('video');
   let res: string | null = null;
   onMount(async () => {
-    let stream = navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
-    video.srcObject = await stream;
+    let stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'environment' }
+    });
+    video.srcObject = stream;
     video.play();
     const ctx = canvas.getContext('2d');
     const koder = await new Koder().initialized;
@@ -25,10 +27,19 @@
           // console.log(`Scanned in ${t1 - t0} ms`); // Scanned in 7 ms
         }
       }
-      if (res === null) requestAnimationFrame(tick);
+      if (res === null) {
+        requestAnimationFrame(tick);
+      } else {
+        video.pause();
+        stream.getTracks().forEach(function (track) {
+          track.stop();
+        });
+        video.srcObject = null;
+      }
     }
     requestAnimationFrame(tick);
   });
 </script>
+
 <canvas bind:this={canvas} />
 <div>{res}</div>
