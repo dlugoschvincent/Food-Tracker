@@ -27,16 +27,7 @@
     }
   ],
   "background_color": "#3367D6",
+  "theme-coloe": "#FDBA74",
   "display": "standalone",
-  "scope": "/",
-  "shortcuts": [
-    {
-      "name": "Add Breakfast",
-      "short_name": "Today",
-      "description": "View weather information for today",
-      "url": "/scan?meal=Breakfast",
-      "icons": [{ "src": "/icons/logo_192.png", "sizes": "192x192" }]
-    }
-  ],
   "description": "Track and scan the food you eat"
 }
