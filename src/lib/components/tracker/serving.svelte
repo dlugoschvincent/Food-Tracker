@@ -28,6 +28,7 @@
     <div class="my-auto">{serving.Food.name}</div>
     <div class="my-auto justify-self-end">{serving.grams}g</div>
     <button
+      aria-label="Delete {serving.Food.name}"
       class="justify-self-end rounded-full bg-red-500 p-2"
       on:click={() => deleteServing(serving.meal_id)}
       ><Icon width="20" icon={crossIcon} aria-label="Delete serving" />

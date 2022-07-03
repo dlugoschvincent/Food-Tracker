@@ -28,4 +28,8 @@
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 </script>
 
+<svelte:head>
+  <title>What you ate on {$selectedDate.toDateString()}</title>
+</svelte:head>
+
 <Tracker {servings} />

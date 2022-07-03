@@ -5,4 +5,7 @@
   export let product: definitions['Food'];
 </script>
 
+<svelte:head>
+  <title>Edit or eat {product.name}</title>
+</svelte:head>
 <Editproduct {product} />
