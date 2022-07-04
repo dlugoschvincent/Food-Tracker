@@ -1,6 +1,7 @@
 <script lang="ts">
   import Chart from 'chart.js/auto/auto.esm';
   import { onMount } from 'svelte';
+
   let ctx: any;
   let data: any;
   onMount(() => {

@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@iconify/icons-akar-icons': ^1.2.8
   '@iconify/svelte': ^2.2.1
   '@maslick/koder': ^1.3.2
   '@playwright/test': ^1.23.1
@@ -15,10 +16,10 @@ specifiers:
   chart.js: ^3.8.0
   eslint: ^8.19.0
   eslint-config-prettier: ^8.5.0
+  eslint-plugin-simple-import-sort: ^7.0.0
   eslint-plugin-svelte3: ^4.0.0
   lodash-es: ^4.17.21
   postcss: ^8.4.14
-  postgres: ^3.2.4
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.11
   stream: ^0.0.2
@@ -34,9 +35,9 @@ dependencies:
   '@maslick/koder': 1.3.2
   '@supabase/supabase-js': 1.35.4
   lodash-es: 4.17.21
-  postgres: 3.2.4
 
 devDependencies:
+  '@iconify/icons-akar-icons': 1.2.8
   '@iconify/svelte': 2.2.1
   '@playwright/test': 1.23.1
   '@sveltejs/adapter-auto': 1.0.0-next.53
@@ -49,6 +50,7 @@ devDependencies:
   chart.js: 3.8.0
   eslint: 8.19.0
   eslint-config-prettier: 8.5.0_eslint@8.19.0
+  eslint-plugin-simple-import-sort: 7.0.0_eslint@8.19.0
   eslint-plugin-svelte3: 4.0.0_m4jpobot6gi3xtcba7bv5cflma
   postcss: 8.4.14
   prettier: 2.7.1
@@ -100,8 +102,18 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
+  /@iconify/icons-akar-icons/1.2.8:
+    resolution: {integrity: sha512-bIjwq5+PUhKsMtOr5j+bu9ocvqC3lIgTyYE/gi5tUphK7Yw03ZZMSlkZSGg/r1guwuD+BKfj+/XxY1CqSMFliQ==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
   /@iconify/svelte/2.2.1:
     resolution: {integrity: sha512-eWZq8CRrr3WfnKAj8SWknfE3S/d+j/AzEcypeJaHurS1s4zTdFnkjATcFa8lerGtcX0PAtXiVL94tbIEd69N+w==}
+    dev: true
+
+  /@iconify/types/1.1.0:
+    resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
     dev: true
 
   /@jridgewell/resolve-uri/3.0.8:
@@ -168,7 +180,7 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.1
       playwright-core: 1.23.1
     dev: true
 
@@ -337,8 +349,8 @@ packages:
     resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
     dev: true
 
-  /@types/node/18.0.0:
-    resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
+  /@types/node/18.0.1:
+    resolution: {integrity: sha512-CmR8+Tsy95hhwtZBKJBs0/FFq4XX7sDZHlGGf+0q+BRZfMbOTkzkj0AFAuTyXbObDIoanaBBW0+KEW+m3N16Wg==}
     dev: true
 
   /@types/phoenix/1.5.4:
@@ -352,7 +364,7 @@ packages:
   /@types/sass/1.43.1:
     resolution: {integrity: sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==}
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.1
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.30.4_aye54oa67ofzrialru76zxwshi:
@@ -1118,6 +1130,14 @@ packages:
       eslint: 8.19.0
     dev: true
 
+  /eslint-plugin-simple-import-sort/7.0.0_eslint@8.19.0:
+    resolution: {integrity: sha512-U3vEDB5zhYPNfxT5TYR7u01dboFZp+HNpnGhkDB2g/2E4wZ/g1Q9Ton8UwCLfRV9yAKyYqDh62oHOamvkFxsvw==}
+    peerDependencies:
+      eslint: '>=5.0.0'
+    dependencies:
+      eslint: 8.19.0
+    dev: true
+
   /eslint-plugin-svelte3/4.0.0_m4jpobot6gi3xtcba7bv5cflma:
     resolution: {integrity: sha512-OIx9lgaNzD02+MDFNLw0GEUbuovNcglg+wnd/UY0fbZmlQSz7GlQiQ1f+yX0XvC07XPcDOnFcichqI3xCwp71g==}
     peerDependencies:
@@ -1869,10 +1889,6 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
-
-  /postgres/3.2.4:
-    resolution: {integrity: sha512-iscysD+ZlM4A9zj0RS2zo3f4Us4yuov94Yx+p3dE1rEARaBHC8R3/gRq40KEnWp1lxjuFq9EjuAenIUsPaTaDA==}
-    dev: false
 
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}

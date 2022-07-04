@@ -5,13 +5,13 @@
 
   export const load: Load = async ({ params }) => {
     const date = new Date(params.date);
-    selectedDate.set(date);
-
     const { data: servings } = await supabase
       .from<definitions['UserAteFood'] & { Food: definitions['Food'] }>('UserAteFood')
       .select(`grams, meal_id, meal, Food(name)`)
       .gte('created_at', new Date(date.setHours(0, 0, 0, 0)).toISOString())
       .lte('created_at', new Date(date.setHours(23, 59, 59, 999)).toISOString());
+    selectedDate.set(date);
+
     if (servings)
       return {
         props: {
@@ -27,5 +27,9 @@
   import type { definitions } from 'types/database';
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 </script>
+
+<svelte:head>
+  <title>What you ate on {$selectedDate.toDateString()}</title>
+</svelte:head>
 
 <Tracker {servings} />

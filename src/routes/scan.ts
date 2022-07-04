@@ -1,6 +1,8 @@
-import { supabase } from '$lib/supabaseclient';
-import type { RequestHandler } from './__types/scan';
 import type { definitions } from 'types/database';
+
+import { supabase } from '$lib/supabaseclient';
+
+import type { RequestHandler } from './__types/scan';
 
 export const post: RequestHandler = async ({ request }) => {
   const json = await request.json();

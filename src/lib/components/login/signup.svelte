@@ -1,5 +1,6 @@
 <script lang="ts">
   import { supabase } from '$lib/supabaseclient';
+
   let errorMessage: string | undefined;
 
   async function createUser(form: FormData) {
