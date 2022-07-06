@@ -18,13 +18,13 @@
   <a
     href="/{prevDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating}
-    class="rounded-full bg-orange-300 p-2"
+    class="grid place-items-center rounded-full bg-orange-300 p-2"
     aria-label="Previous date">
     <Icon width="20" icon={arrowLeft} />
   </a>
 
   {#if !$navigating}
-    <div in:scale|local={{ duration: 200 }} class="place-self-center align-middle text-xl">
+    <div in:scale|local={{ duration: 200 }} class="place-self-center text-xl">
       {$selectedDate.toDateString()}
     </div>
   {:else}
@@ -32,11 +32,10 @@
       <Circle color="#fdba74" size="30" />
     </div>
   {/if}
-
   <a
     href="/{nextDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating || isCurrentDate}
-    class="rounded-full bg-orange-300 p-2"
+    class="grid place-items-center rounded-full bg-orange-300 p-2"
     aria-label="Next date">
     <Icon width="20" icon={arrowRight} />
   </a>

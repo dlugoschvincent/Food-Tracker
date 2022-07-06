@@ -1,0 +1,158 @@
+{
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/build/hooks.js"
+    ]
+  },
+  "src/routes/scan.ts": {
+    "file": "entries/endpoints/scan.ts.js",
+    "src": "src/routes/scan.ts",
+    "isEntry": true,
+    "imports": [
+      "_supabaseclient-1f639638.js"
+    ]
+  },
+  "src/routes/products/[product].ts": {
+    "file": "entries/endpoints/products/_product_.ts.js",
+    "src": "src/routes/products/[product].ts",
+    "isEntry": true,
+    "imports": [
+      "_supabaseclient-1f639638.js"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "entries/pages/__layout.svelte.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js",
+      "_supabaseclient-1f639638.js",
+      "_userStore-9ba28c0f.js",
+      "_index-f1067c1f.js"
+    ],
+    "css": [
+      "assets/entries/pages/__layout.svelte-d55c4224.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js"
+    ]
+  },
+  "src/routes/[date=isodate].svelte": {
+    "file": "entries/pages/_date_isodate_.svelte.js",
+    "src": "src/routes/[date=isodate].svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js",
+      "_dateStore-25203e18.js",
+      "_supabaseclient-1f639638.js",
+      "_stores-05d6f02b.js",
+      "_Clock.svelte_svelte_type_style_lang-4c88b239.js",
+      "_index-f1067c1f.js"
+    ]
+  },
+  "src/routes/chart.svelte": {
+    "file": "entries/pages/chart.svelte.js",
+    "src": "src/routes/chart.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js",
+      "_navigation-92f05dd6.js"
+    ]
+  },
+  "src/routes/products/[product].svelte": {
+    "file": "entries/pages/products/_product_.svelte.js",
+    "src": "src/routes/products/[product].svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js",
+      "_stores-05d6f02b.js",
+      "_userStore-9ba28c0f.js",
+      "_supabaseclient-1f639638.js",
+      "_dateStore-25203e18.js",
+      "_index-f1067c1f.js"
+    ]
+  },
+  "src/routes/scan.svelte": {
+    "file": "entries/pages/scan.svelte.js",
+    "src": "src/routes/scan.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4c9ca1e2.js",
+      "_navigation-92f05dd6.js",
+      "_stores-05d6f02b.js",
+      "_Clock.svelte_svelte_type_style_lang-4c88b239.js"
+    ]
+  },
+  "src/params/isodate.ts": {
+    "file": "entries/matchers/isodate.js",
+    "src": "src/params/isodate.ts",
+    "isEntry": true
+  },
+  "_index-4c9ca1e2.js": {
+    "file": "chunks/index-4c9ca1e2.js"
+  },
+  "_supabaseclient-1f639638.js": {
+    "file": "chunks/supabaseclient-1f639638.js"
+  },
+  "_userStore-9ba28c0f.js": {
+    "file": "chunks/userStore-9ba28c0f.js",
+    "imports": [
+      "_index-f1067c1f.js",
+      "_supabaseclient-1f639638.js"
+    ]
+  },
+  "_index-f1067c1f.js": {
+    "file": "chunks/index-f1067c1f.js",
+    "imports": [
+      "_index-4c9ca1e2.js"
+    ]
+  },
+  "_dateStore-25203e18.js": {
+    "file": "chunks/dateStore-25203e18.js",
+    "imports": [
+      "_index-f1067c1f.js"
+    ]
+  },
+  "_stores-05d6f02b.js": {
+    "file": "chunks/stores-05d6f02b.js",
+    "imports": [
+      "_index-4c9ca1e2.js"
+    ]
+  },
+  "_Clock.svelte_svelte_type_style_lang-4c88b239.js": {
+    "file": "chunks/Clock.svelte_svelte_type_style_lang-4c88b239.js",
+    "imports": [
+      "_index-4c9ca1e2.js"
+    ],
+    "css": [
+      "assets/Clock.svelte_svelte_type_style_lang-1da14280.css"
+    ]
+  },
+  "_navigation-92f05dd6.js": {
+    "file": "chunks/navigation-92f05dd6.js"
+  },
+  ".svelte-kit/build/hooks.js": {
+    "file": "chunks/hooks-1c45ba0b.js",
+    "src": ".svelte-kit/build/hooks.js",
+    "isDynamicEntry": true
+  }
+}

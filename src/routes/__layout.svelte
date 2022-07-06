@@ -1,10 +1,11 @@
 <script lang="ts">
   import '../app.css';
+  import 'virtual:windi.css';
   import { supabase } from '$lib/supabaseclient';
   import User from '$lib/components/login/user.svelte';
   import Navbar from '$lib/components/navbar.svelte';
   import { user } from '$lib/stores/userStore';
-  // import çsql from '$lib/postgresclient';
+
   supabase.auth.onAuthStateChange((_) => {
     if (_ === 'SIGNED_IN') {
       user.set(supabase.auth.user());
