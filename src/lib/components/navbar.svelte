@@ -3,11 +3,11 @@
 </script>
 
 <nav class="bg-orange-300">
-  <div class="container mx-auto grid grid-flow-col p-4 items-center justify-between">
+  <div class="container mx-auto grid grid-flow-col items-center justify-between p-4">
     <div class="text-xl">
       <a href="/{new Date().toISOString().slice(0, 10)}">Home</a>
     </div>
-    <div class="gap-8 hidden items-center justify-end sm:flex">
+    <div class="hidden items-center justify-end gap-8 sm:flex">
       <Logout />
     </div>
     <div class="flex gap-4 sm:hidden"><Logout /></div>

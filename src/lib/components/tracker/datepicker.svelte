@@ -1,6 +1,5 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
-  import { fade, scale } from 'svelte/transition';
   import { selectedDate } from '$lib/stores/dateStore';
   import {} from 'svelte/animate';
   $: selectedDateClone = new Date($selectedDate);
@@ -19,7 +18,7 @@
   </a>
 
   {#if !$navigating}
-    <div in:scale|local={{ duration: 200 }} class="text-xl place-self-center">
+    <div class="text-xl animate-zoom-in animate-duration-200 place-self-center">
       {$selectedDate.toDateString()}
     </div>
   {:else}

@@ -51,9 +51,7 @@
 
 <div class="mx-auto grid sm:max-w-sm">
   {#if loading}
-    <div class="place-self-center">
-      <div class="animate-spin text-orange-300 text-8xl i-quill:loading-spin" />
-    </div>
+    <div class="animate-spin text-8xl text-orange-300 i-quill:loading-spin place-self-center" />
   {/if}
   <!-- svelte-ignore a11y-media-has-caption -->
   <video class="rounded-md" playsinline bind:this={video} />

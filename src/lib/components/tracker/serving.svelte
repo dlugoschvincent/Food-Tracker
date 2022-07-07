@@ -21,7 +21,7 @@
 {#if !deleted && !$navigating}
   <div
     transition:slide={{ duration: 200 }}
-    class="border-t-2 border-orange-100 grid grid-flow-col p-2">
+    class="border-t-2 border-orange-100 grid grid-flow-col p-2 ">
     <div class="my-auto">{serving.Food.name}</div>
     <div class="my-auto justify-self-end">{serving.grams}g</div>
     <button
