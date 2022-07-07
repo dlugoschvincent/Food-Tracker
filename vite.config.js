@@ -6,6 +6,7 @@ import Unocss from 'unocss/vite';
 /** @type {import('vite').UserConfig} */
 const config = {
   plugins: [
+    sveltekit(),
     Unocss({
       presets: [
         UnocssIcons({
@@ -16,8 +17,7 @@ const config = {
         presetUno()
       ],
       shortcuts: [{ 'disable-anchor': '!bg-gray-400 !pointer-events-none !touch-none' }]
-    }),
-    sveltekit()
+    })
   ]
 };
 
