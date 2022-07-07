@@ -1,5 +1,4 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { extractorSvelte } from '@unocss/core';
 import UnocssIcons from '@unocss/preset-icons';
 import { presetUno } from 'unocss';
 import Unocss from 'unocss/vite';
@@ -8,7 +7,6 @@ import Unocss from 'unocss/vite';
 const config = {
   plugins: [
     Unocss({
-      extractors: [extractorSvelte],
       presets: [
         UnocssIcons({
           extraProperties: {

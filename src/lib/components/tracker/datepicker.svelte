@@ -33,4 +33,3 @@
     <div class="text-xl i-akar-icons:arrow-right" />
   </a>
 </div>
-<div class="animate-spin text-4xl text-orange-300 i-quill:loading-spin place-self-center" />
