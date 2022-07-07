@@ -14,7 +14,8 @@ const config = {
           }
         }),
         presetUno()
-      ]
+      ],
+      shortcuts: [{ 'disable-anchor': '!bg-gray-400 !pointer-events-none !touch-none' }]
     })
   ]
 };
