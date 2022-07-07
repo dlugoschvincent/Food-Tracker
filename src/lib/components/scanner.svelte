@@ -1,7 +1,6 @@
 <script lang="ts">
   import Koder from '@maslick/koder';
   import { onDestroy, onMount } from 'svelte';
-  import { Circle } from 'svelte-loading-spinners';
 
   export let scanResult: string | null;
 
@@ -53,7 +52,7 @@
 <div class="mx-auto grid sm:max-w-sm">
   {#if loading}
     <div class="place-self-center">
-      <Circle color="#fdba74" size="60" />
+      <div class="animate-spin text-orange-300 text-8xl i-quill:loading-spin" />
     </div>
   {/if}
   <!-- svelte-ignore a11y-media-has-caption -->

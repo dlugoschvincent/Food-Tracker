@@ -2,8 +2,7 @@
   import { navigating } from '$app/stores';
   import { fade, scale } from 'svelte/transition';
   import { selectedDate } from '$lib/stores/dateStore';
-  import { Circle } from 'svelte-loading-spinners';
-
+  import {} from 'svelte/animate';
   $: selectedDateClone = new Date($selectedDate);
   $: prevDate = new Date(new Date(selectedDateClone).setDate(selectedDateClone.getDate() - 1));
   $: nextDate = new Date(new Date(selectedDateClone).setDate(selectedDateClone.getDate() + 1));
@@ -24,9 +23,7 @@
       {$selectedDate.toDateString()}
     </div>
   {:else}
-    <div in:fade class="place-self-center">
-      <Circle color="#fdba74" size="30" />
-    </div>
+    <div class="animate-spin text-4xl text-orange-300 i-quill:loading-spin place-self-center" />
   {/if}
   <a
     href="/{nextDate.toISOString().slice(0, 10)}"
