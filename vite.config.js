@@ -8,14 +8,7 @@ const config = {
   plugins: [
     sveltekit(),
     Unocss({
-      presets: [
-        UnocssIcons({
-          extraProperties: {
-            display: 'inline-block'
-          }
-        }),
-        presetUno()
-      ],
+      presets: [UnocssIcons(), presetUno()],
       shortcuts: [{ 'disable-anchor': '!bg-gray-400 !pointer-events-none !touch-none' }]
     })
   ]
