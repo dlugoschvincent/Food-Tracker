@@ -30,14 +30,14 @@
 </script>
 
 <form
-  class="grid auto-rows-max gap-4"
+  class="auto-rows-max grid gap-4"
   method="post"
   action="/products/{$page.params.product}?_method=PATCH&meal={$page.url.searchParams.get('meal')}">
   <div class="grid">
     <label for="bar_code" class="text-sm">Bar Code</label>
     <input
       id="bar_code"
-      class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
       type="number"
       name="bar_code"
       bind:value={product.bar_code}
@@ -48,7 +48,7 @@
     <input
       required
       id="name"
-      class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
       type="text"
       name="name"
       bind:value={product.name} />
@@ -64,7 +64,7 @@
       step="0.1"
       required
       id="fat"
-      class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
       type="number"
       name="fat"
       bind:value={product.fat} />
@@ -78,7 +78,7 @@
       step="0.1"
       required
       id="carbohydrates"
-      class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
       type="number"
       name="carbohydrates"
       bind:value={product.carbohydrates} />
@@ -91,7 +91,7 @@
       step="0.1"
       required
       id="protein"
-      class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
       type="number"
       name="protein"
       bind:value={product.protein} />
@@ -102,31 +102,31 @@
       disabled
       step="0.1"
       id="kilojoules"
-      class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
       type="number"
       name="kilojoules"
       value={kiloJoules} />
   </div>
-  <button class="rounded-md border-2 bg-orange-300 p-2" type="submit">Update Product</button>
+  <button class="rounded-md bg-orange-300 border-2 p-2" type="submit">Update Product</button>
 </form>
 
 <form
   method="post"
   action="/products/{$page.params.product}?_method=DELETE"
-  class="grid auto-rows-max gap-4">
-  <button type="submit" class="rounded-md border-2 bg-red-500 p-2">Delete</button>
+  class="auto-rows-max grid gap-4">
+  <button type="submit" class="rounded-md bg-red-500 border-2 p-2">Delete</button>
 </form>
 
-<form on:submit|preventDefault={eat} class="grid auto-rows-max gap-4">
+<form on:submit|preventDefault={eat} class="auto-rows-max grid gap-4">
   <div class="grid">
     <label for="grams" class="text-sm">Grams</label>
     <input
       step="0.1"
       id="grams"
-      class="rounded-md border-2 border-orange-100 p-2 outline-orange-300"
+      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
       type="number"
       name="grams" />
   </div>
   <input type="hidden" value={$user?.id} name="userId" />
-  <button type="submit" class="rounded-md border-2 bg-orange-500 p-2">Eat</button>
+  <button type="submit" class="rounded-md bg-orange-500 border-2 p-2">Eat</button>
 </form>

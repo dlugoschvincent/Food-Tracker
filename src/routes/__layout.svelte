@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css';
-  import 'uno.css'
-  import '@unocss/reset/tailwind.css'
+  import 'uno.css';
+  import '@unocss/reset/tailwind.css';
 
   import { supabase } from '$lib/supabaseclient';
   import User from '$lib/components/login/user.svelte';
@@ -24,7 +24,7 @@
     <slot />
   </main>
 {:else}
-  <div class="grid h-screen place-items-center">
+  <div class="h-screen grid place-items-center">
     <User />
   </div>
 {/if}

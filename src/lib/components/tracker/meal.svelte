@@ -7,15 +7,15 @@
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 </script>
 
-<div class="grid rounded-md border-2 border-orange-200">
+<div class="rounded-md border-2 border-orange-200 grid">
   <div>
-    <div class="grid grid-flow-col border-orange-100 p-2">
+    <div class="border-orange-100 grid grid-flow-col p-2">
       <h2 class="my-auto">{meal}:</h2>
       <a
         href="./scan?meal={meal}"
-        class="my-auto grid place-items-center justify-self-end rounded-full bg-orange-300 p-2"
+        class="rounded-full my-auto bg-orange-300 grid p-2 place-items-center justify-self-end"
         aria-label="Add {meal}">
-        <div class="i-akar-icons:plus text-xl"></div>
+        <div class="text-xl i-akar-icons:plus" />
       </a>
     </div>
   </div>

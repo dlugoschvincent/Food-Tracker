@@ -10,17 +10,17 @@
   $: isCurrentDate = $selectedDate.toDateString() === new Date().toDateString();
 </script>
 
-<div class="grid grid-flow-col justify-between rounded-md border-2 border-transparent p-2">
+<div class="border-transparent rounded-md border-2 grid grid-flow-col p-2 justify-between">
   <a
     href="/{prevDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating}
-    class="grid place-items-center rounded-full bg-orange-300 p-2"
+    class="rounded-full bg-orange-300 grid p-2 place-items-center"
     aria-label="Previous date">
-    <div class="i-akar-icons:arrow-left text-xl" />
+    <div class="text-xl i-akar-icons:arrow-left" />
   </a>
 
   {#if !$navigating}
-    <div in:scale|local={{ duration: 200 }} class="place-self-center text-xl">
+    <div in:scale|local={{ duration: 200 }} class="text-xl place-self-center">
       {$selectedDate.toDateString()}
     </div>
   {:else}
@@ -31,8 +31,8 @@
   <a
     href="/{nextDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating || isCurrentDate}
-    class="grid place-items-center rounded-full bg-orange-300 p-2"
+    class="rounded-full bg-orange-300 grid p-2 place-items-center"
     aria-label="Next date">
-    <div class="i-akar-icons:arrow-right text-xl" />
+    <div class="text-xl i-akar-icons:arrow-right" />
   </a>
 </div>

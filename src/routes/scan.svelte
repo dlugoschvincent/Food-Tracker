@@ -24,6 +24,7 @@
     }
   }
 </script>
+
 <svelte:head>
   <title>Food scanner</title>
 </svelte:head>
