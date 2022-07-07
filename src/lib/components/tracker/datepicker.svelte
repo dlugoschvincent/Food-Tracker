@@ -1,8 +1,4 @@
 <script lang="ts">
-  import Icon from '@iconify/svelte';
-  import arrowRight from '@iconify/icons-akar-icons/arrow-right';
-  import arrowLeft from '@iconify/icons-akar-icons/arrow-left';
-
   import { navigating } from '$app/stores';
   import { fade, scale } from 'svelte/transition';
   import { selectedDate } from '$lib/stores/dateStore';
@@ -20,7 +16,7 @@
     class:disable-anchor={$navigating}
     class="grid place-items-center rounded-full bg-orange-300 p-2"
     aria-label="Previous date">
-    <Icon width="20" icon={arrowLeft} />
+    <div class="i-akar-icons:arrow-left text-xl" />
   </a>
 
   {#if !$navigating}
@@ -37,6 +33,6 @@
     class:disable-anchor={$navigating || isCurrentDate}
     class="grid place-items-center rounded-full bg-orange-300 p-2"
     aria-label="Next date">
-    <Icon width="20" icon={arrowRight} />
+    <div class="i-akar-icons:arrow-right text-xl" />
   </a>
 </div>
