@@ -1,6 +1,8 @@
 <script lang="ts">
   import '../app.css';
-  import 'virtual:windi.css';
+  import 'uno.css'
+  import '@unocss/reset/tailwind.css'
+
   import { supabase } from '$lib/supabaseclient';
   import User from '$lib/components/login/user.svelte';
   import Navbar from '$lib/components/navbar.svelte';

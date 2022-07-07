@@ -1,7 +1,5 @@
 <script lang="ts">
   import Serving from '$lib/components/tracker/serving.svelte';
-  import Icon from '@iconify/svelte';
-  import plusIcon from '@iconify/icons-akar-icons/plus';
 
   import type { definitions } from 'types/database';
 
@@ -17,7 +15,7 @@
         href="./scan?meal={meal}"
         class="my-auto grid place-items-center justify-self-end rounded-full bg-orange-300 p-2"
         aria-label="Add {meal}">
-        <Icon width="20" icon={plusIcon} />
+        <div class="i-akar-icons:plus text-xl"></div>
       </a>
     </div>
   </div>
