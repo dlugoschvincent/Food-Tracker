@@ -107,14 +107,15 @@
       name="kilojoules"
       value={kiloJoules} />
   </div>
-  <button class="rounded-md bg-orange-300 border-2 p-2" type="submit">Update Product</button>
+  <button class="rounded-md bg-orange-300 border-2 border-orange-300 p-2" type="submit"
+    >Update Product</button>
 </form>
 
 <form
   method="post"
   action="/products/{$page.params.product}?_method=DELETE"
   class="auto-rows-max grid gap-4">
-  <button type="submit" class="rounded-md bg-red-500 border-2 p-2">Delete</button>
+  <button type="submit" class="rounded-md bg-red-500 border-2 border-red-500 p-2">Delete</button>
 </form>
 
 <form on:submit|preventDefault={eat} class="auto-rows-max grid gap-4">
@@ -128,5 +129,5 @@
       name="grams" />
   </div>
   <input type="hidden" value={$user?.id} name="userId" />
-  <button type="submit" class="rounded-md bg-orange-500 border-2 p-2">Eat</button>
+  <button type="submit" class="rounded-md bg-orange-500 border-2 border-orange-500 p-2">Eat</button>
 </form>

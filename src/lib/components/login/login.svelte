@@ -29,6 +29,6 @@
     type="password"
     name="password"
     placeholder="Password" />
-  <button class="rounded-md p-2 col-span-2 !bg-orange-400" type="submit">Login</button>
+  <button class="rounded-md bg-orange-400 p-2 col-span-2" type="submit">Login</button>
   {#if errorMessage} <div class="text-xs text-red-600">{errorMessage}</div>{/if}
 </form>

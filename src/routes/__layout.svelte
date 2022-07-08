@@ -1,6 +1,7 @@
 <script lang="ts">
-  import 'uno.css';
   import '@unocss/reset/tailwind.css';
+
+  import 'uno.css';
 
   import { supabase } from '$lib/supabaseclient';
   import User from '$lib/components/login/user.svelte';
@@ -19,7 +20,7 @@
 
 {#if $user}
   <Navbar />
-  <main class="container mx-auto p-4">
+  <main class="container mx-auto grid p-4 gap-4">
     <slot />
   </main>
 {:else}
