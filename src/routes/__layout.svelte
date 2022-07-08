@@ -1,6 +1,5 @@
 <script lang="ts">
   import '@unocss/reset/tailwind.css';
-
   import 'uno.css';
 
   import { supabase } from '$lib/supabaseclient';
