@@ -18,13 +18,17 @@
   });
 </script>
 
-{#if $user}
-  <Navbar />
-  <main class="container mx-auto grid p-4 gap-4">
-    <slot />
-  </main>
-{:else}
-  <div class="h-screen grid place-items-center">
-    <User />
+<div class="dark">
+  <div class="min-h-screen dark:bg-slate-700 dark:text-light-200">
+    {#if $user}
+      <Navbar />
+      <main class="container mx-auto  grid p-4 gap-4">
+        <slot />
+      </main>
+    {:else}
+      <div class="h-screen grid place-items-center">
+        <User />
+      </div>
+    {/if}
   </div>
-{/if}
+</div>

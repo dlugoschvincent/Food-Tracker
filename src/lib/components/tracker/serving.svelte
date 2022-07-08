@@ -21,12 +21,12 @@
 {#if !deleted && !$navigating}
   <div
     transition:slide={{ duration: 200 }}
-    class="border-t-2 border-orange-100 grid grid-flow-col p-2 ">
+    class="border-t-2 border-orange-200 grid grid-flow-col p-2 dark:border-orange-400 ">
     <div class="my-auto">{serving.Food.name}</div>
     <div class="my-auto justify-self-end">{serving.grams}g</div>
     <button
       aria-label="Delete {serving.Food.name}"
-      class="rounded-full bg-red-500 grid p-2 place-items-center justify-self-end"
+      class="rounded-full bg-red-500 grid p-2 text-light-200 place-items-center justify-self-end dark:bg-red-700"
       on:click={() => deleteServing(serving.meal_id)}
       ><div class="text-xl i-akar-icons:cross" />
     </button>

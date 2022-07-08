@@ -12,7 +12,7 @@
   <a
     href="/{prevDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating}
-    class="rounded-full bg-orange-300 grid p-2 place-items-center"
+    class="rounded-full bg-orange-300 grid p-2 place-items-center dark:bg-orange-500"
     aria-label="Previous date">
     <div class="text-xl i-akar-icons:arrow-left" />
   </a>
@@ -22,12 +22,13 @@
       {$selectedDate.toDateString()}
     </div>
   {:else}
-    <div class="animate-spin text-4xl text-orange-300 i-quill:loading-spin place-self-center" />
+    <div
+      class="animate-spin text-4xl text-orange-300 i-quill:loading-spin place-self-center dark:text-orange-500" />
   {/if}
   <a
     href="/{nextDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating || isCurrentDate}
-    class="rounded-full bg-orange-300 grid p-2 place-items-center"
+    class="rounded-full bg-orange-300 grid p-2 place-items-center dark:bg-orange-500"
     aria-label="Next date">
     <div class="text-xl i-akar-icons:arrow-right" />
   </a>

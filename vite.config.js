@@ -9,7 +9,13 @@ const config = {
     sveltekit(),
     Unocss({
       presets: [UnocssIcons(), presetUno()],
-      shortcuts: [{ 'disable-anchor': '!bg-gray-400 !pointer-events-none !touch-none' }]
+      shortcuts: [
+        {
+          'disable-anchor': '!bg-gray-400 !pointer-events-none !touch-none',
+          'input-text':
+            'rounded-md border-2 border-orange-200 focus:border-orange-300 p-2 dark:border-orange-400 dark:focus:border-orange-500 dark:bg-slate-700 focus:outline-none'
+        }
+      ]
     })
   ]
 };

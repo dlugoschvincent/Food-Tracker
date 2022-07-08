@@ -5,16 +5,19 @@
   let method = 'signup';
 </script>
 
-<div class="rounded-md border-2 border-orange-200 grid p-4 w-72 gap-4 grid-cols-2">
+<div
+  class="rounded-md border-2 border-orange-200 grid p-4 w-72 gap-4 grid-cols-2 dark:border-orange-400">
   <button
     class:bg-orange-500={method === 'login'}
-    class="rounded-md bg-orange-300 p-2 col-span-1"
+    class:dark:bg-orange-700={method === 'login'}
+    class="rounded-md bg-orange-300 p-2 col-span-1 dark:bg-orange-500"
     on:click={() => {
       method = 'login';
     }}>Sign Up</button>
   <button
     class:bg-orange-500={method === 'signup'}
-    class="rounded-md bg-orange-300 p-2 col-span-1"
+    class:dark:bg-orange-700={method === 'signup'}
+    class="rounded-md bg-orange-300 p-2 col-span-1 dark:bg-orange-500"
     on:click={() => {
       method = 'signup';
     }}>Login</button>

@@ -37,7 +37,7 @@
     <label for="bar_code" class="text-sm">Bar Code</label>
     <input
       id="bar_code"
-      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
+      class="input-text"
       type="number"
       name="bar_code"
       bind:value={product.bar_code}
@@ -48,7 +48,7 @@
     <input
       required
       id="name"
-      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
+      class="input-text"
       type="text"
       name="name"
       bind:value={product.name} />
@@ -64,7 +64,7 @@
       step="0.1"
       required
       id="fat"
-      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
+      class="input-text"
       type="number"
       name="fat"
       bind:value={product.fat} />
@@ -78,7 +78,7 @@
       step="0.1"
       required
       id="carbohydrates"
-      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
+      class="input-text"
       type="number"
       name="carbohydrates"
       bind:value={product.carbohydrates} />
@@ -91,7 +91,7 @@
       step="0.1"
       required
       id="protein"
-      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
+      class="input-text"
       type="number"
       name="protein"
       bind:value={product.protein} />
@@ -102,7 +102,7 @@
       disabled
       step="0.1"
       id="kilojoules"
-      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
+      class="input-text"
       type="number"
       name="kilojoules"
       value={kiloJoules} />
@@ -121,12 +121,7 @@
 <form on:submit|preventDefault={eat} class="auto-rows-max grid gap-4">
   <div class="grid">
     <label for="grams" class="text-sm">Grams</label>
-    <input
-      step="0.1"
-      id="grams"
-      class="rounded-md border-2 border-orange-100 outline-orange-300 p-2"
-      type="number"
-      name="grams" />
+    <input step="0.1" id="grams" class="input-text" type="number" name="grams" />
   </div>
   <input type="hidden" value={$user?.id} name="userId" />
   <button type="submit" class="rounded-md bg-orange-500 border-2 border-orange-500 p-2">Eat</button>
