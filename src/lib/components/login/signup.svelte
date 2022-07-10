@@ -17,14 +17,21 @@
   on:submit|preventDefault={(event) => {
     createUser(new FormData(event.currentTarget));
   }}>
-  <input required class="col-span-2 input-text" type="email" name="email" placeholder="Email" />
+  <input
+    required
+    class="col-span-2 input-text"
+    type="email"
+    name="email"
+    placeholder="Email" />
   <input
     required
     class="col-span-2 input-text"
     type="password"
     name="password"
     placeholder="Password" />
-  <button class="rounded-md bg-orange-300 p-2 col-span-2 dark:bg-orange-500" type="submit"
-    >Sign Up</button>
-  {#if errorMessage} <div class="text-xs text-red-500 col-span-2">{errorMessage}</div>{/if}
+  <button
+    class="rounded-md bg-orange-300 p-2 col-span-2 dark:bg-orange-500"
+    type="submit">Sign Up</button>
+  {#if errorMessage}
+    <div class="text-xs text-red-500 col-span-2">{errorMessage}</div>{/if}
 </form>

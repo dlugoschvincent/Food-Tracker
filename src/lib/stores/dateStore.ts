@@ -1,5 +1,6 @@
-import { browser } from '$app/env';
 import { writable } from 'svelte/store';
+
+import { browser } from '$app/env';
 const localStorageItem = browser ? sessionStorage.getItem('selectedDate') : null;
 const initialValue = localStorageItem ? new Date(localStorageItem) : new Date();
 

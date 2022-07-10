@@ -15,7 +15,7 @@
         href="./scan?meal={meal}"
         class="rounded-full my-auto bg-orange-300 grid p-2 place-items-center justify-self-end dark:bg-orange-500"
         aria-label="Add {meal}">
-        <div class="text-xl i-akar-icons:plus" />
+        <icon class="text-xl i-akar-icons:plus" />
       </a>
     </div>
   </div>

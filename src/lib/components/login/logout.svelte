@@ -6,5 +6,7 @@
   }
 </script>
 
-<button on:click={signOut} class="rounded-md bg-red-500 p-2  text-light-200  dark:bg-red-700"
+<button
+  on:click={signOut}
+  class="rounded-md bg-red-500 p-2  text-light-200  dark:bg-red-700"
   >Logout</button>
