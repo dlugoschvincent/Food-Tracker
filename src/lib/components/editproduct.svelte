@@ -14,7 +14,7 @@
 
   async function eat(event: SubmitEvent) {
     const formData = new FormData(event.currentTarget as HTMLFormElement);
-    const { error, status, data } = await supabase
+    const { data } = await supabase
       .from<definitions['UserAteFood']>('UserAteFood')
       .insert({
         food_id: product.bar_code,
