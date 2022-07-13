@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Chart from 'chart.js/auto/auto.esm';
+  import Chart from 'chart.js/auto/auto';
   import { onMount } from 'svelte';
 
   let ctx: any;
