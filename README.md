@@ -1,38 +1,31 @@
-# create-svelte
+# Food Tracker #
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This Application allows you to track meals that you ate. It shares a database of all the food that users submitted.
+It features a bar code scanner which is used to add new food. 
 
-## Creating a project
+If you want more info about all the features just press the exclamation mark in the nav bar.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Run Local ##
+You can run the application locally but you have to set environment variables for the supabase connection.
+You can also run your own supabase instancee locally but I dont recommend it.
 
 ```bash
 npm run build
+npm run preview
+```
+or 
+```bash
+npm run dev
 ```
 
-You can preview the production build with `npm run preview`.
+## Demo ##
+I host a demo Version of this application on netlify. User Sign-Up is currently disabled but i provide throwaway login credentials.
+The demo can be found here. It runs the same source code that you can find in this repository.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+https://legendary-elf-8ebbde.netlify.app/
+
+E-Mail: webdevhtw@guerrillamail.com
+
+Password: webdevhtw
+
+You can login with these credentials and do wahtever you want to try out the application.
