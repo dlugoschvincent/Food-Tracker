@@ -30,8 +30,8 @@
 
 <Info
   >Here you can see the product you just scanned. If the application never saw this product you can
-  now fill out the missing fields. To confirm press "update product". Saved products are available
-  to all users"</Info>
+  now fill out the missing fields. To confirm press "Update product". Saved products are available
+  to all users.</Info>
 <form
   class="auto-cols-fr grid gap-4"
   method="post"
@@ -114,7 +114,7 @@
   </div>
   <button
     class="rounded-md bg-orange-300 border-2 border-orange-300 p-2 col-span-2 dark:bg-orange-500 dark:border-orange-500"
-    type="submit">Update Product</button>
+    type="submit">Update product</button>
 </form>
 
 <form
