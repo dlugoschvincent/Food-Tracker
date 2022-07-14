@@ -24,6 +24,6 @@
   {#if method === 'signup'}
     <Login />
   {:else}
-    <Signup />
+    <!-- <Signup /> -->
   {/if}
 </div>
