@@ -27,8 +27,8 @@
     }
   ],
   "scope": "/",
-  "background_color": "#3367D6",
-  "theme_color": "#FDBA74",
+  "background_color": "#F97316",
+  "theme_color": "#F97316",
   "display": "standalone",
   "description": "Track and scan the food you eat"
 }
