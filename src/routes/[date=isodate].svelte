@@ -2,7 +2,7 @@
   import type { Load } from './__types/[date=isodate]';
   import { supabase } from '$lib/supabaseclient';
   import { selectedDate } from '$lib/stores/dateStore';
-
+  import Info from '$lib/components/info/info.svelte';
   export const load: Load = async ({ params }) => {
     const date = new Date(params.date);
     const { data: servings } = await supabase
@@ -33,3 +33,8 @@
 </svelte:head>
 
 <Tracker {servings} />
+<Info>
+  Here you can see all the food you ate on {$selectedDate.toDateString()}. You can also switch
+  between dates using the arrows next to the date. If you want to add some food that you ate just
+  press the plus button.
+</Info>
