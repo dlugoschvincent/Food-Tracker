@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { supabase } from '$lib/supabaseclient';
+  import { supabaseClient } from '$lib/supabaseclient';
 
   let errorMessage: string | undefined;
 
   async function createUser(form: FormData) {
-    const { error } = await supabase.auth.signUp({
+    const { error } = await supabaseClient.auth.signUp({
       email: form.get('email') as string,
       password: form.get('password') as string
     });

@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
   import { goto } from '$app/navigation';
-
-  goto(`/${new Date().toISOString().slice(0, 10)}`);
+  import { session } from '$app/stores';
+  import { onMount } from 'svelte';
+  onMount(() => {
+    if ($session.user) {
+      goto(`/${new Date().toISOString().slice(0, 10)}`);
+    } 
+  });
 </script>
 
 <svelte:head>

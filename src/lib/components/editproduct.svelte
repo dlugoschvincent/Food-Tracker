@@ -2,7 +2,7 @@
   import type { definitions } from 'types/database';
   import { page } from '$app/stores';
   import { user } from '$lib/stores/userStore';
-  import { supabase } from '$lib/supabaseclient';
+  import { supabaseClient } from '$lib/supabaseclient';
   import { goto } from '$app/navigation';
   import { selectedDate } from '$lib/stores/dateStore';
   import Info from './info/info.svelte';
@@ -15,7 +15,7 @@
 
   async function eat(event: SubmitEvent) {
     const formData = new FormData(event.currentTarget as HTMLFormElement);
-    const { data } = await supabase.from<definitions['UserAteFood']>('UserAteFood').insert({
+    const { data } = await supabaseClient.from<definitions['UserAteFood']>('UserAteFood').insert({
       food_id: product.bar_code,
       meal: $page.url.searchParams.get('meal') as string,
       grams: parseInt(formData.get('grams') as string),

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { supabase } from '$lib/supabaseclient';
+  import { supabaseClient } from '$lib/supabaseclient';
   import type { definitions } from 'types/database';
 
   export let id: number;
@@ -8,13 +8,13 @@
 
   async function deleteServing() {
     deleted = true;
-    await supabase
+    fetch('/')
+    await supabaseClient
       .from<definitions['UserAteFood'] & { Food: definitions['Food'] }>('UserAteFood')
       .delete()
       .eq('meal_id', id);
   }
 </script>
-
 <button
   aria-label="Delete {name}"
   class="rounded-full bg-red-500 grid p-2 text-light-200 place-items-center justify-self-end dark:bg-red-700"

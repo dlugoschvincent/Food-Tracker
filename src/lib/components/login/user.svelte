@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import Signup from '$lib/components/login/signup.svelte';
-  import Login from '$lib/components/login/login.svelte';
+  import Signin from '$lib/components/login/signin.svelte';
 
   let method = 'signup';
 </script>
@@ -22,7 +22,7 @@
       method = 'signup';
     }}>Login</button>
   {#if method === 'signup'}
-    <Login />
+    <Signin />
   {:else}
     <!-- <Signup /> -->
   {/if}

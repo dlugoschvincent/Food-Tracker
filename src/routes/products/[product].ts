@@ -1,11 +1,11 @@
 import type { definitions } from 'types/database';
 
-import { supabase } from '$lib/supabaseclient';
+import { supabaseClient } from '$lib/supabaseclient';
 
 import type { RequestHandler } from './__types/[product]';
 
 export const get: RequestHandler = async ({ params }) => {
-  const { data: product, status } = await supabase
+  const { data: product, status } = await supabaseClient
     .from<definitions['Food']>('Food')
     .select('*')
     .eq('bar_code', parseInt(params.product));
@@ -22,7 +22,7 @@ export const get: RequestHandler = async ({ params }) => {
 
 export const patch: RequestHandler = async ({ request, params }) => {
   const formData = await request.formData();
-  await supabase
+  await supabaseClient
     .from('Food')
     .update({
       name: formData.get('name'),
@@ -38,7 +38,7 @@ export const patch: RequestHandler = async ({ request, params }) => {
 };
 
 export const del: RequestHandler = async ({ params }) => {
-  await supabase.from('Food').delete().eq('bar_code', params.product);
+  await supabaseClient.from('Food').delete().eq('bar_code', params.product);
   return {
     status: 200
   };

@@ -3,7 +3,7 @@
   import { onDestroy, onMount } from 'svelte';
   import Info from './info/info.svelte';
   export let scanResult: string | null;
-  let quaggaTarget = document.createElement('div');
+  let quaggaTarget :HTMLDivElement | undefined;
   let loading = true;
   onMount(() => {
     Quagga.init(

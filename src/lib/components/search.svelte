@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { supabase } from '$lib/supabaseclient';
+  import { supabaseClient } from '$lib/supabaseclient';
 
   import type { definitions } from 'types/database';
 
@@ -7,7 +7,7 @@
 
   async function search() {
     console.log('Query: ' + searchQuery);
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
       .from<definitions['Food']>('Food')
       .select()
       .textSearch('name', searchQuery);
