@@ -6,7 +6,7 @@ import {
 import Tracker from "$lib/components/tracker/tracker.svelte";
 import type { definitions } from "types/database";
 
-export const get: RequestHandler = async ({ params, locals, request }) =>
+export const GET: RequestHandler = async ({ params, locals, request }) =>
   withApiAuth({ user: locals.user, redirectTo: "/auth/signin" }, async () => {
     const date = new Date(params.date);
     const { data: servings } = await supabaseServerClient(request)
@@ -25,12 +25,15 @@ export const get: RequestHandler = async ({ params, locals, request }) =>
     };
   });
 
-export const del: RequestHandler = async ({ request, locals, params }) =>
+export const DELETE: RequestHandler = async ({ locals, request }) =>
   withApiAuth({ user: locals.user }, async () => {
+    const formData = await request.formData();
+    const servingId = formData.get("servingId") as string;
     await supabaseServerClient(request)
       .from<definitions["UserAteFood"] & { Food: definitions["Food"] }>(
         "UserAteFood",
       )
       .delete()
-      .eq("meal_id", id);
+      .eq("meal_id", servingId);
+    return { status: 200 };
   });

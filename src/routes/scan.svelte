@@ -10,7 +10,7 @@
   }
 
   async function addProductAndNavigate(code: string) {
-    let res = await fetch('./scan', {
+    let res = await fetch('/scan', {
       method: 'POST',
       body: JSON.stringify({ barCode: code })
     });

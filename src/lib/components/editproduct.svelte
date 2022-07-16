@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { definitions } from 'types/database';
   import { page } from '$app/stores';
-  import { user } from '$lib/stores/userStore';
   import { supabaseClient } from '$lib/supabaseclient';
   import { goto } from '$app/navigation';
   import { selectedDate } from '$lib/stores/dateStore';
   import Info from './info/info.svelte';
+  import { session } from '$app/stores';
 
   export let product: definitions['Food'];
 
@@ -19,7 +19,7 @@
       food_id: product.bar_code,
       meal: $page.url.searchParams.get('meal') as string,
       grams: parseInt(formData.get('grams') as string),
-      user_id: $user?.id,
+      user_id: $session.user?.id,
       created_at: $selectedDate.toISOString()
     });
     if (data) {
@@ -131,6 +131,6 @@
     <label for="grams" class="text-sm">Grams</label>
     <input step="0.1" id="grams" class="input-text" type="number" name="grams" />
   </div>
-  <input type="hidden" value={$user?.id} name="userId" />
+  <input type="hidden" value={$session.user?.id} name="userId" />
   <button type="submit" class="rounded-md bg-orange-500 border-2 border-orange-500 p-2">Eat</button>
 </form>

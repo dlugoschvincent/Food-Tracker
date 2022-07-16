@@ -1,7 +1,7 @@
 import type { RequestHandler } from "./__types/signin";
 import { supabaseClient } from "$lib/supabaseclient";
 
-export async function get({ locals }: { locals: App.Locals }) {
+export async function GET({ locals }: { locals: App.Locals }) {
   if (locals.user) {
     return {
       status: 303,
@@ -15,12 +15,11 @@ export async function get({ locals }: { locals: App.Locals }) {
   };
 }
 
-export async function post({ request }: { request: Request }) {
+export async function POST({ request }: { request: Request }) {
   const data = await request.formData();
 
   const email = data.get("email") as string;
   const password = data.get("password") as string;
-  console.log(email + "" + password);
   const headers = { location: "/dashboard" };
   const errors: Record<string, string> = {};
   const values: Record<string, string> = { email, password };

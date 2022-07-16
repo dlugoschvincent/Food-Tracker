@@ -4,7 +4,7 @@ import { supabaseClient } from '$lib/supabaseclient';
 
 import type { RequestHandler } from './__types/scan';
 
-export const post: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
   const json = await request.json();
   const { error, status } = await supabaseClient
     .from<definitions['Food']>('Food')
