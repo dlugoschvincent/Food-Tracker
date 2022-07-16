@@ -2,8 +2,9 @@
   import Quagga from '@ericblade/quagga2';
   import { onDestroy, onMount } from 'svelte';
   import Info from './info/info.svelte';
-  export let scanResult: string | null;
-  let quaggaTarget :HTMLDivElement | undefined;
+  import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
+  let quaggaTarget: HTMLDivElement | undefined;
   let loading = true;
   onMount(() => {
     Quagga.init(
@@ -31,10 +32,10 @@
     );
 
     Quagga.onDetected((data) => {
-      if (data.codeResult.startInfo.error < 0.1) {
+      if (data.codeResult.startInfo.error < 0.1 && data.codeResult.code?.charAt(0) === '4') {
         Quagga.offDetected();
         Quagga.stop();
-        scanResult = data.codeResult.code;
+        goto(`/${$page.params.date}/${$page.params.meal}/${data.codeResult.code}`);
       }
     });
   });

@@ -1,3 +1,9 @@
+<script lang="ts" context="module">
+   import type {Load} from '@sveltejs/kit'
+   export const load:Load = async ({params}) =>{
+            
+      }
+</script>
 <script lang="ts">
   import type { definitions } from 'types/database';
   import { page } from '$app/stores';
@@ -32,10 +38,11 @@
   >Here you can see the product you just scanned. If the application never saw this product you can
   now fill out the missing fields. To confirm press "Update product". Saved products are available
   to all users.</Info>
+
 <form
   class="auto-cols-fr grid gap-4"
   method="post"
-  action="/products/{$page.params.product}?_method=PATCH&meal={$page.url.searchParams.get('meal')}">
+  action="/products/{$page.params.product}?meal={$page.url.searchParams.get('meal')}">
   <div class="grid col-span-2 hidden">
     <label for="bar_code" class="text-sm">Bar Code</label>
     <input

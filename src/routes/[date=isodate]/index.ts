@@ -1,4 +1,4 @@
-import type { RequestHandler } from "./__types/[date=isodate]";
+import type { RequestHandler } from "./__types";
 import {
   supabaseServerClient,
   withApiAuth,

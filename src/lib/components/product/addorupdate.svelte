@@ -1,0 +1,88 @@
+<script lang="ts">
+  import type { definitions } from 'types/database';
+  import { page } from '$app/stores';
+  import Inputfloat from '../formelements/inputfloat.svelte';
+  let edit = false;
+  export let product: definitions['Food'] = {
+    bar_code: parseInt($page.params.product),
+    name: '',
+    fat: 0,
+    protein: 0,
+    carbohydrates: 0,
+    saturated_fat: 0,
+    fibre: 0,
+    salt: 0,
+    sugar: 0
+  };
+  $: kiloJoules = Math.round(
+    product.protein * 16.7 + product.carbohydrates * 16.7 + product.fat * 37.7
+  );
+  function toggleEdit() {
+    edit = !edit;
+  }
+</script>
+
+<form method="post" >
+  <fieldset class="auto-cols-fr grid gap-4" disabled={!edit}>
+    <Inputfloat
+      disabled
+      hidden
+      placeholder="Barcode"
+      bind:value={product.bar_code}
+      type="text"
+      required
+      name="bar_code" />
+    <div class="col-span-1">
+      <Inputfloat placeholder="Name" bind:value={product.name} type="text" required name="name" />
+    </div>
+    <div
+      class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1"
+      on:click={toggleEdit}>
+      <div class="i-akar-icons:edit text-xl" />
+    </div>
+
+    <div class=" mt-4 col-span-2">Nutrients per 100 gram:</div>
+
+    <Inputfloat
+      placeholder="Fat"
+      bind:value={product.fat}
+      type="number"
+      required
+      min="0"
+      max={100 - product.protein - product.carbohydrates}
+      step="0.1"
+      name="fat" />
+    <Inputfloat
+      placeholder="Protein"
+      bind:value={product.protein}
+      type="number"
+      required
+      min="0"
+      max={100 - product.fat - product.carbohydrates}
+      step="0.1"
+      name="protein" />
+    <Inputfloat
+      placeholder="Carbohydrates"
+      bind:value={product.carbohydrates}
+      type="number"
+      required
+      min="0"
+      max={100 - product.fat - product.protein}
+      step="0.1"
+      name="carbohydrates" />
+    <Inputfloat
+      disabled
+      placeholder="Kilojoules"
+      bind:value={kiloJoules}
+      type="number"
+      required
+      min="0"
+      max={Math.floor(37.7 * 100)}
+      step="0.1"
+      name="kilojoules" />
+    <button
+      class:hidden={!edit}
+      class="rounded-md bg-orange-300 border-2 border-orange-300 p-2 col-span-2 dark:bg-orange-500 dark:border-orange-500"
+      type="submit">Update product</button>
+  </fieldset>
+</form>
