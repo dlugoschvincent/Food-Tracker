@@ -25,7 +25,7 @@ export const GET: RequestHandler = async ({ params, locals, request }) =>
     };
   });
 
-export const DELETE: RequestHandler = async ({ locals, request }) =>
+export const DELETE: RequestHandler = async ({ locals, request, url }) =>
   withApiAuth({ user: locals.user }, async () => {
     const formData = await request.formData();
     const servingId = formData.get("servingId") as string;
@@ -35,5 +35,5 @@ export const DELETE: RequestHandler = async ({ locals, request }) =>
       )
       .delete()
       .eq("meal_id", servingId);
-    return { status: 200 };
+    return { status: 304, headers:{location:url.pathname} };
   });

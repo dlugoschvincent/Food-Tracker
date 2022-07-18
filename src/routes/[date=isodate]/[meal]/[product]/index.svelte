@@ -2,8 +2,6 @@
   import type { definitions } from 'types/database';
   import Addorupdate from '$lib/components/product/addorupdate.svelte';
   export let product: definitions['Food'][];
-  export let exists: boolean;
-  console.log(exists);
 </script>
 
 <svelte:head>
