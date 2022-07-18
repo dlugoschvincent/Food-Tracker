@@ -18,13 +18,12 @@
   import { supabaseClient } from '$lib/supabaseclient';
   import { SupaAuthHelper } from '@supabase/auth-helpers-svelte';
   import Navbar from '$lib/components/navbar.svelte';
+  import { darkmode } from '$lib/stores/darkmodeStore';
 </script>
 
-<div class="dark">
-  <div class="dark:bg-slate-700 dark:text-light-200 min-h-screen">
-    {#if $session.user}
+<div class:dark={$darkmode}>
+  <div class="dark:bg-black dark:text-white min-h-screen">
       <Navbar />
-    {/if}
     <SupaAuthHelper {session} {supabaseClient}>
       <main class="container mx-auto grid p-4 gap-4">
         <slot />

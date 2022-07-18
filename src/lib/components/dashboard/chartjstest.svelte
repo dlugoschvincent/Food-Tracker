@@ -3,7 +3,6 @@
   import { onMount } from 'svelte';
 
   let ctx: any;
-  let data: any;
   onMount(() => {
     new Chart(ctx, {
       type: 'pie',
