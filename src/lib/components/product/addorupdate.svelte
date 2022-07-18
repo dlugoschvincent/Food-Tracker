@@ -22,7 +22,7 @@
   }
 </script>
 
-<form method="post" >
+<form method="post">
   <fieldset class="auto-cols-fr grid gap-4" disabled={!edit}>
     <Inputfloat
       disabled
@@ -85,4 +85,11 @@
       class="rounded-md bg-orange-300 border-2 border-orange-300 p-2 col-span-2 dark:bg-orange-500 dark:border-orange-500"
       type="submit">Update product</button>
   </fieldset>
+</form>
+<form method="post" action="{$page.url.pathname}?_method=PUT">
+  <div class="grid">
+    <label for="grams" class="text-sm">Grams</label>
+    <input step="0.1" id="grams" class="input-text" type="number" name="grams" />
+  </div>
+  <button type="submit" class="rounded-md bg-orange-500 border-2 border-orange-500 p-2">Eat</button>
 </form>

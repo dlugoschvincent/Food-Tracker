@@ -1,22 +1,9 @@
 <script lang="ts">
-  import { supabaseClient } from '$lib/supabaseclient';
-
-  import type { definitions } from 'types/database';
-
   let searchQuery: string;
-
-  async function search() {
-    console.log('Query: ' + searchQuery);
-    const { data, error } = await supabaseClient
-      .from<definitions['Food']>('Food')
-      .select()
-      .textSearch('name', searchQuery);
-    console.log(data);
-  }
 </script>
 
 <div class="grid gap-4 col-span-2">
-  <form on:submit|preventDefault={search} class="grid gap-4">
+  <form class="grid gap-4">
     <input
       class="rounded-md border-2 border-orange-200 outline-orange-300 p-2"
       type="text"

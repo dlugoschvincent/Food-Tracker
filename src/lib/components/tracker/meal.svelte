@@ -9,15 +9,15 @@ import { page } from '$app/stores';
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
 </script>
 
-<div class="rounded-md border-2 border-orange-200 grid dark:border-orange-400">
+<div class="rounded-md border-1 border-opacity-50 grid border-orange-500">
   <div>
     <div class="grid grid-flow-col p-2">
       <h2 class="my-auto">{meal}:</h2>
       <a
         href="{$page.url.pathname}/{meal}/scan"
-        class="rounded-full my-auto bg-orange-300 grid p-2 place-items-center justify-self-end dark:bg-orange-500"
+        class="rounded-full my-auto grid place-items-center place-self-end"
         aria-label="Add {meal}">
-        <icon class="text-xl i-akar-icons:plus" />
+        <icon class="text-3xl i-akar-icons:plus color-orange-500" />
       </a>
     </div>
   </div>
