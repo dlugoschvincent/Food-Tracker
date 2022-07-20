@@ -1,33 +1,32 @@
-import type { RequestHandler } from "./__types/signin";
-import { supabaseClient } from "$lib/supabaseclient";
+import type { RequestHandler } from './__types/signin';
+import { supabaseClient } from '$lib/supabaseclient';
+import { supabaseServerClient } from '@supabase/auth-helpers-sveltekit';
 
 export async function GET({ locals }: { locals: App.Locals }) {
   if (locals.user) {
     return {
       status: 303,
       headers: {
-        location: "/dashboard",
-      },
+        location: '/dashboard'
+      }
     };
   }
   return {
-    status: 200,
+    status: 200
   };
 }
 
-export async function POST({ request }: { request: Request }) {
+export const POST: RequestHandler = async ({ request, url }) => {
   const data = await request.formData();
 
-  const email = data.get("email") as string;
-  const password = data.get("password") as string;
-  const headers = { location: "/dashboard" };
+  const email = data.get('email') as string;
+  const password = data.get('password') as string;
+
+  const headers = { location: '/dashboard' };
   const errors: Record<string, string> = {};
   const values: Record<string, string> = { email, password };
 
-  const { session, error } = await supabaseClient.auth.signIn({
-    email,
-    password,
-  });
+  const { session, error } = await supabaseServerClient(request).auth.signIn({ email, password });
 
   if (error) {
     errors.form = error.message;
@@ -35,33 +34,33 @@ export async function POST({ request }: { request: Request }) {
       status: 400,
       body: {
         errors,
-        values,
-      },
+        values
+      }
     };
   }
 
   if (session) {
-    const response = await fetch("http://localhost:5173/api/auth/callback", {
-      method: "POST",
-      headers: new Headers({ "Content-Type": "application/json" }),
-      credentials: "same-origin",
-      body: JSON.stringify({ event: "SIGNED_IN", session }),
+    const response = await fetch(`${url.origin}/api/auth/callback`, {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      credentials: 'same-origin',
+      body: JSON.stringify({ event: 'SIGNED_IN', session })
     });
 
     // TODO: Add helper inside of auth-helpers-sveltekit library to manage this better
     const cookies = response.headers
-      .get("set-cookie")
-      .split("SameSite=Lax, ")
+      .get('set-cookie')
+      .split('SameSite=Lax, ')
       .map((cookie) => {
-        if (!cookie.includes("SameSite=Lax")) {
-          cookie += "SameSite=Lax";
+        if (!cookie.includes('SameSite=Lax')) {
+          cookie += 'SameSite=Lax';
         }
         return cookie;
       });
-    headers["Set-Cookie"] = cookies;
+    headers['Set-Cookie'] = cookies;
   }
   return {
     status: 303,
-    headers,
+    headers
   };
-}
+};

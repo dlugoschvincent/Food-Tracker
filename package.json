@@ -17,14 +17,14 @@
   "devDependencies": {
     "@iconify/json": "^2.1.79",
     "@playwright/test": "^1.23.4",
-    "@sveltejs/adapter-auto": "1.0.0-next.62",
-    "@sveltejs/adapter-netlify": "^1.0.0-next.69",
-    "@sveltejs/kit": "1.0.0-next.378",
+    "@sveltejs/adapter-auto": "1.0.0-next.63",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.70",
+    "@sveltejs/kit": "1.0.0-next.382",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
-    "@unocss/preset-icons": "^0.44.3",
-    "@unocss/transformer-directives": "^0.44.3",
-    "@unocss/transformer-variant-group": "^0.44.3",
+    "@unocss/preset-icons": "^0.44.4",
+    "@unocss/transformer-directives": "^0.44.4",
+    "@unocss/transformer-variant-group": "^0.44.4",
     "chart.js": "^3.8.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
@@ -37,7 +37,7 @@
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "unocss": "^0.44.3",
+    "unocss": "^0.44.4",
     "vite": "^3.0.2"
   },
   "type": "module",
@@ -46,6 +46,6 @@
     "@supabase/auth-helpers-svelte": "^0.4.5",
     "@supabase/auth-helpers-sveltekit": "^0.6.8",
     "@supabase/supabase-js": "^1.35.4",
-    "@unocss/reset": "^0.44.3"
+    "@unocss/reset": "^0.44.4"
   }
 }
