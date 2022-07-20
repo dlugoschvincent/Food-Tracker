@@ -23,7 +23,7 @@
 </script>
 
 <form method="post">
-  <fieldset class="auto-cols-fr grid gap-4" disabled={!edit}>
+  <fieldset class:opacity-80={!edit} class="auto-cols-fr grid gap-8" disabled={!edit}>
     <Inputfloat
       disabled
       hidden
@@ -35,13 +35,21 @@
     <div class="col-span-1">
       <Inputfloat placeholder="Name" bind:value={product.name} type="text" required name="name" />
     </div>
-    <div
-      class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1"
-      on:click={toggleEdit}>
-      <div class="i-akar-icons:edit text-xl" />
-    </div>
+    {#if edit}
+      <button
+        class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1"
+        type="submit">
+        <div class="i-bx:save text-xl" />
+      </button>
+    {:else}
+      <div
+        class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1"
+        on:click={toggleEdit}>
+        <div class="i-akar-icons:edit text-xl" />
+      </div>
+    {/if}
 
-    <div class=" mt-4 col-span-2">Nutrients per 100 gram:</div>
+    <div class="col-span-2">Nutrients per 100 gram:</div>
 
     <Inputfloat
       placeholder="Fat"
@@ -80,16 +88,12 @@
       max={Math.floor(37.7 * 100)}
       step="0.1"
       name="kilojoules" />
-    <button
-      class:hidden={!edit}
-      class="rounded-md bg-orange-300 border-2 border-orange-300 p-2 col-span-2 dark:bg-orange-500 dark:border-orange-500"
-      type="submit">Update product</button>
   </fieldset>
 </form>
-<form method="post" action="{$page.url.pathname}?_method=PUT">
-  <div class="grid">
-    <label for="grams" class="text-sm">Grams</label>
-    <input step="0.1" id="grams" class="input-text" type="number" name="grams" />
+<form method="post" action="{$page.url.pathname}?_method=PUT" class="grid gap-4">
+  <div class="col-span-6">How much did you eat?</div>
+  <div class="col-span-5">
+    <Inputfloat step="0.1" type="number" name="grams" placeholder="Grams" />
   </div>
-  <button type="submit" class="rounded-md bg-orange-500 border-2 border-orange-500 p-2">Eat</button>
+  <button type="submit" class="rounded-md border-2 border-orange-500 p-2 col-span-1">Eat</button>
 </form>

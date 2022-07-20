@@ -3,7 +3,7 @@
   export let name: string;
   export let type = 'text';
   export let required = false;
-  export let value: string | number;
+  export let value: string | number ='';
   export let disabled = false;
   export let hidden = false;
   export let min: string | number = '';
@@ -25,7 +25,7 @@
     {name}
     placeholder=" "
     {required}
-    class="p-(t-3 b-2) block w-full bg-transparent border-(b-2 orange-500) focus:outline-none sibling:(focus:(transform scale-75 translate-y--6 text-opacity-100) not-placeholder-shown:(transform scale-75 translate-y--6 text-opacity-100))" />
+    class="p-(t-3 b-2) block w-full bg-transparent focus: outline-none sibling:(focus:(transform scale-75 translate-y--6 text-opacity-100) not-placeholder-shown:(transform scale-75 translate-y--6 text-opacity-100))" />
 
   <label
     for={name}
