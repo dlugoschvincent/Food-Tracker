@@ -9,7 +9,7 @@
 </script>
 
 <div class="border-transparent rounded-md border-2 grid grid-flow-col p-2 justify-between">
-  <a
+  <a sveltekit:prefetch
     href="/{prevDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating}
     class="rounded-full grid place-items-center"
@@ -25,7 +25,7 @@
     <icon
       class="animate-spin text-3xl i-quill:loading-spin place-self-center text-orange-500" />
   {/if}
-  <a
+  <a sveltekit:prefetch
     href="/{nextDate.toISOString().slice(0, 10)}"
     class:disable-anchor={$navigating || dateIsInFuture}
     class="rounded-full grid place-items-center"
