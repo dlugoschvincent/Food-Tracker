@@ -1,48 +1,42 @@
-import {
-  supabaseServerClient,
-  withApiAuth,
-} from "@supabase/auth-helpers-sveltekit";
-import type { definitions } from "types/database";
+import { supabaseServerClient, withApiAuth } from '@supabase/auth-helpers-sveltekit';
+import type { definitions } from 'types/database';
 
-import type { RequestHandler } from "./__types";
+import type { RequestHandler } from './__types';
 
 export const GET: RequestHandler = async ({ params, request }) => {
   const { data: product, status } = await supabaseServerClient(request)
-    .from<definitions["Food"]>("Food")
-    .select("*")
-    .eq("bar_code", parseInt(params.product));
+    .from<definitions['Food']>('Food')
+    .select('*')
+    .eq('bar_code', parseInt(params.product));
   return {
     status,
     body: {
-      product,
-    },
+      product
+    }
   };
 };
 
 export const DELETE: RequestHandler = async ({ params, request }) => {
-  await supabaseServerClient(request).from("Food").delete().eq(
-    "bar_code",
-    params.product,
-  );
+  await supabaseServerClient(request).from('Food').delete().eq('bar_code', params.product);
   return {
-    status: 200,
+    status: 200
   };
 };
 
 export const POST: RequestHandler = async ({ request, params }) => {
   const formData = await request.formData();
   const { status } = await supabaseServerClient(request)
-    .from("Food")
+    .from('Food')
     .upsert({
       bar_code: params.product,
-      name: formData.get("name"),
-      fat: formData.get("fat"),
-      protein: formData.get("protein"),
-      carbohydrates: formData.get("carbohydrates"),
+      name: formData.get('name'),
+      fat: formData.get('fat'),
+      protein: formData.get('protein'),
+      carbohydrates: formData.get('carbohydrates')
     });
 
   return {
-    status,
+    status
   };
 };
 
@@ -52,13 +46,14 @@ export const PUT: RequestHandler = async ({ params, request, locals }) =>
     const formData = await request.formData();
 
     const { status } = await supabaseServerClient(request)
-      .from("UserAteFood").insert({
+      .from('UserAteFood')
+      .insert({
         food_id: params.product,
         meal: params.meal,
-        grams: formData.get("grams") as string,
+        grams: formData.get('grams') as string,
         user_id: locals.user?.id,
-        created_at: date,
+        created_at: date
       });
 
-    return { status:303, headers:{location:`/${params.date}`} };
+    return { status: 303, headers: { location: `/${params.date}` } };
   });

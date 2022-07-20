@@ -6,9 +6,9 @@ export const handle: Handle = sequence(...handleAuth());
 
 export const getSession: GetSession = async (event) => {
   const { user, accessToken, error } = event.locals;
-  return { 
-    user, 
-    accessToken, 
+  return {
+    user,
+    accessToken,
     error
-  }
-}
+  };
+};

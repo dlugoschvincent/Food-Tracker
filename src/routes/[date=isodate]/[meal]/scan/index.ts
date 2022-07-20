@@ -1,12 +1,10 @@
 import type { definitions } from 'types/database';
-
-import { supabaseClient } from '$lib/supabaseclient';
-
-import type { RequestHandler } from './__types/scan';
+import type { RequestHandler } from './__types';
+import { supabaseServerClient } from '@supabase/auth-helpers-sveltekit';
 
 export const POST: RequestHandler = async ({ request }) => {
   const json = await request.json();
-  const { error, status } = await supabaseClient
+  const { error, status } = await supabaseServerClient(request)
     .from<definitions['Food']>('Food')
     .insert({ bar_code: json.barCode });
   if (error) {
