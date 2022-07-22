@@ -1,4 +1,4 @@
-import { supabaseServerClient, withApiAuth } from '@supabase/auth-helpers-sveltekit';
+import { supabaseServerClient } from '@supabase/auth-helpers-sveltekit';
 import type { definitions } from 'types/database';
 
 import type { RequestHandler } from './__types';
@@ -40,20 +40,3 @@ export const POST: RequestHandler = async ({ request, params }) => {
   };
 };
 
-export const PUT: RequestHandler = async ({ params, request, locals }) =>
-  withApiAuth({ user: locals.user }, async () => {
-    const date = new Date(params.date);
-    const formData = await request.formData();
-
-    const { status } = await supabaseServerClient(request)
-      .from('UserAteFood')
-      .insert({
-        food_id: params.product,
-        meal: params.meal,
-        grams: formData.get('grams') as string,
-        user_id: locals.user?.id,
-        created_at: date
-      });
-
-    return { status: 303, headers: { location: `/${params.date}` } };
-  });

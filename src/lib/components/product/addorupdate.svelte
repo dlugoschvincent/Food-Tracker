@@ -23,7 +23,7 @@
 </script>
 
 <form method="post">
-  <fieldset class:opacity-80={!edit} class="auto-cols-fr grid gap-8" disabled={!edit}>
+  <fieldset class:children:opacity-50={!edit} class="auto-cols-fr grid gap-8" disabled={!edit}>
     <Inputfloat
       disabled
       hidden
@@ -43,7 +43,7 @@
       </button>
     {:else}
       <div
-        class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1"
+        class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1 !opacity-100"
         on:click={toggleEdit}>
         <div class="i-akar-icons:edit text-xl" />
       </div>
@@ -90,8 +90,10 @@
       name="kilojoules" />
   </fieldset>
 </form>
-<form method="post" action="{$page.url.pathname}?_method=PUT" class="grid gap-4">
+<form method="post" action="/{$page.params.date}" class="grid gap-4">
   <div class="col-span-6">How much did you eat?</div>
+  <input hidden value={$page.params.product} name="bar_code"/>
+  <input hidden value={$page.params.meal} name="meal"/>
   <div class="col-span-5">
     <Inputfloat step="0.1" type="number" name="grams" placeholder="Grams" />
   </div>
