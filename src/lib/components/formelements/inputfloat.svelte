@@ -25,7 +25,7 @@
     {name}
     placeholder=" "
     {required}
-    class="p-(t-3 b-2) block w-full bg-transparent focus: outline-none sibling:(focus:(transform scale-75 translate-y--6 text-opacity-100) not-placeholder-shown:(transform scale-75 translate-y--6 text-opacity-100))" />
+    class="bg-clip-text p-(t-3 b-2) block w-full bg-transparent focus: outline-none sibling:(focus:(transform scale-75 translate-y--6 text-opacity-100) not-placeholder-shown:(transform scale-75 translate-y--6 text-opacity-100))" />
 
   <label
     for={name}
