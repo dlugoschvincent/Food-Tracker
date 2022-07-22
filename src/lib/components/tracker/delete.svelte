@@ -10,12 +10,7 @@
   on:submit={() => (deleted = true)}
   method="post"
   action="{$page.url.pathname}?_method=DELETE"
-  class="justify-self-end">
+  class="grid justify-self-end">
   <input hidden value={id} name="servingId" />
-  <button
-    type="submit"
-    aria-label="Delete {name}"
-    class="rounded-full bg-red-500 grid p-2 text-light-200 place-items-center dark:bg-red-700"
-    ><div class="text-xl i-akar-icons:cross" />
-  </button>
+  <button type="submit" aria-label="Delete {name}" class="i-akar-icons:cross text-3xl color-red-500" />
 </form>

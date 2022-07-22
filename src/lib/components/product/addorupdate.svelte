@@ -92,8 +92,8 @@
 </form>
 <form method="post" action="/{$page.params.date}" class="grid gap-4">
   <div class="col-span-6">How much did you eat?</div>
-  <input hidden value={$page.params.product} name="bar_code"/>
-  <input hidden value={$page.params.meal} name="meal"/>
+  <input hidden value={$page.params.product} name="bar_code" />
+  <input hidden value={$page.params.meal} name="meal" />
   <div class="col-span-5">
     <Inputfloat step="0.1" type="number" name="grams" placeholder="Grams" />
   </div>
