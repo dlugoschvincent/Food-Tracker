@@ -21,13 +21,13 @@
   import { darkmode } from '$lib/stores/darkmodeStore';
 </script>
 
-<div class:dark={$darkmode}>
-  <div class="dark:bg-black dark:text-white min-h-screen">
+<SupaAuthHelper {session} {supabaseClient}>
+  <div class:dark={$darkmode}>
+    <div class="dark:bg-black dark:text-white min-h-screen">
       <Navbar />
-    <SupaAuthHelper {session} {supabaseClient}>
       <main class="container mx-auto grid p-4 gap-4">
         <slot />
       </main>
-    </SupaAuthHelper>
+    </div>
   </div>
-</div>
+</SupaAuthHelper>
