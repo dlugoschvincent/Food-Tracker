@@ -3,5 +3,7 @@
 </script>
 
 {#if $session.user}
-  <a href="/api/auth/logout" class="py-1 px-2 border-1 border-orange-500 border-opacity-50 text-lg block">Logout</a>
+  <a
+    href="/api/auth/logout"
+    class="py-1 px-2 border-1 border-orange-500 border-opacity-50 text-lg block">Logout</a>
 {/if}

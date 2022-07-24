@@ -5,7 +5,7 @@
   onMount(() => {
     if ($session.user) {
       goto(`/${new Date().toISOString().slice(0, 10)}`);
-    } 
+    }
   });
 </script>
 

@@ -3,7 +3,7 @@
   export let name: string;
   export let type = 'text';
   export let required = false;
-  export let value: string | number ='';
+  export let value: string | number = '';
   export let disabled = false;
   export let hidden = false;
   export let min: string | number = '';

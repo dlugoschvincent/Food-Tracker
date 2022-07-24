@@ -1,6 +1,6 @@
-import type { RequestHandler } from './__types/signin';
-import { supabaseClient } from '$lib/supabaseclient';
 import { supabaseServerClient } from '@supabase/auth-helpers-sveltekit';
+
+import type { RequestHandler } from './__types/signin';
 
 export async function GET({ locals }: { locals: App.Locals }) {
   if (locals.user) {

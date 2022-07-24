@@ -1,10 +1,10 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { extractorSvelte } from "@unocss/core";
 import UnocssIcons from "@unocss/preset-icons";
+import transformerDirective from "@unocss/transformer-directives"
+import transformerVariantGroup from "@unocss/transformer-variant-group";
 import { presetUno } from "unocss";
 import Unocss from "unocss/vite";
-import transformerVariantGroup from "@unocss/transformer-variant-group";
-import transformerDirective from "@unocss/transformer-directives"
 /** @type {import('vite').UserConfig} */
 const config = {
   plugins: [

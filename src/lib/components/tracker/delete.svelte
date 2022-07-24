@@ -12,5 +12,8 @@
   action="{$page.url.pathname}?_method=DELETE"
   class="grid justify-self-end">
   <input hidden value={id} name="servingId" />
-  <button type="submit" aria-label="Delete {name}" class="i-akar-icons:cross text-3xl color-red-500" />
+  <button
+    type="submit"
+    aria-label="Delete {name}"
+    class="i-akar-icons:cross text-3xl color-red-500" />
 </form>
