@@ -9,11 +9,18 @@
   let carbohydrates = 0;
   let chart: Chart;
   $: {
-    protein = servings.map((x) => (x.grams / 100) * x.Food.protein).reduce((x, y) => x + y, 0);
-    fat = servings.map((x) => (x.grams / 100) * x.Food.fat).reduce((x, y) => x + y, 0);
-    carbohydrates = servings
-      .map((x) => (x.grams / 100) * x.Food.carbohydrates)
-      .reduce((x, y) => x + y, 0);
+    protein =
+      Math.round(
+        servings.map((x) => (x.grams / 100) * x.Food.protein).reduce((x, y) => x + y, 0) * 10
+      ) / 10;
+    fat =
+      Math.round(
+        servings.map((x) => (x.grams / 100) * x.Food.fat).reduce((x, y) => x + y, 0) * 10
+      ) / 10;
+    carbohydrates =
+      Math.round(
+        servings.map((x) => (x.grams / 100) * x.Food.carbohydrates).reduce((x, y) => x + y, 0) * 10
+      ) / 10;
   }
 
   let data: ChartData = {
