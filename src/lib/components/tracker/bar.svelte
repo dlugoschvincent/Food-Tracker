@@ -1,12 +1,16 @@
 <script lang="ts">
   //import Chart, { type ChartConfiguration } from 'chart.js/auto/auto.esm';
-  import Chart from 'chart.js/auto/auto';
+  import Chart, { type ChartConfiguration, type ChartData, type ChartDataset } from 'chart.js/auto';
   import { onMount } from 'svelte';
   import type { definitions } from 'types/database';
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
+  let context: HTMLCanvasElement;
   let protein = 0;
   let fat = 0;
   let carbohydrates = 0;
+  let data: ChartData;
+  let config: ChartConfiguration;
+  let datasets: ChartDataset[];
   $: if (servings.length > 0) {
     protein = servings.map((x) => (x.grams / 100) * x.Food.protein).reduce((x, y) => x + y);
     fat = servings.map((x) => (x.grams / 100) * x.Food.fat).reduce((x, y) => x + y);
@@ -14,39 +18,41 @@
       .map((x) => (x.grams / 100) * x.Food.carbohydrates)
       .reduce((x, y) => x + y);
   }
-  let context: HTMLCanvasElement;
+  $: datasets = [
+    {
+      axis: 'y',
+      label: 'Fat',
+      data: [fat],
+      backgroundColor: ['orange'],
+      borderWidth: 1,
+      barPercentage: 1.0,
+      categoryPercentage: 1.0
+    },
+    {
+      axis: 'y',
+      label: 'Protein',
+      data: [protein],
+      backgroundColor: ['blue'],
+      borderWidth: 1,
+      barPercentage: 1.0,
+      categoryPercentage: 1.0
+    },
+    {
+      axis: 'y',
+      label: 'Carbohydrates',
+      data: [carbohydrates],
+      backgroundColor: ['red'],
+      borderWidth: 1,
+      barPercentage: 1.0,
+      categoryPercentage: 1.0
+    }
+  ];
+
   $: data = {
     labels: [''],
-    datasets: [
-      {
-        axis: 'y',
-        label: ['Fat'],
-        data: [fat],
-        backgroundColor: ['orange'],
-        borderWidth: 1,
-        barPercentage: 1.0,
-        categoryPercentage: 1.0
-      },
-      {
-        axis: 'y',
-        label: ['Protein'],
-        data: [protein],
-        backgroundColor: ['blue'],
-        borderWidth: 1,
-        barPercentage: 1.0,
-        categoryPercentage: 1.0
-      },
-      {
-        axis: 'y',
-        label: ['Carbohydrates'],
-        data: [carbohydrates],
-        backgroundColor: ['red'],
-        borderWidth: 1,
-        barPercentage: 1.0,
-        categoryPercentage: 1.0
-      }
-    ]
+    datasets
   };
+
   $: config = {
     type: 'bar',
     data,
@@ -60,14 +66,13 @@
       },
       plugins: {
         legend: {
-          display: false,
-          onClick: null
+          display: false
         },
         tooltip: { enabled: true }
       }
     }
   };
-  let chart = null;
+  let chart: Chart | null = null;
   $: {
     if (chart) chart.destroy();
     if (context) chart = new Chart(context, config);
