@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { darkmode } from '$lib/stores/darkmodeStore';
+
   import Chart, { type ChartConfiguration, type ChartData, type ChartOptions } from 'chart.js/auto';
   import { onMount } from 'svelte';
   import type { definitions } from 'types/database';
@@ -7,7 +9,6 @@
   let protein = 0;
   let fat = 0;
   let carbohydrates = 0;
-  let data: ChartData;
   let config: ChartConfiguration;
   let options: ChartOptions;
   let chart: Chart;
@@ -19,11 +20,10 @@
       .reduce((x, y) => x + y, 0);
   }
 
-  $: data = {
+  let data: ChartData = {
     labels: [''],
     datasets: [
       {
-        axis: 'y',
         label: 'Fat',
         data: [fat],
         backgroundColor: ['orange'],
@@ -32,7 +32,6 @@
         categoryPercentage: 1.0
       },
       {
-        axis: 'y',
         label: 'Protein',
         data: [protein],
         backgroundColor: ['blue'],
@@ -41,11 +40,17 @@
         categoryPercentage: 1.0
       },
       {
-        axis: 'y',
         label: 'Carbohydrates',
         data: [carbohydrates],
         backgroundColor: ['red'],
         borderWidth: 1,
+        barPercentage: 1.0,
+        categoryPercentage: 1.0
+      },
+      {
+        label: 'Nothing',
+        data: [0],
+        backgroundColor: ['grey'],
         barPercentage: 1.0,
         categoryPercentage: 1.0
       }
@@ -53,18 +58,17 @@
   };
 
   $: options = {
-    responsive: true,
     maintainAspectRatio: false,
     indexAxis: 'y',
     scales: {
-      x: { stacked: true, display: false, max: fat + carbohydrates + protein },
-      y: { stacked: true, display: false }
+      xAlign: { stacked: true, display: false },
+      yAlign: { stacked: true, display: false }
     },
     plugins: {
       legend: {
         display: false
       },
-      tooltip: { enabled: true }
+      tooltip: { enabled: true, position: 'nearest' }
     }
   };
 
@@ -79,9 +83,16 @@
   });
 
   $: if (chart) {
-    chart.data = data;
-    chart.options = options;
-    chart.update('resize');
+    chart.data.datasets[0].data = [fat];
+    chart.data.datasets[1].data = [protein];
+    chart.data.datasets[2].data = [carbohydrates];
+    if (fat + carbohydrates + protein === 0) {
+      chart.options.scales.xAlign.max = 1;
+      chart.data.datasets[3].data = [1];
+    } else {
+      chart.options.scales.xAlign.max = fat + carbohydrates + protein;
+    }
+    chart.update();
   }
 </script>
 
