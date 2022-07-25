@@ -53,6 +53,7 @@
   };
 
   $: options = {
+    animation: { easing: 'easeInQuint', duration: 400 },
     responsive: true,
     maintainAspectRatio: false,
     indexAxis: 'y',
@@ -81,7 +82,7 @@
   $: if (chart) {
     chart.data = data;
     chart.options = options;
-    chart.update();
+    chart.update('show');
   }
 </script>
 
