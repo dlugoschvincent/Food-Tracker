@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { darkmode } from '$lib/stores/darkmodeStore';
-
   import Chart, { type ChartConfiguration, type ChartData, type ChartOptions } from 'chart.js/auto';
   import { onMount } from 'svelte';
   import type { definitions } from 'types/database';
@@ -9,8 +7,6 @@
   let protein = 0;
   let fat = 0;
   let carbohydrates = 0;
-  let config: ChartConfiguration;
-  let options: ChartOptions;
   let chart: Chart;
   $: {
     protein = servings.map((x) => (x.grams / 100) * x.Food.protein).reduce((x, y) => x + y, 0);
@@ -27,7 +23,6 @@
         label: 'Fat',
         data: [fat],
         backgroundColor: ['orange'],
-        borderWidth: 1,
         barPercentage: 1.0,
         categoryPercentage: 1.0
       },
@@ -35,7 +30,6 @@
         label: 'Protein',
         data: [protein],
         backgroundColor: ['blue'],
-        borderWidth: 1,
         barPercentage: 1.0,
         categoryPercentage: 1.0
       },
@@ -43,7 +37,6 @@
         label: 'Carbohydrates',
         data: [carbohydrates],
         backgroundColor: ['red'],
-        borderWidth: 1,
         barPercentage: 1.0,
         categoryPercentage: 1.0
       },
@@ -57,7 +50,7 @@
     ]
   };
 
-  $: options = {
+  let options: ChartOptions = {
     maintainAspectRatio: false,
     indexAxis: 'y',
     scales: {
@@ -72,7 +65,7 @@
     }
   };
 
-  $: config = {
+  let config: ChartConfiguration = {
     type: 'bar',
     data,
     options
