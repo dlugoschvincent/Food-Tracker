@@ -8,7 +8,7 @@ export const GET: RequestHandler = async ({ params, locals, request }) =>
     const date = new Date(params.date);
     const { data: servings } = await supabaseServerClient(request)
       .from<definitions['UserAteFood'] & { Food: definitions['Food'] }>('UserAteFood')
-      .select(`grams, meal_id, meal, Food(name)`)
+      .select(`grams, meal_id, meal, Food(name, fat, protein, carbohydrates)`)
       .gte('created_at', new Date(date.setHours(0, 0, 0, 0)).toISOString())
       .lte('created_at', new Date(date.setHours(23, 59, 59, 999)).toISOString());
     return {
