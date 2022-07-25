@@ -1,6 +1,5 @@
 <script lang="ts">
-  //import Chart, { type ChartConfiguration } from 'chart.js/auto/auto.esm';
-  import Chart, { type ChartConfiguration, type ChartData, type ChartDataset } from 'chart.js/auto';
+  import Chart, { type ChartConfiguration, type ChartData, type ChartOptions } from 'chart.js/auto';
   import { onMount } from 'svelte';
   import type { definitions } from 'types/database';
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
@@ -10,78 +9,82 @@
   let carbohydrates = 0;
   let data: ChartData;
   let config: ChartConfiguration;
-  let datasets: ChartDataset[];
-  $: if (servings.length > 0) {
-    protein = servings.map((x) => (x.grams / 100) * x.Food.protein).reduce((x, y) => x + y);
-    fat = servings.map((x) => (x.grams / 100) * x.Food.fat).reduce((x, y) => x + y);
+  let options: ChartOptions;
+  let chart: Chart;
+  $: {
+    protein = servings.map((x) => (x.grams / 100) * x.Food.protein).reduce((x, y) => x + y, 0);
+    fat = servings.map((x) => (x.grams / 100) * x.Food.fat).reduce((x, y) => x + y, 0);
     carbohydrates = servings
       .map((x) => (x.grams / 100) * x.Food.carbohydrates)
-      .reduce((x, y) => x + y);
+      .reduce((x, y) => x + y, 0);
   }
-  $: datasets = [
-    {
-      axis: 'y',
-      label: 'Fat',
-      data: [fat],
-      backgroundColor: ['orange'],
-      borderWidth: 1,
-      barPercentage: 1.0,
-      categoryPercentage: 1.0
-    },
-    {
-      axis: 'y',
-      label: 'Protein',
-      data: [protein],
-      backgroundColor: ['blue'],
-      borderWidth: 1,
-      barPercentage: 1.0,
-      categoryPercentage: 1.0
-    },
-    {
-      axis: 'y',
-      label: 'Carbohydrates',
-      data: [carbohydrates],
-      backgroundColor: ['red'],
-      borderWidth: 1,
-      barPercentage: 1.0,
-      categoryPercentage: 1.0
-    }
-  ];
 
   $: data = {
     labels: [''],
-    datasets
+    datasets: [
+      {
+        axis: 'y',
+        label: 'Fat',
+        data: [fat],
+        backgroundColor: ['orange'],
+        borderWidth: 1,
+        barPercentage: 1.0,
+        categoryPercentage: 1.0
+      },
+      {
+        axis: 'y',
+        label: 'Protein',
+        data: [protein],
+        backgroundColor: ['blue'],
+        borderWidth: 1,
+        barPercentage: 1.0,
+        categoryPercentage: 1.0
+      },
+      {
+        axis: 'y',
+        label: 'Carbohydrates',
+        data: [carbohydrates],
+        backgroundColor: ['red'],
+        borderWidth: 1,
+        barPercentage: 1.0,
+        categoryPercentage: 1.0
+      }
+    ]
+  };
+
+  $: options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    scales: {
+      x: { stacked: true, display: false, max: fat + carbohydrates + protein },
+      y: { stacked: true, display: false }
+    },
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: { enabled: true }
+    }
   };
 
   $: config = {
     type: 'bar',
     data,
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      indexAxis: 'y',
-      scales: {
-        x: { stacked: true, display: false, max: fat + carbohydrates + protein },
-        y: { stacked: true, display: false }
-      },
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: { enabled: true }
-      }
-    }
+    options
   };
-  let chart: Chart | null = null;
-  $: {
-    if (chart) chart.destroy();
-    if (context) chart = new Chart(context, config);
+
+  onMount(() => {
+    chart = new Chart(context, config);
+  });
+
+  $: if (chart) {
+    chart.data = data;
+    chart.options = options;
+    chart.update();
   }
-  onMount(() => {});
 </script>
 
-{#if servings.length > 0}
-  <div class="relative h-6">
-    <canvas bind:this={context} class="rounded-md" />
-  </div>
-{/if}
+<div class="relative h-6">
+  <canvas bind:this={context} class="rounded-md" />
+</div>
