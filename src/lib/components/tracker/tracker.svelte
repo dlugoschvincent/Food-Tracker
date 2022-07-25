@@ -9,7 +9,7 @@
   $: dinnerServings = servings.filter(({ meal }) => meal === 'Dinner');
 </script>
 
-<div class="grid gap-4">
+<div class="grid gap-4 grid-cols-1">
   <Datepicker />
   <Bar {servings} />
   <Meal servings={breakfastServings} meal="Breakfast" />

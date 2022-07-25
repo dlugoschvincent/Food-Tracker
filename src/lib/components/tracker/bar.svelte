@@ -51,7 +51,8 @@
     type: 'bar',
     data,
     options: {
-      layout: { padding: 0 },
+      responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
         x: { stacked: true, display: false, max: fat + carbohydrates + protein },
@@ -75,5 +76,7 @@
 </script>
 
 {#if servings.length > 0}
-  <canvas bind:this={context} height="20" class="rounded-md" />
+  <div class="relative h-6">
+    <canvas bind:this={context} class="rounded-md" />
+  </div>
 {/if}
