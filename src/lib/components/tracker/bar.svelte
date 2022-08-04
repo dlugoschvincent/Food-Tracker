@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Chart, { type ChartConfiguration, type ChartData, type ChartOptions } from 'chart.js/auto';
+  import Chart, { type ChartConfiguration, type ChartData, type ChartOptions } from 'chart.js/auto/auto.mjs';
   import { onMount } from 'svelte';
   import type { definitions } from 'types/database';
   export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
@@ -31,28 +31,32 @@
         data: [fat],
         backgroundColor: ['orange'],
         barPercentage: 1.0,
-        categoryPercentage: 1.0
+        categoryPercentage: 1.0,
+        borderSkipped: true
       },
       {
         label: 'Protein',
         data: [protein],
         backgroundColor: ['blue'],
         barPercentage: 1.0,
-        categoryPercentage: 1.0
+        categoryPercentage: 1.0,
+        borderSkipped: true
       },
       {
         label: 'Carbohydrates',
         data: [carbohydrates],
         backgroundColor: ['red'],
         barPercentage: 1.0,
-        categoryPercentage: 1.0
+        categoryPercentage: 1.0,
+        borderSkipped: true
       },
       {
         label: 'Nothing',
         data: [0],
         backgroundColor: ['grey'],
         barPercentage: 1.0,
-        categoryPercentage: 1.0
+        categoryPercentage: 1.0,
+        borderSkipped: true
       }
     ]
   };
