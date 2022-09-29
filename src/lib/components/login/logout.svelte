@@ -1,9 +1,3 @@
-<script>
-  import { session } from '$app/stores';
-</script>
-
-{#if $session.user}
-  <a
-    href="/api/auth/logout"
-    class="py-1 px-2 border-1 border-orange-500 border-opacity-50 text-lg block">Logout</a>
-{/if}
+<form method="post" action="/auth/logout">
+  <button type="submit" class="border-1 border-orange-500 border-opacity-50 text-lg py-1 px-2 block">Logout</button>
+</form>

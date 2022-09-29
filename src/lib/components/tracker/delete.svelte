@@ -1,15 +1,13 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-
-  export let id: number;
-  export let name: string;
-  export let deleted = false;
+  export let id: number | undefined
+  export let name: string | undefined
+  export let deleted = false
 </script>
 
 <form
   on:submit={() => (deleted = true)}
   method="post"
-  action="{$page.url.pathname}?_method=DELETE"
+  action="?/delete"
   class="grid justify-self-end">
   <input hidden value={id} name="servingId" />
   <button

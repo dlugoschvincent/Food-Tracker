@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Inputfloat from '../formelements/inputfloat.svelte';
+  import Inputfloat from '$lib/components/formelements/inputfloat.svelte'
 </script>
 
 <form method="post" class="grid gap-4 col-span-2">

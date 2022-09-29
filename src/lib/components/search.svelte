@@ -1,5 +1,5 @@
 <script lang="ts">
-  let searchQuery: string;
+  let searchQuery: string
 </script>
 
 <div class="grid gap-4 col-span-2">

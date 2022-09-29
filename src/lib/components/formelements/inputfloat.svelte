@@ -1,16 +1,16 @@
 <script lang="ts">
-  export let placeholder: string;
-  export let name: string;
-  export let type = 'text';
-  export let required = false;
-  export let value: string | number = '';
-  export let disabled = false;
-  export let hidden = false;
-  export let min: string | number = '';
-  export let step: string | number = '';
-  export let max: string | number = '';
+  export let placeholder: string
+  export let name: string
+  export let type = 'text'
+  export let required = false
+  export let value: string | number = ''
+  export let disabled = false
+  export let hidden = false
+  export let min: string | number = ''
+  export let step: string | number = ''
+  export let max: string | number = ''
   function typeAction(node: HTMLInputElement) {
-    node.type = type;
+    node.type = type
   }
 </script>
 

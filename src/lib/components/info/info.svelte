@@ -1,5 +1,5 @@
 <script>
-  import { infoToggled } from '$lib/stores/infoStore';
+  import { infoToggled } from '$lib/stores/infoStore'
 </script>
 
 {#if $infoToggled}

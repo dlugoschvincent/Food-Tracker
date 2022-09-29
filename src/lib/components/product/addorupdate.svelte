@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { definitions } from 'types/database';
-  import { page } from '$app/stores';
-  import Inputfloat from '../formelements/inputfloat.svelte';
-  let edit = false;
+  import { page } from '$app/stores'
+  import Inputfloat from '$lib/components/formelements/inputfloat.svelte'
+  import type { definitions } from 'types/database'
+  let edit = false
   export let product: definitions['Food'] = {
     bar_code: parseInt($page.params.product),
     name: '',
@@ -13,16 +13,16 @@
     fibre: 0,
     salt: 0,
     sugar: 0
-  };
+  }
   $: kiloJoules = Math.round(
     product.protein * 16.7 + product.carbohydrates * 16.7 + product.fat * 37.7
-  );
+  )
   function toggleEdit() {
-    edit = !edit;
+    edit = !edit
   }
 </script>
 
-<form method="post">
+<form method="post" action="?/add">
   <fieldset class:children:opacity-50={!edit} class="auto-cols-fr grid gap-8" disabled={!edit}>
     <Inputfloat
       disabled
@@ -37,15 +37,15 @@
     </div>
     {#if edit}
       <button
-        class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1"
+        class="rounded-full cursor-pointer bg-orange-500 p-2 col-span-1 place-self-end"
         type="submit">
-        <div class="i-bx:save text-xl" />
+        <div class="text-xl i-bx:save" />
       </button>
     {:else}
       <div
-        class="p-2 rounded-full bg-orange-500 cursor-pointer place-self-end col-span-1 !opacity-100"
+        class="rounded-full cursor-pointer bg-orange-500 p-2 col-span-1 place-self-end !opacity-100"
         on:click={toggleEdit}>
-        <div class="i-akar-icons:edit text-xl" />
+        <div class="text-xl i-akar-icons:edit" />
       </div>
     {/if}
 
@@ -90,7 +90,7 @@
       name="kilojoules" />
   </fieldset>
 </form>
-<form method="post" action="/{$page.params.date}" class="grid gap-4">
+<form method="post" action="?/eat" class="grid gap-4">
   <div class="col-span-6">How much did you eat?</div>
   <input hidden value={$page.params.product} name="bar_code" />
   <input hidden value={$page.params.meal} name="meal" />

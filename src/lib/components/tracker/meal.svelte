@@ -1,12 +1,16 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { page } from '$app/stores'
 
-  import Serving from '$lib/components/tracker/serving.svelte';
+  import Serving from '$lib/components/tracker/serving.svelte'
 
-  import type { definitions } from 'types/database';
+  import type { Database } from 'types/database/database.types'
 
-  export let meal: string;
-  export let servings: (definitions['UserAteFood'] & { Food: definitions['Food'] })[];
+  export let meal: string
+  export let servings:
+    | (Database['public']['Tables']['UserAteFood']['Row'] & {
+        Food: Database['public']['Tables']['Food']['Row']
+      })[]
+    | undefined
 </script>
 
 <div class="rounded-md border-1 border-opacity-50 grid border-orange-500">

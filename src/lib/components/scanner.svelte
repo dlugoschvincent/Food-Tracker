@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Quagga from '@ericblade/quagga2';
-  import { onDestroy, onMount } from 'svelte';
-  import Info from './info/info.svelte';
-  import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
-  let quaggaTarget: HTMLDivElement | undefined;
-  let loading = true;
+  import Quagga from '@ericblade/quagga2'
+  import { onDestroy, onMount } from 'svelte'
+  import Info from './info/info.svelte'
+  import { page } from '$app/stores'
+  import { goto } from '$app/navigation'
+  let quaggaTarget: HTMLDivElement | undefined
+  let loading = true
   onMount(() => {
     Quagga.init(
       {
@@ -23,26 +23,26 @@
       },
       (err) => {
         if (err) {
-          console.error(err);
-          return;
+          console.error(err)
+          return
         }
-        Quagga.start();
-        loading = false;
+        Quagga.start()
+        loading = false
       }
-    );
+    )
 
     Quagga.onDetected((data) => {
       if (data.codeResult.startInfo.error < 0.1 && data.codeResult.code?.charAt(0) === '4') {
-        Quagga.offDetected();
-        Quagga.stop();
-        goto(`/${$page.params.date}/${$page.params.meal}/${data.codeResult.code}`);
+        Quagga.offDetected()
+        Quagga.stop()
+        goto(`/${$page.params.date}/${$page.params.meal}/${data.codeResult.code}`)
       }
-    });
-  });
+    })
+  })
 
   onDestroy(() => {
-    Quagga.stop();
-  });
+    Quagga.stop()
+  })
 </script>
 
 <Info

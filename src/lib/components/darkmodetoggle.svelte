@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { darkmode } from '$lib/stores/darkmodeStore';
+  import { darkmode } from '$lib/stores/darkmodeStore'
   function toggleDarkmode() {
-    darkmode.update((isDark) => !isDark);
+    darkmode.update((isDark) => !isDark)
   }
 </script>
 
