@@ -1,11 +1,13 @@
-import { redirect } from '@sveltejs/kit'
 import type { LayoutServerLoad } from './$types'
+import { getServerSession } from '@supabase/auth-helpers-sveltekit'
+import { redirect } from '@sveltejs/kit'
 
-export const load: LayoutServerLoad = async ({ locals, url }) => {
-  if(!locals.session.user &&  url.pathname != '/auth/signin'){
+export const load: LayoutServerLoad = async (event) => {
+  const session = await getServerSession(event)
+  if (!session && event.url.pathname != '/auth/signin') {
     throw redirect(303, '/auth/signin')
   }
   return {
-    session: locals.session
+    session
   }
 }

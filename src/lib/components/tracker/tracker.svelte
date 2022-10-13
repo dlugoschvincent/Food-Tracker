@@ -2,8 +2,7 @@
   import Datepicker from '$lib/components/tracker/datepicker.svelte'
   import Meal from '$lib/components/tracker/meal.svelte'
   import type { Database } from 'types/database/database.types'
-  import Bar from './bar.svelte'
-    import Barcustom from './barcustom.svelte'
+  import Barcustom from './barcustom.svelte'
   export let servings:
     | (Database['public']['Tables']['UserAteFood']['Row'] & {
         Food: Database['public']['Tables']['Food']['Row']
@@ -33,7 +32,7 @@
 
 <div class="grid gap-4 grid-cols-1">
   <Datepicker />
-  <Barcustom {servings}/>
+  <Barcustom {servings} />
   <Meal servings={breakfastServings} meal="Breakfast" />
   <Meal servings={lunchServings} meal="Lunch" />
   <Meal servings={dinnerServings} meal="Dinner" />

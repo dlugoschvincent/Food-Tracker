@@ -14,26 +14,25 @@
     "update-types": "npx openapi-typescript \"https://bdfuxqqzjbhtavckyave.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkZnV4cXF6amJodGF2Y2t5YXZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTUwNjg2MjYsImV4cCI6MTk3MDY0NDYyNn0.3qyLXGVLvFoeK7AwLg30ZCQHm7tJQskXV8aZi3VnEho\" --output types/database/index.ts"
   },
   "devDependencies": {
-    "@iconify/json": "^2.1.115",
-    "@playwright/test": "^1.26.1",
-    "@sveltejs/adapter-auto": "1.0.0-next.80",
-    "@sveltejs/kit": "1.0.0-next.505",
-    "chart.js": "^3.9.1",
+    "@iconify/json": "^2.1.121",
+    "@playwright/test": "^1.27.1",
+    "@sveltejs/adapter-auto": "1.0.0-next.83",
+    "@sveltejs/kit": "1.0.0-next.515",
     "prettier": "^2.7.1",
-    "prettier-plugin-svelte": "^2.7.1",
-    "svelte": "^3.50.1",
-    "svelte-check": "^2.9.1",
+    "prettier-plugin-svelte": "^2.8.0",
+    "svelte": "^3.51.0",
+    "svelte-check": "^2.9.2",
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
-    "unocss": "^0.45.26",
-    "vite": "3.1.4"
+    "unocss": "^0.45.29",
+    "vite": "3.1.8"
   },
   "type": "module",
   "dependencies": {
-    "@ericblade/quagga2": "^1.7.4",
-    "@supabase/auth-helpers-sveltekit": "^0.7.1",
-    "@supabase/supabase-js": "1.35.7",
-    "@unocss/reset": "^0.45.26"
+    "@ericblade/quagga2": "^1.7.5",
+    "@supabase/auth-helpers-sveltekit": "^0.8.2",
+    "@supabase/supabase-js": "2.0.0",
+    "@unocss/reset": "^0.45.29"
   }
 }
