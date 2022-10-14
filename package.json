@@ -14,10 +14,10 @@
     "update-types": "npx openapi-typescript \"https://bdfuxqqzjbhtavckyave.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkZnV4cXF6amJodGF2Y2t5YXZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTUwNjg2MjYsImV4cCI6MTk3MDY0NDYyNn0.3qyLXGVLvFoeK7AwLg30ZCQHm7tJQskXV8aZi3VnEho\" --output types/database/index.ts"
   },
   "devDependencies": {
-    "@iconify/json": "^2.1.121",
+    "@iconify/json": "^2.1.122",
     "@playwright/test": "^1.27.1",
     "@sveltejs/adapter-auto": "1.0.0-next.83",
-    "@sveltejs/kit": "1.0.0-next.515",
+    "@sveltejs/kit": "1.0.0-next.516",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.8.0",
     "svelte": "^3.51.0",
