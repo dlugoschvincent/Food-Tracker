@@ -3,26 +3,11 @@
   import Meal from '$lib/components/tracker/meal.svelte'
   import type { Database } from 'types/database/database.types'
   import Barcustom from './barcustom.svelte'
-  export let servings:
-    | (Database['public']['Tables']['UserAteFood']['Row'] & {
-        Food: Database['public']['Tables']['Food']['Row']
-      })[]
-    | undefined
-  let breakfastServings:
-    | (Database['public']['Tables']['UserAteFood']['Row'] & {
-        Food: Database['public']['Tables']['Food']['Row']
-      })[]
-    | undefined
-  let lunchServings:
-    | (Database['public']['Tables']['UserAteFood']['Row'] & {
-        Food: Database['public']['Tables']['Food']['Row']
-      })[]
-    | undefined
-  let dinnerServings:
-    | (Database['public']['Tables']['UserAteFood']['Row'] & {
-        Food: Database['public']['Tables']['Food']['Row']
-      })[]
-    | undefined
+  export let servings: Database['public']['Tables']['UserAteFood']['Row'][]
+  let breakfastServings: typeof servings
+  let lunchServings
+  let dinnerServings
+
   $: if (servings != undefined) {
     breakfastServings = servings.filter(({ meal }) => meal === 'Breakfast')
     lunchServings = servings.filter(({ meal }) => meal === 'Lunch')
@@ -33,7 +18,13 @@
 <div class="grid gap-4 grid-cols-1">
   <Datepicker />
   <Barcustom {servings} />
-  <Meal servings={breakfastServings} meal="Breakfast" />
-  <Meal servings={lunchServings} meal="Lunch" />
-  <Meal servings={dinnerServings} meal="Dinner" />
+  <Meal
+    servings={breakfastServings}
+    meal="Breakfast" />
+  <Meal
+    servings={lunchServings}
+    meal="Lunch" />
+  <Meal
+    servings={dinnerServings}
+    meal="Dinner" />
 </div>

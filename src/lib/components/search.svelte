@@ -9,7 +9,8 @@
       type="text"
       placeholder="Search"
       bind:value={searchQuery} />
-    <button type="submit" class="rounded-md bg-orange-300 border-2 border-orange-200 p-2"
-      >Search</button>
+    <button
+      type="submit"
+      class="rounded-md bg-orange-300 border-2 border-orange-200 p-2">Search</button>
   </form>
 </div>

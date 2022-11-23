@@ -1,9 +1,8 @@
 <script lang="ts">
   import { page } from '$app/stores'
   import Inputfloat from '$lib/components/formelements/inputfloat.svelte'
-  import type { definitions } from 'types/database'
   let edit = false
-  export let product: definitions['Food'] = {
+  export let product = {
     bar_code: parseInt($page.params.product),
     name: '',
     fat: 0,
@@ -22,8 +21,13 @@
   }
 </script>
 
-<form method="post" action="?/add">
-  <fieldset class:children:opacity-50={!edit} class="auto-cols-fr grid gap-8" disabled={!edit}>
+<form
+  method="post"
+  action="?/add">
+  <fieldset
+    class:children:opacity-50={!edit}
+    class="auto-cols-fr grid gap-8"
+    disabled={!edit}>
     <Inputfloat
       disabled
       hidden
@@ -33,7 +37,12 @@
       required
       name="bar_code" />
     <div class="col-span-1">
-      <Inputfloat placeholder="Name" bind:value={product.name} type="text" required name="name" />
+      <Inputfloat
+        placeholder="Name"
+        bind:value={product.name}
+        type="text"
+        required
+        name="name" />
     </div>
     {#if edit}
       <button
@@ -90,12 +99,27 @@
       name="kilojoules" />
   </fieldset>
 </form>
-<form method="post" action="?/eat" class="grid gap-4">
+<form
+  method="post"
+  action="?/eat"
+  class="grid gap-4">
   <div class="col-span-6">How much did you eat?</div>
-  <input hidden value={$page.params.product} name="bar_code" />
-  <input hidden value={$page.params.meal} name="meal" />
+  <input
+    hidden
+    value={$page.params.product}
+    name="bar_code" />
+  <input
+    hidden
+    value={$page.params.meal}
+    name="meal" />
   <div class="col-span-5">
-    <Inputfloat step="0.1" type="number" name="grams" placeholder="Grams" />
+    <Inputfloat
+      step="0.1"
+      type="number"
+      name="grams"
+      placeholder="Grams" />
   </div>
-  <button type="submit" class="rounded-md border-2 border-orange-500 p-2 col-span-1">Eat</button>
+  <button
+    type="submit"
+    class="rounded-md border-2 border-orange-500 p-2 col-span-1">Eat</button>
 </form>

@@ -9,7 +9,10 @@
   method="post"
   action="?/delete"
   class="grid justify-self-end">
-  <input hidden value={id} name="servingId" />
+  <input
+    hidden
+    value={id}
+    name="servingId" />
   <button
     type="submit"
     aria-label="Delete {name}"

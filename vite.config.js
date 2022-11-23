@@ -5,6 +5,7 @@ import transformerDirective from '@unocss/transformer-directives'
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 import { presetUno } from 'unocss'
 import Unocss from 'unocss/vite'
+import { SvelteKitPWA } from '@vite-pwa/sveltekit'
 /** @type {import('vite').UserConfig} */
 const config = {
   plugins: [
@@ -20,7 +21,8 @@ const config = {
         }
       ],
       transformers: [transformerDirective(), transformerVariantGroup()]
-    })
+    }),
+    SvelteKitPWA()
   ]
 }
 

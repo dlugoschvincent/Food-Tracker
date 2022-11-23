@@ -19,6 +19,9 @@
     class="border-t-1 grid grid-flow-col p-2 border-orange-500 border-opacity-50">
     <div class="my-auto">{serving?.Food.name}</div>
     <div class="my-auto justify-self-end">{serving?.grams}g</div>
-    <Delete id={serving?.meal_id} name={serving?.Food.name} bind:deleted />
+    <Delete
+      id={serving?.meal_id}
+      name={serving?.Food.name}
+      bind:deleted />
   </div>
 {/if}

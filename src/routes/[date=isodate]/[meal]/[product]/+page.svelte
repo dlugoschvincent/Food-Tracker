@@ -7,8 +7,8 @@
 <svelte:head>
   <title>Edit or eat</title>
 </svelte:head>
-{#if data.product }
+{#if data.product}
   <Addorupdate product={data.product[0]} />
 {:else}
-  <Addorupdate/>
+  <Addorupdate />
 {/if}

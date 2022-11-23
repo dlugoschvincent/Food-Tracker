@@ -4,21 +4,21 @@
   import '@unocss/reset/tailwind.css'
   import 'uno.css'
 
-  import { supabaseClient } from '$lib/db';
-	import { invalidate } from '$app/navigation';
-	import { onMount } from 'svelte';
+  import { supabaseClient } from '$lib/db'
+  import { invalidate } from '$app/navigation'
+  import { onMount } from 'svelte'
 
-	onMount(() => {
-		const {
-			data: { subscription }
-		} = supabaseClient.auth.onAuthStateChange(() => {
-			invalidate('supabase:auth');
-		});
+  onMount(() => {
+    const {
+      data: { subscription }
+    } = supabaseClient.auth.onAuthStateChange(() => {
+      invalidate('supabase:auth')
+    })
 
-		return () => {
-			subscription.unsubscribe();
-		};
-	});
+    return () => {
+      subscription.unsubscribe()
+    }
+  })
 </script>
 
 <div class:dark={$darkmode}>

@@ -1,4 +1,6 @@
 import { getSupabase } from '@supabase/auth-helpers-sveltekit'
+import { invalid, redirect } from '@sveltejs/kit'
+import type { Database } from 'types/database/database.types'
 import type { Actions, PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async (event) => {
@@ -15,7 +17,7 @@ export const actions: Actions = {
     const { supabaseClient } = await getSupabase(event)
     const formData = await event.request.formData()
     await supabaseClient.from('Food').upsert({
-      bar_code: event.params.product,
+      bar_code: parseInt(event.params.product),
       name: formData.get('name') as string,
       fat: parseInt(formData.get('fat') as string),
       protein: parseInt(formData.get('protein') as string),
@@ -26,11 +28,14 @@ export const actions: Actions = {
     const { session, supabaseClient } = await getSupabase(event)
     const date = new Date(event.params.date)
     const formData = await event.request.formData()
+    if (!session?.user.id) {
+      return invalid(401)
+    }
     await supabaseClient.from('UserAteFood').insert({
       food_id: parseInt(formData.get('bar_code') as string),
       meal: formData.get('meal') as string,
       grams: parseInt(formData.get('grams') as string),
-      user_id: session?.user?.id,
+      user_id: session?.user.id,
       created_at: date.toISOString()
     })
   }

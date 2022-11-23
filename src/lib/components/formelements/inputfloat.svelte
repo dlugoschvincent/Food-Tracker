@@ -14,7 +14,9 @@
   }
 </script>
 
-<div class:hidden class="relative z-0 w-full">
+<div
+  class:hidden
+  class="relative z-0 w-full">
   <input
     use:typeAction
     {min}

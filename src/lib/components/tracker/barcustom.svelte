@@ -32,7 +32,9 @@
 </script>
 
 {#if protein + fat + carbohydrates > 0 && !$navigating}
-  <div transition:slide={{ duration: 200 }} class="flex flex-col gap-4">
+  <div
+    transition:slide={{ duration: 200 }}
+    class="flex flex-col gap-4">
     <div class="w-full h-6 rounded-md flex overflow-hidden animate-slideInLeft">
       <div
         style="flex-basis:{Math.round((fat / (fat + protein + carbohydrates)) * 100)}%"
