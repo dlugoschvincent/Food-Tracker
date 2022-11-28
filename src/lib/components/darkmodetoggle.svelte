@@ -1,12 +1,10 @@
 <script lang="ts">
-  import { darkmode } from '$lib/stores/darkmodeStore'
   function toggleDarkmode() {
-    darkmode.update((isDark) => !isDark)
+    window.document.body.classList.toggle('dark')
   }
 </script>
 
 <div
-  class:i-material-symbols:light-mode-outline={$darkmode}
-  class:i-material-symbols:dark-mode-outline={!$darkmode}
-  class="text-2xl place-self-center cursor-pointer"
-  on:click={toggleDarkmode} />
+  class="text-2xl place-self-center cursor-pointer dark:i-material-symbols:light-mode-outline i-material-symbols:dark-mode-outline"
+  on:click={toggleDarkmode}
+  on:keydown={toggleDarkmode} />

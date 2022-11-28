@@ -6,7 +6,13 @@ const config = {
   preprocess: preprocess(),
   kit: {
     adapter: adapter()
-  }
+  },
+
+  vitePlugin: {
+    experimental: {
+      inspector: true,
+    },
+  },
 }
 
 export default config

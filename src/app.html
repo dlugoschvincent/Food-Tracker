@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link
-      href="%sveltekit.assets%/favicon-32x32.png"
-      rel="icon" />
-    <link
-      href="%sveltekit.assets%/manifest.json"
-      rel="manifest"
-      crossorigin="use-credentials" />
-    <link
-      href="%sveltekit.assets%/apple-touch-icon.png"
-      rel="apple-touch-icon" />
 
-    <meta
-      name="viewport"
-      content="width=device-width" />
-    <meta
-      name="theme-color"
-      content="#F97316" />
+<head>
+  <meta charset="utf-8" />
+  <link href="%sveltekit.assets%/favicon-32x32.png" rel="icon" />
+  <link href="%sveltekit.assets%/manifest.json" rel="manifest" crossorigin="use-credentials" />
+  <link href="%sveltekit.assets%/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link rel="stylesheet" href="%sveltekit.assets%/tw-reset.css">
+  <meta name="viewport" content="width=device-width" />
+  <meta name="theme-color" content="#F97316" />
+  %sveltekit.head%
+</head>
 
-    %sveltekit.head%
-  </head>
-  <body>
-    <div>%sveltekit.body%</div>
-  </body>
+<body data-sveltekit-prefetch>
+  <div>%sveltekit.body%</div>
+</body>
+
 </html>
