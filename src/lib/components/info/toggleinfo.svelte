@@ -6,6 +6,6 @@
 </script>
 
 <div
-	class="cursor-pointer opacity-50 text-2xl text-green-500 i-akar-icons:info place-self-center"
+	class="i-akar-icons:info cursor-pointer place-self-center text-2xl text-green-500 opacity-50"
 	on:click={toggleInfo}
 	on:keypress={toggleInfo} />

@@ -35,34 +35,34 @@
 	<div
 		transition:slide={{ duration: 200 }}
 		class="flex flex-col gap-4">
-		<div class="w-full h-6 rounded-md flex overflow-hidden animate-slideInLeft">
+		<div class="animate-slideInLeft flex h-6 w-full overflow-hidden rounded-md">
 			<div
 				style="flex-basis:{Math.round((fat / (fat + protein + carbohydrates)) * 100)}%"
 				class="basis-{Math.round(
 					(fat / (fat + protein + carbohydrates)) * 100
-				)}% bg-yellow-500 h-6" />
+				)}% h-6 bg-yellow-500" />
 			<div
 				style="flex-basis:{Math.round((protein / (fat + protein + carbohydrates)) * 100)}%"
 				class="basis-{Math.round(
 					(protein / (fat + protein + carbohydrates)) * 100
-				)}% bg-red-500 h-full" />
+				)}% h-full bg-red-500" />
 			<div
 				style="flex-basis:{Math.round((carbohydrates / (fat + protein + carbohydrates)) * 100)}%"
 				class="basis-{Math.round(
 					(carbohydrates / (fat + protein + carbohydrates)) * 100
-				)}% bg-blue-500 h-full" />
+				)}% h-full bg-blue-500" />
 		</div>
-		<div class="flex w-full justify-between sm:justify-start gap-4">
+		<div class="flex w-full justify-between gap-4 sm:justify-start">
 			<div class="flex gap-2">
-				<div class="bg-yellow-500 w-2 h-2 my-auto" />
+				<div class="my-auto h-2 w-2 bg-yellow-500" />
 				<div>{fat}g Fat</div>
 			</div>
 			<div class="flex gap-2">
-				<div class="bg-red-500 w-2 h-2 my-auto" />
+				<div class="my-auto h-2 w-2 bg-red-500" />
 				<div>{protein}g Protein</div>
 			</div>
 			<div class="flex gap-2">
-				<div class="bg-blue-500 w-2 h-2 my-auto" />
+				<div class="my-auto h-2 w-2 bg-blue-500" />
 				<div>{carbohydrates}g Carbs</div>
 			</div>
 		</div>

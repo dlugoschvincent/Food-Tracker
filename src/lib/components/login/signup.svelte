@@ -1,6 +1,6 @@
 <form
 	method="post"
-	class="grid gap-4 col-span-2">
+	class="col-span-2 grid gap-4">
 	<div class="col-span-2">
 		<input
 			name="email"
@@ -16,7 +16,7 @@
 			placeholder="Password" />
 	</div>
 	<button
-		class="rounded-md bg-orange-300 p-2 col-span-2 dark:bg-orange-500"
+		class="col-span-2 rounded-md bg-orange-300 p-2 dark:bg-orange-500"
 		type="submit">
 		Sign Up
 	</button>

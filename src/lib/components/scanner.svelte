@@ -51,8 +51,8 @@
 
 {#if loading}
 	<div
-		class="animate-spin text-8xl text-orange-300 col-start-1 row-start-2 i-quill:loading-spin place-self-center dark:text-orange-500" />
+		class="i-quill:loading-spin col-start-1 row-start-2 animate-spin place-self-center text-8xl text-orange-300 dark:text-orange-500" />
 {/if}
 <div
-	class="max-w-full z-10 col-start-1 row-start-2 place-self-center overflow-hidden sm:max-w-120 children:rounded-md"
+	class="sm:max-w-120 children:rounded-md z-10 col-start-1 row-start-2 max-w-full place-self-center overflow-hidden"
 	bind:this={quaggaTarget} />

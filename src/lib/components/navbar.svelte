@@ -5,8 +5,8 @@
 </script>
 
 <nav>
-	<div class="container mx-auto min-h-[72px] grid grid-flow-col p-4">
-		<div class="text-xl auto-cols-min grid grid-flow-col gap-4 place-items-center">
+	<div class="container mx-auto grid min-h-[72px] grid-flow-col p-4">
+		<div class="grid auto-cols-min grid-flow-col place-items-center gap-4 text-xl">
 			{#if true}
 				<a href="/{new Date().toISOString().slice(0, 10)}">Today</a>
 			{/if}

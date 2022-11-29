@@ -1,6 +1,5 @@
 import { getSupabase } from '@supabase/auth-helpers-sveltekit'
-import { invalid, redirect } from '@sveltejs/kit'
-import type { Database } from 'types/database/database.types'
+import { invalid } from '@sveltejs/kit'
 import type { Actions, PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async (event) => {

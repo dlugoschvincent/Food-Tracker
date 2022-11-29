@@ -13,15 +13,15 @@
 		| undefined
 </script>
 
-<div class="rounded-md border-1 border-opacity-50 grid border-orange-500">
+<div class="border-1 grid rounded-md border-orange-500 border-opacity-50">
 	<div>
 		<div class="grid grid-flow-col p-2">
 			<h2 class="my-auto">{meal}:</h2>
 			<a
 				href="{$page.url.pathname}/{meal}/scan"
-				class="rounded-full my-auto grid place-items-center place-self-end"
+				class="my-auto grid place-items-center place-self-end rounded-full"
 				aria-label="Add {meal}">
-				<icon class="text-3xl i-akar-icons:plus color-orange-500" />
+				<icon class="i-akar-icons:plus color-orange-500 text-3xl" />
 			</a>
 		</div>
 	</div>

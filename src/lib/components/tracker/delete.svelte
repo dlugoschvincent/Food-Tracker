@@ -16,5 +16,5 @@
 	<button
 		type="submit"
 		aria-label="Delete {name}"
-		class="i-akar-icons:cross text-3xl color-red-500" />
+		class="i-akar-icons:cross color-red-500 text-3xl" />
 </form>

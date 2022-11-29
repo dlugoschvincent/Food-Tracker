@@ -25,7 +25,7 @@
 	action="?/add">
 	<fieldset
 		class:children:opacity-50={!edit}
-		class="auto-cols-fr grid gap-8"
+		class="grid auto-cols-fr gap-8"
 		disabled={!edit}>
 		<input
 			disabled
@@ -45,16 +45,16 @@
 		</div>
 		{#if edit}
 			<button
-				class="rounded-full cursor-pointer bg-orange-500 p-2 col-span-1 place-self-end"
+				class="col-span-1 cursor-pointer place-self-end rounded-full bg-orange-500 p-2"
 				type="submit">
-				<div class="text-xl i-bx:save" />
+				<div class="i-bx:save text-xl" />
 			</button>
 		{:else}
 			<div
-				class="rounded-full cursor-pointer bg-orange-500 p-2 col-span-1 place-self-end !opacity-100"
+				class="col-span-1 cursor-pointer place-self-end rounded-full bg-orange-500 p-2 !opacity-100"
 				on:click={toggleEdit}
 				on:keypress={toggleEdit}>
-				<div class="text-xl i-akar-icons:edit" />
+				<div class="i-akar-icons:edit text-xl" />
 			</div>
 		{/if}
 
@@ -121,5 +121,5 @@
 	</div>
 	<button
 		type="submit"
-		class="rounded-md border-2 border-orange-500 p-2 col-span-1">Eat</button>
+		class="col-span-1 rounded-md border-2 border-orange-500 p-2">Eat</button>
 </form>

@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div class="grid gap-4 grid-cols-1">
+<div class="grid grid-cols-1 gap-4">
 	<Datepicker />
 	<Barcustom {servings} />
 	<Meal
