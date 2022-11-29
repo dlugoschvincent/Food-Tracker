@@ -24,9 +24,3 @@
 		<slot />
 	</main>
 </div>
-
-<style>
-	:global(body) {
-		--at-apply: 'dark:bg-zinc-900';
-	}
-</style>

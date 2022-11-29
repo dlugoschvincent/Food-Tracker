@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-	import Inputfloat from '$lib/components/formelements/inputfloat.svelte'
 	let edit = false
 	export let product = {
 		bar_code: parseInt($page.params.product),
@@ -28,7 +27,7 @@
 		class:children:opacity-50={!edit}
 		class="auto-cols-fr grid gap-8"
 		disabled={!edit}>
-		<Inputfloat
+		<input
 			disabled
 			hidden
 			placeholder="Barcode"
@@ -37,7 +36,7 @@
 			required
 			name="bar_code" />
 		<div class="col-span-1">
-			<Inputfloat
+			<input
 				placeholder="Name"
 				bind:value={product.name}
 				type="text"
@@ -61,7 +60,7 @@
 
 		<div class="col-span-2">Nutrients per 100 gram:</div>
 
-		<Inputfloat
+		<input
 			placeholder="Fat"
 			bind:value={product.fat}
 			type="number"
@@ -70,7 +69,7 @@
 			max={100 - product.protein - product.carbohydrates}
 			step="0.1"
 			name="fat" />
-		<Inputfloat
+		<input
 			placeholder="Protein"
 			bind:value={product.protein}
 			type="number"
@@ -79,7 +78,7 @@
 			max={100 - product.fat - product.carbohydrates}
 			step="0.1"
 			name="protein" />
-		<Inputfloat
+		<input
 			placeholder="Carbohydrates"
 			bind:value={product.carbohydrates}
 			type="number"
@@ -88,7 +87,7 @@
 			max={100 - product.fat - product.protein}
 			step="0.1"
 			name="carbohydrates" />
-		<Inputfloat
+		<input
 			disabled
 			placeholder="Kilojoules"
 			bind:value={kiloJoules}
@@ -114,7 +113,7 @@
 		value={$page.params.meal}
 		name="meal" />
 	<div class="col-span-5">
-		<Inputfloat
+		<input
 			step="0.1"
 			type="number"
 			name="grams"

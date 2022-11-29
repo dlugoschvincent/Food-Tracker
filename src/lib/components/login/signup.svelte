@@ -1,19 +1,15 @@
-<script lang="ts">
-	import Inputfloat from '$lib/components/formelements/inputfloat.svelte'
-</script>
-
 <form
 	method="post"
 	class="grid gap-4 col-span-2">
 	<div class="col-span-2">
-		<Inputfloat
+		<input
 			name="email"
 			type="email"
 			required
 			placeholder="E-Mail" />
 	</div>
 	<div class="col-span-2">
-		<Inputfloat
+		<input
 			name="password"
 			type="password"
 			required

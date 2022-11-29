@@ -8,7 +8,6 @@ specifiers:
   '@supabase/supabase-js': ^2.1.1
   '@sveltejs/adapter-auto': 1.0.0-next.90
   '@sveltejs/kit': 1.0.0-next.567
-  '@unocss/reset': ^0.47.1
   prettier: ^2.8.0
   prettier-plugin-svelte: ^2.8.1
   svelte: ^3.53.1
@@ -23,7 +22,6 @@ dependencies:
   '@ericblade/quagga2': 1.7.7
   '@supabase/auth-helpers-sveltekit': 0.8.6_m57u6a6l34vkx3j4pjzwywi7ua
   '@supabase/supabase-js': 2.1.1
-  '@unocss/reset': 0.47.1
 
 devDependencies:
   '@iconify/json': 2.1.145
@@ -467,6 +465,7 @@ packages:
 
   /@unocss/reset/0.47.1:
     resolution: {integrity: sha512-FIvtapdIZZ9cTOghj0o+FCk/OrTANEilp+NY5mqV09/HgxFZuk5cDAscxVAInJ4f4cb92RXNym5EnnqNhBSgvA==}
+    dev: true
 
   /@unocss/scope/0.47.1:
     resolution: {integrity: sha512-uqkvkoppzFSDixZFjplT+G1e5jMCqeJUjKb+7ds/ai25QLHYyK2l+KYltzSh+RKgv9QJjPmd9+fKWAKEQQwtGQ==}
