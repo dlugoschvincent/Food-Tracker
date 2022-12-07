@@ -12,7 +12,8 @@
 		"prettier-plugin-package",
 		"prettier-plugin-tailwindcss"
 	],
-	"pluginSearchDirs": ["."],
+	"organizeImportsSkipDestructiveCodeActions": true,
+	"pluginSearchDirs": false,
 	"overrides": [
 		{
 			"files": "*.svelte",
