@@ -20,16 +20,3 @@ or
 ```bash
 npm run dev
 ```
-
-## Demo
-
-I host a demo Version of this application on netlify. User Sign-Up is currently disabled but i provide throwaway login credentials.
-The demo can be found here. It runs the same source code that you can find in this repository.
-
-https://legendary-elf-8ebbde.netlify.app/
-
-E-Mail: webdevhtw@guerrillamail.com
-
-Password: webdevhtw
-
-You can login with these credentials and do wahtever you want to try out the application.
