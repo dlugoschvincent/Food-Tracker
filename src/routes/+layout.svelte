@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { browser } from '$app/environment'
+	import { invalidate } from '$app/navigation'
 	import Navbar from '$lib/components/navbar.svelte'
 	import { supabaseClient } from '$lib/db'
-	import { invalidate } from '$app/navigation'
 	import { onMount } from 'svelte'
-	// import 'uno.css'
 
 	onMount(() => {
 		const {
@@ -16,6 +16,12 @@
 			subscription.unsubscribe()
 		}
 	})
+
+	if (browser) {
+		if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			window.document.body.classList.toggle('dark')
+		}
+	}
 </script>
 
 <div class="min-h-screen dark:bg-zinc-900 dark:text-white">
