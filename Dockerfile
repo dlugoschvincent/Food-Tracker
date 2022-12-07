@@ -1,21 +1,25 @@
-FROM node:lts as builder
+FROM node:lts AS build
 
 WORKDIR /app
 
+COPY package.json package-lock.json .
+
+RUN npm ci
+
 COPY . .
 
-RUN npm install
-
 RUN npm run build
+
+RUN npm prune --omit=dev
 
 FROM node:lts  
 
 WORKDIR /app 
 
-COPY --from=builder /app/build .
+COPY --from=build /app/build ./build
 
-COPY --from=builder /app/package.json .
+COPY --from=build /app/node_modules ./node_modules
 
-RUN npm install --omit-dev
+COPY --from=build /app/package.json .
 
-CMD ["node", "index.js"]
+CMD ["node", "build"]
