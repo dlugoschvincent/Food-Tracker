@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { enhance } from '$app/forms'
 	export let id: BigInt | undefined
 	export let name: string | undefined
 	export let deleted = false
 </script>
 
 <form
+  use:enhance
 	on:submit={() => (deleted = true)}
 	method="post"
 	action="?/delete"
