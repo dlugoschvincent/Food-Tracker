@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let id: number | undefined
+	export let id: BigInt | undefined
 	export let name: string | undefined
 	export let deleted = false
 </script>

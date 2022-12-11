@@ -2,15 +2,10 @@
 	import { page } from '$app/stores'
 
 	import Serving from '$lib/components/tracker/serving.svelte'
-
-	import type { Database } from 'types/database/database.types'
+	import type { Food, Meal } from '@prisma/client'
 
 	export let meal: string
-	export let servings:
-		| (Database['public']['Tables']['UserAteFood']['Row'] & {
-				Food: Database['public']['Tables']['Food']['Row']
-		  })[]
-		| undefined
+	export let servings: (Meal & { food: Food })[]
 </script>
 
 <div class="border-1 grid rounded-md border-orange-500 border-opacity-50">

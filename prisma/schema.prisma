@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+
 }
 
 datasource db {
@@ -7,10 +8,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
-  id          String  @id @db.Uuid
-  email       String? @unique
-  UserAteFood Meal[]
+model User {
+  id    String  @id @db.Uuid
+  email String? @unique
+  meals Meal[]
 }
 
 model Food {
@@ -24,16 +25,16 @@ model Food {
   saturatedFat  Float     @default(0)
   salt          Float     @default(0)
   sugar         Float     @default(0)
-  UserAteFood   Meal[]
+  meals         Meal[]
 }
 
 model Meal {
+  mealId    BigInt    @id @default(autoincrement())
   userId    String    @db.Uuid
   barCode   BigInt
   createdAt DateTime? @default(now())
-  mealId    BigInt    @id @default(autoincrement())
   grams     Int       @db.SmallInt
-  meal      String    @db.VarChar
-  Food      Food      @relation(fields: [barCode], references: [barCode])
-  users     users     @relation(fields: [userId], references: [id])
+  type      String    @db.VarChar
+  food      Food      @relation(fields: [barCode], references: [barCode])
+  user      User      @relation(fields: [userId], references: [id])
 }

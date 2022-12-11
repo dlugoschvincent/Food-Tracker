@@ -10,7 +10,7 @@
 				<div class="i-material-symbols:alternate-email h-5 w-5 text-zinc-500 dark:text-zinc-400" />
 			</div>
 			<input
-				class="input-text"
+				class="input-text pl-10"
 				name="email"
 				type="email"
 				id="email"
@@ -27,7 +27,7 @@
 				<div class="i-material-symbols:key h-5 w-5 text-zinc-500 dark:text-zinc-400" />
 			</div>
 			<input
-				class="input-text"
+				class="input-text pl-10"
 				name="password"
 				type="password"
 				id="password"

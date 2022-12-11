@@ -1,30 +1,31 @@
 <script lang="ts">
 	import Datepicker from '$lib/components/tracker/datepicker.svelte'
-	import Meal from '$lib/components/tracker/meal.svelte'
-	import type { Database } from 'types/database/database.types'
+	import MealComponent from '$lib/components/tracker/meal.svelte'
+	import type { Food, Meal } from '@prisma/client'
 	import Barcustom from './barcustom.svelte'
-	export let servings: Database['public']['Tables']['UserAteFood']['Row'][]
+	export let servings: (Meal & { food: Food })[]
+
 	let breakfastServings: typeof servings
-	let lunchServings
-	let dinnerServings
+	let lunchServings: typeof servings
+	let dinnerServings: typeof servings
 
 	$: if (servings != undefined) {
-		breakfastServings = servings.filter(({ meal }) => meal === 'Breakfast')
-		lunchServings = servings.filter(({ meal }) => meal === 'Lunch')
-		dinnerServings = servings.filter(({ meal }) => meal === 'Dinner')
+		breakfastServings = servings.filter(({ type }) => type === 'Breakfast')
+		lunchServings = servings.filter(({ type }) => type === 'Lunch')
+		dinnerServings = servings.filter(({ type }) => type === 'Dinner')
 	}
 </script>
 
 <div class="grid grid-cols-1 gap-4">
 	<Datepicker />
 	<Barcustom {servings} />
-	<Meal
+	<MealComponent
 		servings={breakfastServings}
 		meal="Breakfast" />
-	<Meal
+	<MealComponent
 		servings={lunchServings}
 		meal="Lunch" />
-	<Meal
+	<MealComponent
 		servings={dinnerServings}
 		meal="Dinner" />
 </div>

@@ -1,13 +1,8 @@
 <script lang="ts">
-	import type { Database } from 'types/database/database.types'
-
-	import { slide } from 'svelte/transition'
 	import { navigating } from '$app/stores'
-	export let servings:
-		| (Database['public']['Tables']['UserAteFood']['Row'] & {
-				Food: Database['public']['Tables']['Food']['Row']
-		  })[]
-		| undefined
+	import type { Food, Meal } from '@prisma/client'
+	import { slide } from 'svelte/transition'
+	export let servings: (Meal & { food: Food })[]
 
 	let protein = 0
 	let fat = 0
@@ -16,15 +11,15 @@
 		if (servings != undefined) {
 			protein =
 				Math.round(
-					servings.map((x) => (x.grams / 100) * x.Food.protein).reduce((x, y) => x + y, 0) * 10
+					servings.map((x) => (x.grams / 100) * x.food.protein).reduce((x, y) => x + y, 0) * 10
 				) / 10
 			fat =
 				Math.round(
-					servings.map((x) => (x.grams / 100) * x.Food.fat).reduce((x, y) => x + y, 0) * 10
+					servings.map((x) => (x.grams / 100) * x.food.fat).reduce((x, y) => x + y, 0) * 10
 				) / 10
 			carbohydrates =
 				Math.round(
-					servings.map((x) => (x.grams / 100) * x.Food.carbohydrates).reduce((x, y) => x + y, 0) *
+					servings.map((x) => (x.grams / 100) * x.food.carbohydrates).reduce((x, y) => x + y, 0) *
 						10
 				) / 10
 		}

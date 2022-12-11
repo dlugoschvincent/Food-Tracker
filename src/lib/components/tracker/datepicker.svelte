@@ -11,7 +11,7 @@
 <div class="grid grid-flow-col justify-between rounded-md border-2 border-transparent p-2">
 	<a
 		data-sveltekit-preload-data="hover"
-		href="/{prevDate.toISOString().slice(0, 10)}"
+		href="/tracker/{prevDate.toISOString().slice(0, 10)}"
 		class:disable-anchor={$navigating}
 		class="grid place-items-center rounded-full"
 		aria-label="Previous date">
@@ -27,7 +27,7 @@
 	{/if}
 	<a
 		data-sveltekit-preload-data="hover"
-		href="/{nextDate.toISOString().slice(0, 10)}"
+		href="/tracker/{nextDate.toISOString().slice(0, 10)}"
 		class:disable-anchor={$navigating || dateIsInFuture}
 		class="grid place-items-center rounded-full"
 		aria-label="Next date">

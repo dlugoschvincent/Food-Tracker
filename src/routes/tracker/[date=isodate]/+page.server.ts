@@ -1,7 +1,7 @@
 import prisma from '$lib/db'
 import type { Actions, PageServerLoad } from './$types'
 
-export const load: PageServerLoad = async (event) => {
+export const load = (async (event) => {
 	const date = new Date(event.params.date)
 	const servings = await prisma.meal.findMany({
 		where: {
@@ -11,11 +11,13 @@ export const load: PageServerLoad = async (event) => {
 			}
 		},
 		include: {
-			Food: true
+			food: true
 		}
 	})
+	console.log(servings)
 	return { servings }
-}
+}) satisfies PageServerLoad
+
 export const actions: Actions = {
 	async delete(event) {
 		const formData = await event.request.formData()

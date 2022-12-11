@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { goto } from '$app/navigation'
+	import { page } from '$app/stores'
 	import Quagga from '@ericblade/quagga2'
 	import { onDestroy, onMount } from 'svelte'
 	import Info from './info/info.svelte'
-	import { page } from '$app/stores'
-	import { goto } from '$app/navigation'
 	let quaggaTarget: HTMLDivElement | undefined
 	let loading = true
 	onMount(() => {
@@ -35,7 +35,7 @@
 			if (data.codeResult.startInfo.error < 0.1 && data.codeResult.code?.charAt(0) === '4') {
 				Quagga.offDetected()
 				Quagga.stop()
-				goto(`/${$page.params.date}/${$page.params.meal}/${data.codeResult.code}`)
+				goto(`/tracker/${$page.params.date}/${$page.params.meal}/${data.codeResult.code}`)
 			}
 		})
 	})

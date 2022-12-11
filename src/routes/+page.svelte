@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte'
 	onMount(() => {
 		if (true) {
-			goto(`/${new Date().toISOString().slice(0, 10)}`)
+			goto(`/tracker/${new Date().toISOString().slice(0, 10)}`)
 		}
 	})
 </script>
