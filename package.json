@@ -1,5 +1,5 @@
 {
-	"name": "Food tracker",
+	"name": "food-tracker",
 	"version": "0.1.0",
 	"type": "module",
 	"scripts": {
@@ -14,6 +14,7 @@
 	},
 	"dependencies": {
 		"@ericblade/quagga2": "^1.7.7",
+		"@prisma/client": "^4.7.1",
 		"@supabase/auth-helpers-sveltekit": "^0.8.6",
 		"@supabase/supabase-js": "^2.1.3"
 	},
@@ -27,6 +28,7 @@
 		"prettier-plugin-package": "^1.3.0",
 		"prettier-plugin-svelte": "^2.9.0",
 		"prettier-plugin-tailwindcss": "^0.2.1",
+		"prisma": "^4.7.1",
 		"svelte": "^3.54.0",
 		"svelte-check": "^2.10.2",
 		"svelte-preprocess": "^5.0.0",
