@@ -1,21 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
-	import { invalidate } from '$app/navigation'
 	import Navbar from '$lib/components/navbar.svelte'
-	import { supabaseClient } from '$lib/db'
-	import { onMount } from 'svelte'
-
-	onMount(() => {
-		const {
-			data: { subscription }
-		} = supabaseClient.auth.onAuthStateChange(() => {
-			invalidate('supabase:auth')
-		})
-
-		return () => {
-			subscription.unsubscribe()
-		}
-	})
 
 	if (browser) {
 		if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
