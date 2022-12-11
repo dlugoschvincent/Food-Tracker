@@ -1,0 +1,19 @@
+services:
+  food-tracker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.food-tracker.loadbalancer.server.port=3000
+      - traefik.http.routers.food-tracker.rule=Host("tracker.dlugoschvincent.de")
+      - traefik.http.routers.food-tracker.entrypoints=websecure
+      - traefik.http.middlewares.food-tracker-compress.compress=true
+      - traefik.docker.network=traefik
+    networks:
+        - traefik
+
+networks:
+  traefik:
+    external: true
+    name: traefik
