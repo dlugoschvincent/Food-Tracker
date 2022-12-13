@@ -6,7 +6,7 @@
 </script>
 
 <form
-  use:enhance
+	use:enhance
 	on:submit={() => (deleted = true)}
 	method="post"
 	action="?/delete"

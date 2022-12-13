@@ -2,7 +2,6 @@ import prisma from '$lib/db'
 import { redirect } from '@sveltejs/kit'
 import type { Actions, PageServerLoad } from './$types'
 
-
 export const load = (async ({ params }) => {
 	const product = await prisma.food.findFirst({
 		where: { barCode: parseInt(params.barcode) }

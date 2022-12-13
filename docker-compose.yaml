@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args: 
+      args:
         DATABASE_URL: ${DATABASE_URL}
     labels:
       - traefik.enable=true
@@ -54,7 +54,7 @@ services:
   #     - traefik.enable=true
   #     - traefik.http.routers.pgadmin.rule=Host("pgadmin.localhost")
   #     - traefik.docker.network=traefik
-      
+
 volumes:
   foodtrackerdb:
   pgadmin:
