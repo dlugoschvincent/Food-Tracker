@@ -12,9 +12,9 @@ services:
       - traefik.enable=true
       - traefik.http.services.food-tracker.loadbalancer.server.port=3000
       - traefik.http.routers.food-tracker.rule=Host("tracker.dlugoschvincent.de") || Host("tracker.localhost")
+      - traefik.http.routers.food-tracker.tls=true
       - traefik.http.routers.food-tracker.entrypoints=websecure
-      - traefik.http.middlewares.food-tracker-compress.compress=true
-      - traefik.http.routers.food-tracker.middlewares=auth,food-tracker-compress
+      - traefik.http.routers.food-tracker.middlewares=authelia@file,compressor@file
       - traefik.docker.network=traefik
     networks:
       traefik:
