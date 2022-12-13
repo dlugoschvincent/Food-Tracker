@@ -14,7 +14,6 @@ export const load = (async (event) => {
 			food: true
 		}
 	})
-	console.log(servings)
 	return { servings }
 }) satisfies PageServerLoad
 
