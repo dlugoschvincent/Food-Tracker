@@ -14,7 +14,7 @@ services:
       - traefik.http.routers.food-tracker.rule=Host("tracker.dlugoschvincent.de") || Host("tracker.localhost")
       - traefik.http.routers.food-tracker.tls=true
       - traefik.http.routers.food-tracker.entrypoints=websecure
-      - traefik.http.routers.food-tracker.middlewares=authelia@file,compressor@file
+      - traefik.http.routers.food-tracker.middlewares=authelia@docker,compressor@docker
       - traefik.docker.network=traefik
     networks:
       traefik:
