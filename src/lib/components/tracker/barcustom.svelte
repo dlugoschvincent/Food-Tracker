@@ -32,20 +32,14 @@
 		class="flex flex-col gap-4">
 		<div class="animate-slideInLeft flex h-6 w-full overflow-hidden rounded-md">
 			<div
-				style="flex-basis:{Math.round((fat / (fat + protein + carbohydrates)) * 100)}%"
-				class="basis-{Math.round(
-					(fat / (fat + protein + carbohydrates)) * 100
-				)}% h-6 bg-yellow-500" />
+				style="flex-basis:{(fat / (fat + protein + carbohydrates)) * 100}%"
+				class="h-6 bg-yellow-500" />
 			<div
-				style="flex-basis:{Math.round((protein / (fat + protein + carbohydrates)) * 100)}%"
-				class="basis-{Math.round(
-					(protein / (fat + protein + carbohydrates)) * 100
-				)}% h-full bg-red-500" />
+				style="flex-basis:{(protein / (fat + protein + carbohydrates)) * 100}%"
+				class="h-full bg-red-500" />
 			<div
-				style="flex-basis:{Math.round((carbohydrates / (fat + protein + carbohydrates)) * 100)}%"
-				class="basis-{Math.round(
-					(carbohydrates / (fat + protein + carbohydrates)) * 100
-				)}% h-full bg-blue-500" />
+				style="flex-basis:{(carbohydrates / (fat + protein + carbohydrates)) * 100}%"
+				class="h-full bg-blue-500" />
 		</div>
 		<div class="flex w-full justify-between gap-4 sm:justify-start">
 			<div class="flex gap-2">
