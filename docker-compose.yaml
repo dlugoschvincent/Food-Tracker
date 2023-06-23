@@ -1,5 +1,6 @@
 services:
   foodtracker:
+    restart: unless-stopped
     depends_on:
       foodtrackerdb:
         condition: service_healthy

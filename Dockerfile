@@ -18,7 +18,6 @@ RUN npm prune --omit=dev
 FROM node:lts  
 ARG DATABASE_URL
 ENV DATABASE_URL ${DATABASE_URL}
-RUN echo ${DATABASE_URL}
 WORKDIR /app 
 
 COPY --from=build /app/build ./build
