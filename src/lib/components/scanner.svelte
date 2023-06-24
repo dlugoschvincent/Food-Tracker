@@ -50,9 +50,10 @@
 	(European Article Number) codes.</Info>
 
 {#if loading}
-	<div
-		class="i-quill:loading-spin col-start-1 row-start-2 animate-spin place-self-center text-8xl text-orange-300 dark:text-orange-500" />
+	<icon
+		class="i-prime:spinner col-start-1 row-start-2 animate-spin place-self-center text-8xl text-orange-300 dark:text-orange-500" />
 {/if}
+
 <div
 	class="sm:max-w-120 children:rounded-md z-10 col-start-1 row-start-2 max-w-full place-self-center overflow-hidden"
 	bind:this={quaggaTarget} />

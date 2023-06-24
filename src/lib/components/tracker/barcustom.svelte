@@ -26,34 +26,44 @@
 	}
 </script>
 
-{#if protein + fat + carbohydrates > 0 && !$navigating}
-	<div
-		transition:slide={{ duration: 200 }}
-		class="flex flex-col gap-4">
-		<div class="animate-slideInLeft flex h-6 w-full overflow-hidden rounded-md">
+<div
+	transition:slide={{ duration: 200 }}
+	class="flex flex-col gap-4">
+	<div class="animate-slideInLeft flex h-6 w-full overflow-hidden rounded-md">
+		{#if fat > 0}
 			<div
 				style="flex-basis:{(fat / (fat + protein + carbohydrates)) * 100}%"
 				class="h-6 bg-yellow-500" />
+		{/if}
+		{#if protein > 0}
 			<div
 				style="flex-basis:{(protein / (fat + protein + carbohydrates)) * 100}%"
 				class="h-full bg-red-500" />
+		{/if}
+		{#if carbohydrates > 0}
 			<div
 				style="flex-basis:{(carbohydrates / (fat + protein + carbohydrates)) * 100}%"
 				class="h-full bg-blue-500" />
+		{/if}
+
+		{#if protein + fat + carbohydrates == 0}
+			<div
+				style="flex-basis: 100%"
+				class="h-full bg-slate-500" />
+		{/if}
+	</div>
+	<div class="flex w-full justify-between gap-4 sm:justify-start">
+		<div class="flex gap-2">
+			<div class="my-auto h-2 w-2 bg-yellow-500" />
+			<div>{fat}g Fat</div>
 		</div>
-		<div class="flex w-full justify-between gap-4 sm:justify-start">
-			<div class="flex gap-2">
-				<div class="my-auto h-2 w-2 bg-yellow-500" />
-				<div>{fat}g Fat</div>
-			</div>
-			<div class="flex gap-2">
-				<div class="my-auto h-2 w-2 bg-red-500" />
-				<div>{protein}g Protein</div>
-			</div>
-			<div class="flex gap-2">
-				<div class="my-auto h-2 w-2 bg-blue-500" />
-				<div>{carbohydrates}g Carbs</div>
-			</div>
+		<div class="flex gap-2">
+			<div class="my-auto h-2 w-2 bg-red-500" />
+			<div>{protein}g Protein</div>
+		</div>
+		<div class="flex gap-2">
+			<div class="my-auto h-2 w-2 bg-blue-500" />
+			<div>{carbohydrates}g Carbs</div>
 		</div>
 	</div>
-{/if}
+</div>

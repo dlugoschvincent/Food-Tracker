@@ -9,7 +9,7 @@
 	let lunchServings: typeof servings
 	let dinnerServings: typeof servings
 
-	$: if (servings != undefined) {
+	$: {
 		breakfastServings = servings.filter(({ type }) => type === 'Breakfast')
 		lunchServings = servings.filter(({ type }) => type === 'Lunch')
 		dinnerServings = servings.filter(({ type }) => type === 'Dinner')

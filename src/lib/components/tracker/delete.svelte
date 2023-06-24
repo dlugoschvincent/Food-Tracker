@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
-	export let id: BigInt | undefined
-	export let name: string | undefined
+	export let id: BigInt
+	export let name: string
 	export let deleted = false
 </script>
 

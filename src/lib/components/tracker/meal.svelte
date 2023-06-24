@@ -20,9 +20,7 @@
 			</a>
 		</div>
 	</div>
-	{#if servings}
-		{#each servings as serving}
-			<Serving {serving} />
-		{/each}
-	{/if}
+	{#each servings as serving}
+		<Serving {serving} />
+	{/each}
 </div>
