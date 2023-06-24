@@ -2,34 +2,31 @@
 	import { navigating } from '$app/stores'
 	import type { Food, Meal } from '@prisma/client'
 	import { slide } from 'svelte/transition'
-	export let servings: (Meal & { food: Food })[]
+	export let servings: (Meal & { food: Food })[] | undefined = undefined
 
-	let protein = 0
-	let fat = 0
-	let carbohydrates = 0
-	$: {
-		if (servings != undefined) {
-			protein =
-				Math.round(
-					servings.map((x) => (x.grams / 100) * x.food.protein).reduce((x, y) => x + y, 0) * 10
-				) / 10
-			fat =
-				Math.round(
-					servings.map((x) => (x.grams / 100) * x.food.fat).reduce((x, y) => x + y, 0) * 10
-				) / 10
-			carbohydrates =
-				Math.round(
-					servings.map((x) => (x.grams / 100) * x.food.carbohydrates).reduce((x, y) => x + y, 0) *
-						10
-				) / 10
-		}
+	export let protein = 0
+	export let fat = 0
+	export let carbohydrates = 0
+	$: if (servings != undefined) {
+		protein =
+			Math.round(
+				servings.map((x) => (x.grams / 100) * x.food.protein).reduce((x, y) => x + y, 0) * 10
+			) / 10
+		fat =
+			Math.round(
+				servings.map((x) => (x.grams / 100) * x.food.fat).reduce((x, y) => x + y, 0) * 10
+			) / 10
+		carbohydrates =
+			Math.round(
+				servings.map((x) => (x.grams / 100) * x.food.carbohydrates).reduce((x, y) => x + y, 0) * 10
+			) / 10
 	}
 </script>
 
 <div
 	transition:slide={{ duration: 200 }}
 	class="flex flex-col gap-4">
-	<div class="animate-slideInLeft flex h-6 w-full overflow-hidden rounded-md">
+	<div class="animate-slideInLeft flex h-6 w-full flex-row overflow-hidden rounded-md">
 		{#if fat > 0}
 			<div
 				style="flex-basis:{(fat / (fat + protein + carbohydrates)) * 100}%"
@@ -52,7 +49,7 @@
 				class="h-full bg-slate-500" />
 		{/if}
 	</div>
-	<div class="flex w-full justify-between gap-4 sm:justify-start">
+	<div class="flex w-full flex-row justify-between gap-4 sm:justify-start">
 		<div class="flex gap-2">
 			<div class="my-auto h-2 w-2 bg-yellow-500" />
 			<div>{fat}g Fat</div>

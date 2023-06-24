@@ -3,5 +3,5 @@
 	action="/auth/logout">
 	<button
 		type="submit"
-		class="border-1 block border-orange-500 border-opacity-50 py-1 px-2 text-lg">Logout</button>
+		class="border-1 block border-orange-500 border-opacity-50 px-2 py-1 text-lg">Logout</button>
 </form>

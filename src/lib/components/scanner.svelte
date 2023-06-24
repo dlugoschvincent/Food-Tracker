@@ -35,7 +35,11 @@
 			if (data.codeResult.startInfo.error < 0.1 && data.codeResult.code?.charAt(0) === '4') {
 				Quagga.offDetected()
 				Quagga.stop()
-				goto(`/tracker/${$page.params.date}/${$page.params.meal}/${data.codeResult.code}`)
+				const productUrl = new URL(`/product/${data.codeResult.code}`, $page.url.origin)
+				$page.url.searchParams.forEach((value, key) => {
+					productUrl.searchParams.set(key, value)
+				})
+				goto(productUrl.toString())
 			}
 		})
 	})
