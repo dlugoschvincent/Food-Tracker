@@ -20,6 +20,20 @@
 			fat={data.product.fat}
 			carbohydrates={data.product.carbohydrates} />
 	</div>
+	<!-- This is a delete button only for debug purposes now -->
+	<!-- <form -->
+	<!-- 	use:enhance -->
+	<!-- 	method="post" -->
+	<!-- 	action="?/delete"> -->
+	<!-- 	<input -->
+	<!-- 		hidden -->
+	<!-- 		name="barcode" -->
+	<!-- 		value={data.product.barCode} /> -->
+	<!-- 	<button -->
+	<!-- 		type="submit" -->
+	<!-- 		aria-label="Delete {data.product.name}" -->
+	<!-- 		class="i-akar-icons:cross color-red-500 text-3xl" /> -->
+	<!-- </form> -->
 </div>
 {#if meal && date}
 	<form

@@ -2,11 +2,16 @@ import prisma from '$lib/db'
 import { redirect } from '@sveltejs/kit'
 import type { Actions, PageServerLoad } from './$types'
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, url }) => {
 	const product = await prisma.food.findFirst({
 		where: { barCode: parseInt(params.barcode) }
 	})
 
+	const meal = url.searchParams.get('meal')
+	const date = url.searchParams.get('date')
+	if (meal && date && product) {
+		throw redirect(301, `/product/${params.barcode}?date=${date}&meal=${meal}`)
+	}
 	if (product) {
 		throw redirect(301, `/product/${params.barcode}`)
 	}

@@ -11,12 +11,12 @@ export const load = (async ({ params, url }) => {
 		return { product }
 	}
 
-	throw redirect(
-		301,
-		`/product/create/${params.barcode}?date=${url.searchParams.get(
-			'date'
-		)}&meal=${url.searchParams.get('meal')}`
-	)
+	const meal = url.searchParams.get('meal')
+	const date = url.searchParams.get('date')
+	if (meal && date) {
+		throw redirect(301, `/product/create/${params.barcode}?date=${date}&meal=${meal}`)
+	}
+	throw redirect(301, `/product/create/${params.barcode}`)
 }) satisfies PageServerLoad
 
 export const actions: Actions = {
@@ -47,4 +47,8 @@ export const actions: Actions = {
 		}
 		throw redirect(301, `/tracker/${date}`)
 	}
+	// },
+	// async delete(event) {
+	// 	await prisma.food.delete({ where: { barCode: parseInt(event.params.barcode) } })
+	// }
 }
