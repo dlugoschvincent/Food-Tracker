@@ -1,26 +1,30 @@
 <script lang="ts">
-	import { navigating } from '$app/stores'
 	import type { Food, Meal } from '@prisma/client'
 	import { slide } from 'svelte/transition'
-	export let servings: (Meal & { food: Food })[] | undefined = undefined
-
-	export let protein = 0
-	export let fat = 0
-	export let carbohydrates = 0
-	$: if (servings != undefined) {
-		protein =
-			Math.round(
-				servings.map((x) => (x.grams / 100) * x.food.protein).reduce((x, y) => x + y, 0) * 10
-			) / 10
-		fat =
-			Math.round(
-				servings.map((x) => (x.grams / 100) * x.food.fat).reduce((x, y) => x + y, 0) * 10
-			) / 10
-		carbohydrates =
-			Math.round(
-				servings.map((x) => (x.grams / 100) * x.food.carbohydrates).reduce((x, y) => x + y, 0) * 10
-			) / 10
+	type BarCustomProps = {
+		servings?: (Meal & { food: Food })[] | undefined
+		protein?: number
+		fat?: number
+		carbohydrates?: number
 	}
+	let { servings = undefined, protein = 0, fat = 0, carbohydrates = 0 } = $props<BarCustomProps>()
+	$effect(() => {
+		if (servings != undefined) {
+			protein =
+				Math.round(
+					servings.map((x) => (x.grams / 100) * x.food.protein).reduce((x, y) => x + y, 0) * 10
+				) / 10
+			fat =
+				Math.round(
+					servings.map((x) => (x.grams / 100) * x.food.fat).reduce((x, y) => x + y, 0) * 10
+				) / 10
+			carbohydrates =
+				Math.round(
+					servings.map((x) => (x.grams / 100) * x.food.carbohydrates).reduce((x, y) => x + y, 0) *
+						10
+				) / 10
+		}
+	})
 </script>
 
 <div
