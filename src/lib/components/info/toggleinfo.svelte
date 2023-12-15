@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { infoToggled } from '$lib/stores/infoStore'
+	import { info } from '$lib/stores/infoStore.svelte'
 	function toggleInfo() {
-		infoToggled.update((infoToggled) => !infoToggled)
+		info.toggleInfo()
 	}
 </script>
 
