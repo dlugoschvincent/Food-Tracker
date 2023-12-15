@@ -14,9 +14,9 @@ export const load = (async ({ params, url }) => {
 	const meal = url.searchParams.get('meal')
 	const date = url.searchParams.get('date')
 	if (meal && date) {
-		throw redirect(301, `/product/create/${params.barcode}?date=${date}&meal=${meal}`)
+		redirect(301, `/product/create/${params.barcode}?date=${date}&meal=${meal}`);
 	}
-	throw redirect(301, `/product/create/${params.barcode}`)
+	redirect(301, `/product/create/${params.barcode}`);
 }) satisfies PageServerLoad
 
 export const actions: Actions = {
@@ -45,7 +45,7 @@ export const actions: Actions = {
 				}
 			})
 		}
-		throw redirect(301, `/tracker/${date}`)
+		redirect(301, `/tracker/${date}`);
 	}
 	// },
 	// async delete(event) {
