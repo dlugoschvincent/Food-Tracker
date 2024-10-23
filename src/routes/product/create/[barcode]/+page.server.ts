@@ -10,10 +10,10 @@ export const load = (async ({ params, url }) => {
 	const meal = url.searchParams.get('meal')
 	const date = url.searchParams.get('date')
 	if (meal && date && product) {
-		redirect(301, `/product/${params.barcode}?date=${date}&meal=${meal}`);
+		redirect(301, `/product/${params.barcode}?date=${date}&meal=${meal}`)
 	}
 	if (product) {
-		redirect(301, `/product/${params.barcode}`);
+		redirect(301, `/product/${params.barcode}`)
 	}
 }) satisfies PageServerLoad
 

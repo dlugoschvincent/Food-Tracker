@@ -3,7 +3,7 @@
 
 	import { page } from '$app/stores'
 	import type { Food } from '@prisma/client'
-	let product: Food = {
+	let product: Food = $state({
 		barCode: BigInt($page.params.barcode),
 		name: '',
 		fat: 0,
@@ -14,11 +14,11 @@
 		salt: 0,
 		sugar: 0,
 		createdAt: null
-	}
+	})
 
-	$: kiloJoules = Math.round(
-		product.protein * 16.7 + product.carbohydrates * 16.7 + product.fat * 37.7
-	)
+	let kiloJoules: number = $derived.by(() => {
+		return Math.round(product.protein * 16.7 + product.carbohydrates * 16.7 + product.fat * 37.7)
+	})
 </script>
 
 <form
@@ -42,7 +42,7 @@
 		<button
 			class="col-span-1 cursor-pointer place-self-end rounded-full bg-orange-500 p-2"
 			type="submit">
-			<div class="i-bx:save text-xl" />
+			<div class="i-bx:save text-xl"></div>
 		</button>
 
 		<div class="col-span-2">Nutrients per 100 gram:</div>
@@ -105,7 +105,7 @@
 				class="input-text"
 				disabled
 				placeholder="Kilojoules"
-				bind:value={kiloJoules}
+				value={kiloJoules}
 				type="number"
 				required
 				min="0"

@@ -1,22 +1,26 @@
 <script lang="ts">
 	import { goto } from '$app/navigation'
-	import { page } from '$app/stores'
+	import { navigating, page } from '$app/stores'
 	import Quagga from '@ericblade/quagga2'
 	import { onDestroy, onMount } from 'svelte'
 	import Info from './info/info.svelte'
-	let quaggaTarget: HTMLDivElement | undefined
-	let loading = true
+	let quaggaTarget: HTMLDivElement | undefined = $state()
+	let loading = $state(true)
 	onMount(() => {
 		Quagga.init(
 			{
+				locate: false,
 				inputStream: {
 					name: 'Live',
 					type: 'LiveStream',
 					target: quaggaTarget,
 					constraints: {
+						width: 1800,
+						height: 900,
 						facingMode: 'environment'
 					}
 				},
+				frequency: 30,
 				decoder: {
 					readers: ['ean_reader']
 				}
@@ -27,6 +31,7 @@
 					return
 				}
 				Quagga.start()
+				Quagga.canvas.dom.overlay.remove()
 				loading = false
 			}
 		)
@@ -49,15 +54,17 @@
 	})
 </script>
 
-<Info
-	>Here can you scan the bar code of the food item you wish to eat. The scanner will accept EAN
-	(European Article Number) codes.</Info>
-
-{#if loading}
+{#if loading && !$navigating}
 	<icon
-		class="i-prime:spinner col-start-1 row-start-2 animate-spin place-self-center text-8xl text-orange-300 dark:text-orange-500" />
+		class="i-prime:spinner absolute z-0 col-start-1 row-start-2 animate-spin place-self-center text-8xl text-orange-300 dark:text-orange-500"
+	></icon>
 {/if}
 
 <div
-	class="sm:max-w-120 children:rounded-md z-10 col-start-1 row-start-2 max-w-full place-self-center overflow-hidden"
-	bind:this={quaggaTarget} />
+	class="sm:max-w-120 children:rounded-md relative z-10 col-start-1 row-start-2 max-w-full place-self-center overflow-hidden"
+	bind:this={quaggaTarget}>
+</div>
+
+<Info
+	>Here can you scan the bar code of the food item you wish to eat. The scanner will accept EAN
+	(European Article Number) codes.</Info>

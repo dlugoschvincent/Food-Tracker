@@ -1,10 +1,16 @@
 <script lang="ts">
+	import { getContext } from 'svelte'
+	let darkMode: { on: boolean } = getContext('darkMode')
+
 	function toggleDarkmode() {
-		window.document.body.classList.toggle('dark')
+		darkMode.on = !darkMode.on
 	}
 </script>
 
 <div
+	role="button"
+	tabindex="0"
 	class="dark:i-material-symbols:light-mode-outline i-material-symbols:dark-mode-outline cursor-pointer place-self-center text-2xl"
-	on:click={toggleDarkmode}
-	on:keydown={toggleDarkmode} />
+	onclick={toggleDarkmode}
+	onkeydown={toggleDarkmode}>
+</div>

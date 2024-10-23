@@ -7,7 +7,8 @@
 			class="mb-2 block text-sm font-medium text-zinc-900 dark:text-white">E-Mail</label>
 		<div class="relative">
 			<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-				<div class="i-material-symbols:alternate-email h-5 w-5 text-zinc-500 dark:text-zinc-400" />
+				<div class="i-material-symbols:alternate-email h-5 w-5 text-zinc-500 dark:text-zinc-400">
+				</div>
 			</div>
 			<input
 				class="input-text pl-10"
@@ -24,7 +25,7 @@
 			class="mb-2 block text-sm font-medium text-zinc-900 dark:text-white">Password</label>
 		<div class="relative">
 			<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-				<div class="i-material-symbols:key h-5 w-5 text-zinc-500 dark:text-zinc-400" />
+				<div class="i-material-symbols:key h-5 w-5 text-zinc-500 dark:text-zinc-400"></div>
 			</div>
 			<input
 				class="input-text pl-10"

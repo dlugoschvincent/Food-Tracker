@@ -3,22 +3,40 @@
 	import MealComponent from '$lib/components/tracker/meal.svelte'
 	import type { Food, Meal } from '@prisma/client'
 	import Barcustom from './barcustom.svelte'
-	export let servings: (Meal & { food: Food })[]
-
-	let breakfastServings: typeof servings
-	let lunchServings: typeof servings
-	let dinnerServings: typeof servings
-
-	$: {
-		breakfastServings = servings.filter(({ type }) => type === 'Breakfast')
-		lunchServings = servings.filter(({ type }) => type === 'Lunch')
-		dinnerServings = servings.filter(({ type }) => type === 'Dinner')
+	interface Props {
+		servings: (Meal & { food: Food })[]
 	}
+
+	let { servings }: Props = $props()
+
+	let breakfastServings: typeof servings = $derived(
+		servings.filter(({ type }) => type === 'Breakfast')
+	)
+	let lunchServings: typeof servings = $derived(servings.filter(({ type }) => type === 'Lunch'))
+	let dinnerServings: typeof servings = $derived(servings.filter(({ type }) => type === 'Dinner'))
+
+	let protein = $derived(
+		Math.round(
+			servings.map((x) => (x.grams / 100) * x.food.protein).reduce((x, y) => x + y, 0) * 10
+		) / 10
+	)
+	let fat = $derived(
+		Math.round(servings.map((x) => (x.grams / 100) * x.food.fat).reduce((x, y) => x + y, 0) * 10) /
+			10
+	)
+	let carbohydrates = $derived(
+		Math.round(
+			servings.map((x) => (x.grams / 100) * x.food.carbohydrates).reduce((x, y) => x + y, 0) * 10
+		) / 10
+	)
 </script>
 
 <div class="grid grid-cols-1 gap-4">
 	<Datepicker />
-	<Barcustom {servings} />
+	<Barcustom
+		{protein}
+		{fat}
+		{carbohydrates} />
 	<MealComponent
 		servings={breakfastServings}
 		meal="Breakfast" />

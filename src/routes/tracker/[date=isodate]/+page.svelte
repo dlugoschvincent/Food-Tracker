@@ -4,7 +4,11 @@
 	import { page } from '$app/stores'
 	import Info from '$lib/components/info/info.svelte'
 	import Tracker from '$lib/components/tracker/tracker.svelte'
-	export let data: PageData
+	interface Props {
+		data: PageData
+	}
+
+	let { data }: Props = $props()
 </script>
 
 <svelte:head>

@@ -4,14 +4,18 @@
 	import Serving from '$lib/components/tracker/serving.svelte'
 	import type { Food, Meal } from '@prisma/client'
 
-	export let meal: string
-	export let servings: (Meal & { food: Food })[]
-	let addServingUrl: URL
-	$: {
-		addServingUrl = new URL('/scan', $page.url.origin)
-		addServingUrl.searchParams.set('date', $page.params.date)
-		addServingUrl.searchParams.set('meal', meal)
+	interface Props {
+		meal: string
+		servings: (Meal & { food: Food })[]
 	}
+
+	let { meal, servings }: Props = $props()
+	let addServingUrl: URL = $derived.by(() => {
+		let url = new URL('/scan', $page.url.origin)
+		url.searchParams.set('date', $page.params.date)
+		url.searchParams.set('meal', meal)
+		return url
+	})
 </script>
 
 <div class="border-1 grid rounded-md border-orange-500 border-opacity-50">
@@ -22,7 +26,7 @@
 				href={addServingUrl.toString()}
 				class="my-auto grid place-items-center place-self-end rounded-full"
 				aria-label="Add {meal}">
-				<icon class="i-akar-icons:plus color-orange-500 text-3xl" />
+				<icon class="i-akar-icons:plus color-orange-500 text-3xl"></icon>
 			</a>
 		</div>
 	</div>

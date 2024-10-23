@@ -1,11 +1,16 @@
 <script lang="ts">
-	import { infoToggled } from '$lib/stores/infoStore'
+	import { getContext } from 'svelte'
+	let infoMode: { on: boolean } = getContext('infoMode')
+
 	function toggleInfo() {
-		infoToggled.update((infoToggled) => !infoToggled)
+		infoMode.on = !infoMode.on
 	}
 </script>
 
 <div
+	role="button"
+	tabindex="0"
 	class="i-akar-icons:info cursor-pointer place-self-center text-2xl text-green-500 opacity-50"
-	on:click={toggleInfo}
-	on:keypress={toggleInfo} />
+	onclick={toggleInfo}
+	onkeypress={toggleInfo}>
+</div>

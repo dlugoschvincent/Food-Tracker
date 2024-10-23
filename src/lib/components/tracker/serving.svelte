@@ -4,9 +4,13 @@
 	import Delete from './delete.svelte'
 
 	import { slide } from 'svelte/transition'
-	export let serving: Meal & { food: Food }
+	interface Props {
+		serving: Meal & { food: Food }
+	}
 
-	let deleted: boolean = false
+	let { serving }: Props = $props()
+
+	let deleted: boolean = $state(false)
 </script>
 
 {#if !deleted && !$navigating}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	let searchQuery: string
+	let searchQuery: string = $state()
 </script>
 
 <div class="col-span-2 grid gap-4">

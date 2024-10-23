@@ -3,7 +3,11 @@
 	import Barcustom from '$lib/components/tracker/barcustom.svelte'
 	import { page } from '$app/stores'
 	import { enhance } from '$app/forms'
-	export let data: PageData
+	interface Props {
+		data: PageData
+	}
+
+	let { data }: Props = $props()
 	let meal = $page.url.searchParams.get('meal')
 	let date = $page.url.searchParams.get('date')
 	console.log(meal)

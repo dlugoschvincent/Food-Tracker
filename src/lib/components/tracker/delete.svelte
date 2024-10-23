@@ -1,13 +1,17 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
-	export let id: BigInt
-	export let name: string
-	export let deleted = false
+	interface Props {
+		id: BigInt
+		name: string
+		deleted: boolean
+	}
+
+	let { id, name, deleted = $bindable() }: Props = $props()
 </script>
 
 <form
 	use:enhance
-	on:submit={() => (deleted = true)}
+	onsubmit={() => (deleted = true)}
 	method="post"
 	action="?/delete"
 	class="grid justify-self-end">
@@ -18,5 +22,5 @@
 	<button
 		type="submit"
 		aria-label="Delete {name}"
-		class="i-akar-icons:cross color-red-500 text-3xl" />
+		class="i-akar-icons:cross color-red-500 text-3xl"></button>
 </form>
