@@ -9,18 +9,21 @@ services:
       dockerfile: Dockerfile
       args:
         DATABASE_URL: ${DATABASE_URL}
+        AUTH_SECRET: ${AUTH_SECRET}
+        AUTH_KEYCLOAK_ID: ${AUTH_KEYCLOAK_ID}
+        AUTH_KEYCLOAK_SECRET: ${AUTH_KEYCLOAK_SECRET}
+        AUTH_KEYCLOAK_ISSUER: ${AUTH_KEYCLOAK_ISSUER}
     labels:
       - traefik.enable=true
       - traefik.http.services.food-tracker.loadbalancer.server.port=3000
       - traefik.http.routers.food-tracker.rule=Host("tracker.${HOSTNAME}")
       - traefik.http.routers.food-tracker.tls=true
       - traefik.http.routers.food-tracker.entrypoints=websecure
-      - traefik.http.routers.food-tracker.middlewares=authelia@docker,compressor@docker
+      - traefik.http.routers.food-tracker.middlewares=compressor@docker #, authelia@docker
       - traefik.docker.network=traefik
     networks:
       traefik:
       foodtracker:
-
   foodtrackerdb:
     image: postgres
     restart: unless-stopped
@@ -38,28 +41,25 @@ services:
       interval: 5s
       timeout: 10s
       retries: 120
-
-  # Postgresdb administration system
-  # pgadmin:
-  #   image: dpage/pgadmin4
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
-  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
-  #   volumes:
-  #     - pgadmin:/var/lib/pgadmin
-  #   networks:
-  #     traefik:
-  #     foodtracker:
-  #   restart: unless-stopped
-  #   labels:
-  #     - traefik.enable=true
-  #     - traefik.http.routers.pgadmin.rule=Host("pgadmin.localhost")
-  #     - traefik.docker.network=traefik
-
+      # Postgresdb administration system
+      # pgadmin:
+      #   image: dpage/pgadmin4
+      #   environment:
+      #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+      #   volumes:
+      #     - pgadmin:/var/lib/pgadmin
+      #   networks:
+      #     traefik:
+      #     foodtracker:
+      #   restart: unless-stopped
+      #   labels:
+      #     - traefik.enable=true
+      #     - traefik.http.routers.pgadmin.rule=Host("pgadmin.localhost")
+      #     - traefik.docker.network=traefik
 volumes:
   foodtrackerdb:
   pgadmin:
-
 networks:
   traefik:
     external: true
