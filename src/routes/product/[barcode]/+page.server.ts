@@ -22,18 +22,13 @@ export const load = (async ({ params, url }) => {
 export const actions: Actions = {
 	async eat(event) {
 		const formData = await event.request.formData()
-		const userId = '8755bc24-25de-4de7-9a47-ec196b804265'
+		const session = await event.locals.auth()
+		const userId = session?.user?.id
+		if (!userId) {
+			redirect(303, '/signin')
+		}
 		const meal = formData.get('meal') as string
 		const date = formData.get('date') as string
-		await prisma.user.upsert({
-			where: {
-				id: userId
-			},
-			update: {},
-			create: {
-				id: userId
-			}
-		})
 		if (meal && date) {
 			await prisma.meal.create({
 				data: {

@@ -10,8 +10,6 @@
 	let { data }: Props = $props()
 	let meal = $page.url.searchParams.get('meal')
 	let date = $page.url.searchParams.get('date')
-	console.log(meal)
-	console.log(date)
 </script>
 
 <div class="flex flex-1 flex-col gap-4">

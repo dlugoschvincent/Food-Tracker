@@ -40,6 +40,7 @@
 				name="name" />
 		</div>
 		<button
+			aria-label="Save item"
 			class="col-span-1 cursor-pointer place-self-end rounded-full bg-orange-500 p-2"
 			type="submit">
 			<div class="i-bx:save text-xl"></div>

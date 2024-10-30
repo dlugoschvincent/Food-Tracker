@@ -1,5 +1,8 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss'
+import extractorSvelte from '@unocss/extractor-svelte'
+
 export default defineConfig({
+	extractors: [extractorSvelte()],
 	shortcuts: [
 		{
 			'disable-anchor': 'opacity-30 pointer-events-none touch-none',

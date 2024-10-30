@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import Navbar from '$lib/components/navbar.svelte'
-	import { onMount, setContext, type Snippet } from 'svelte'
+	import { setContext, type Snippet } from 'svelte'
+	import 'uno.css'
+	import '@unocss/reset/tailwind.css'
 
 	interface Props {
 		children: Snippet

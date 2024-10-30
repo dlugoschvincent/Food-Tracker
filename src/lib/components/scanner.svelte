@@ -15,8 +15,8 @@
 					type: 'LiveStream',
 					target: quaggaTarget,
 					constraints: {
-						width: 480,
-						height: 1920,
+						width: 1920,
+						height: 720,
 						facingMode: 'environment'
 					}
 				},
@@ -64,6 +64,7 @@
 	class="sm:max-w-120 children:rounded-md relative z-10 col-start-1 row-start-2 max-w-full place-self-center overflow-hidden"
 	bind:this={quaggaTarget}>
 </div>
+<div></div>
 
 <Info
 	>Here can you scan the bar code of the food item you wish to eat. The scanner will accept EAN
