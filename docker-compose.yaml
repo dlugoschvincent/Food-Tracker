@@ -16,10 +16,10 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.services.food-tracker.loadbalancer.server.port=3000
-      - traefik.http.routers.food-tracker.rule=Host("tracker.${HOSTNAME}") || Host("www.tracker.${HOSTNAME}")
+      - traefik.http.routers.food-tracker.rule=Host("tracker.${HOSTNAME}")
       - traefik.http.routers.food-tracker.tls=true
       - traefik.http.routers.food-tracker.entrypoints=websecure
-      - traefik.http.routers.food-tracker.middlewares=compressor@docker #, authelia@docker
+      - traefik.http.routers.food-tracker.middlewares=compressor@docker
       - traefik.docker.network=traefik
     networks:
       traefik:
