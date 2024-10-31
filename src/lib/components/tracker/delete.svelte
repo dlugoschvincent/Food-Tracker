@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
 	interface Props {
-		id: BigInt
+		id: bigint
 		name: string
 		deleted: boolean
 	}
