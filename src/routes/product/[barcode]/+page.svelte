@@ -65,7 +65,7 @@
 			name="date" />
 		<button
 			type="submit"
-			class="col-span-6 w-full rounded-md border-2 border-orange-500 p-2 sm:max-w-xs"
+			class="col-span-6 w-full rounded-md border-2 border-orange-500 bg-transparent p-2 sm:max-w-xs"
 			>Add to {meal} on {date}</button>
 	</form>
 {/if}

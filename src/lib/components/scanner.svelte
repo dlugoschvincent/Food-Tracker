@@ -15,8 +15,8 @@
 					type: 'LiveStream',
 					target: quaggaTarget,
 					constraints: {
-						width: 500,
-						height: 1500,
+						width: 1440,
+						height: 1920,
 						facingMode: 'environment'
 					}
 				},
