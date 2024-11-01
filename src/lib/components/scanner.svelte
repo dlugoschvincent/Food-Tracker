@@ -9,14 +9,14 @@
 	onMount(() => {
 		Quagga.init(
 			{
-				locate: false,
+				locate: true,
 				inputStream: {
 					name: 'Live',
 					type: 'LiveStream',
 					target: quaggaTarget,
 					constraints: {
-						width: 1920,
-						height: 720,
+						width: 500,
+						height: 1500,
 						facingMode: 'environment'
 					}
 				},
