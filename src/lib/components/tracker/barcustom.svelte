@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition'
-
 	interface Props {
 		protein: number
 		fat: number
@@ -10,9 +8,7 @@
 	let { protein = 0, fat = 0, carbohydrates = 0 }: Props = $props()
 </script>
 
-<div
-	transition:slide={{ duration: 200 }}
-	class="flex flex-col gap-4">
+<div class="flex flex-col gap-4">
 	<div class="animate-slideInLeft flex h-6 w-full flex-row overflow-hidden rounded-md">
 		{#if fat > 0}
 			<div

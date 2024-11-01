@@ -10,7 +10,7 @@
 <div
 	role="button"
 	tabindex="0"
-	class="dark:i-material-symbols:light-mode-outline i-material-symbols:dark-mode-outline cursor-pointer place-self-center text-2xl"
+	class="dark:i-material-symbols:light-mode-outline i-material-symbols:dark-mode-outline cursor-pointer place-self-center"
 	onclick={toggleDarkmode}
 	onkeydown={toggleDarkmode}>
 </div>

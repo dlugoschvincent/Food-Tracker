@@ -20,13 +20,13 @@
 
 <div class="border-1 grid rounded-md border-orange-500 border-opacity-50">
 	<div>
-		<div class="grid grid-flow-col p-2">
+		<div class="flex justify-between p-2">
 			<h2 class="my-auto">{meal}:</h2>
 			<a
 				href={addServingUrl.toString()}
 				class="my-auto grid place-items-center place-self-end rounded-full"
 				aria-label="Add {meal}">
-				<icon class="i-akar-icons:plus color-orange-500 text-3xl"></icon>
+				<icon class="i-akar-icons:plus color-orange-500"></icon>
 			</a>
 		</div>
 	</div>

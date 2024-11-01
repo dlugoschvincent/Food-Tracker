@@ -56,7 +56,7 @@
 
 {#if loading && !$navigating}
 	<icon
-		class="i-prime:spinner absolute z-0 col-start-1 row-start-2 animate-spin place-self-center text-8xl text-orange-300 dark:text-orange-500"
+		class="i-prime:spinner absolute z-0 col-start-1 row-start-2 animate-spin place-self-center text-2xl text-orange-300 dark:text-orange-500"
 	></icon>
 {/if}
 
@@ -64,7 +64,6 @@
 	class="sm:max-w-120 children:rounded-md relative z-10 col-start-1 row-start-2 max-w-full place-self-center overflow-hidden"
 	bind:this={quaggaTarget}>
 </div>
-<div></div>
 
 <Info
 	>Here can you scan the bar code of the food item you wish to eat. The scanner will accept EAN

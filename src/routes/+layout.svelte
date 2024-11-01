@@ -3,7 +3,7 @@
 	import Navbar from '$lib/components/navbar.svelte'
 	import { setContext, type Snippet } from 'svelte'
 	import 'uno.css'
-	import '@unocss/reset/tailwind.css'
+	import '@unocss/reset/tailwind-compat.css'
 
 	interface Props {
 		children: Snippet
@@ -32,7 +32,7 @@
 	})
 </script>
 
-<div class="flex min-h-screen flex-col dark:bg-zinc-900 dark:text-white">
+<div class="flex min-h-dvh flex-col dark:bg-zinc-900 dark:text-white">
 	<Navbar />
 	<main class="container mx-auto flex h-full grow flex-col gap-4 p-4">
 		{@render children()}

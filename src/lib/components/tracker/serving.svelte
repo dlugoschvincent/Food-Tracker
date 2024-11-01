@@ -21,7 +21,6 @@
 		<div class="my-auto justify-self-end">{serving.grams}g</div>
 		<Delete
 			id={serving.mealId}
-			name={serving.food.name}
 			bind:deleted />
 	</div>
 {/if}

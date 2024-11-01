@@ -2,25 +2,24 @@
 	import { enhance } from '$app/forms'
 	interface Props {
 		id: bigint
-		name: string
 		deleted: boolean
 	}
 
-	let { id, name, deleted = $bindable() }: Props = $props()
+	let { id, deleted = $bindable() }: Props = $props()
 </script>
 
 <form
 	use:enhance
 	onsubmit={() => (deleted = true)}
 	method="post"
-	action="?/delete"
-	class="grid justify-self-end">
+	class="flex justify-end"
+	action="?/delete">
 	<input
 		hidden
 		value={id}
 		name="servingId" />
-	<button
+
+	<input
 		type="submit"
-		aria-label="Delete {name}"
-		class="i-akar-icons:cross color-red-500 text-3xl"></button>
+		class="color-red-500 i-akar-icons:cross" />
 </form>
