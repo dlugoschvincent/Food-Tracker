@@ -18,6 +18,7 @@ services:
       - traefik.http.services.food-tracker.loadbalancer.server.port=3000
       - traefik.http.routers.food-tracker.rule=Host("${DOMAIN_NAME}")
       - traefik.http.routers.food-tracker.tls=true
+      - traefik.http.routers.food-tracker.tls.certresolver=cloudflare-resolver
       - traefik.http.routers.food-tracker.entrypoints=websecure
       - traefik.http.routers.food-tracker.middlewares=compressor@docker
       - traefik.docker.network=traefik
