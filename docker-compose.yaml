@@ -14,17 +14,13 @@ services:
         AUTH_KEYCLOAK_SECRET: ${AUTH_KEYCLOAK_SECRET}
         AUTH_KEYCLOAK_ISSUER: ${AUTH_KEYCLOAK_ISSUER}
     labels:
-      - traefik.enable=true
       - traefik.http.services.food-tracker.loadbalancer.server.port=3000
       - traefik.http.routers.food-tracker.rule=Host("${DOMAIN_NAME}")
       - traefik.http.routers.food-tracker.tls=true
       - traefik.http.routers.food-tracker.tls.certresolver=cloudflare-resolver
       - traefik.http.routers.food-tracker.entrypoints=websecure
       - traefik.http.routers.food-tracker.middlewares=compressor@docker
-      - traefik.docker.network=traefik
-    networks:
-      traefik:
-      foodtracker:
+    networks: [foodtracker, traefik]
   foodtrackerdb:
     image: postgres
     restart: unless-stopped
@@ -35,9 +31,7 @@ services:
       PGDATA: /data/postgres
     volumes:
       - foodtrackerdb:/data/postgres -U postgres
-    networks:
-      foodtracker:
-      pgadmin:
+    networks: [foodtracker, pgadmin]
     healthcheck:
       test: su - postgres -c pg_isready
       interval: 5s
