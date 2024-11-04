@@ -37,32 +37,19 @@ services:
       - foodtrackerdb:/data/postgres -U postgres
     networks:
       foodtracker:
+      pgadmin:
     healthcheck:
       test: su - postgres -c pg_isready
       interval: 5s
       timeout: 10s
       retries: 120
-      # Postgresdb administration system
-      # pgadmin:
-      #   image: dpage/pgadmin4
-      #   environment:
-      #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
-      #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
-      #   volumes:
-      #     - pgadmin:/var/lib/pgadmin
-      #   networks:
-      #     traefik:
-      #     foodtracker:
-      #   restart: unless-stopped
-      #   labels:
-      #     - traefik.enable=true
-      #     - traefik.http.routers.pgadmin.rule=Host("pgadmin.localhost")
-      #     - traefik.docker.network=traefik
 volumes:
   foodtrackerdb:
-  pgadmin:
 networks:
   traefik:
     external: true
     name: traefik
+  pgadmin:
+    external: true
+    name: pgadmin
   foodtracker:
