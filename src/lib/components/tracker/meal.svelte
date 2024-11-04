@@ -26,7 +26,7 @@
 				href={addServingUrl.toString()}
 				class="my-auto grid place-items-center place-self-end rounded-full"
 				aria-label="Add {meal}">
-				<icon class="i-akar-icons:plus color-orange-500"></icon>
+				<icon class="i-octicon:plus-16 color-orange-500"></icon>
 			</a>
 		</div>
 	</div>

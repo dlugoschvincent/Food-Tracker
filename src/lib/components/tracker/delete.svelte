@@ -21,5 +21,5 @@
 
 	<input
 		type="submit"
-		class="color-red-500 i-akar-icons:cross" />
+		class="color-red-500 i-octicon:x-16" />
 </form>

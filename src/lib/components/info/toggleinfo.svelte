@@ -10,7 +10,7 @@
 <div
 	role="button"
 	tabindex="0"
-	class="i-akar-icons:info cursor-pointer place-self-center text-green-500 opacity-50"
+	class="i-octicon:info-16 cursor-pointer place-self-center text-green-500 opacity-50"
 	onclick={toggleInfo}
 	onkeypress={toggleInfo}>
 </div>

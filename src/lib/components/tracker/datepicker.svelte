@@ -26,11 +26,11 @@
 		class:disable-anchor={$navigating}
 		class="grid place-items-center rounded-full"
 		aria-label="Previous date">
-		<icon class="i-akar-icons:arrow-left text-orange-500"></icon>
+		<icon class="i-octicon:arrow-left-16 text-orange-500"></icon>
 	</a>
 
 	{#if !$navigating}
-		<div class="animate-zoom-in animate-duration-200 place-self-center text-xl">
+		<div class="animate-zoom-in animate-duration-200 place-self-center text-xl font-bold">
 			{$page.params.date}
 		</div>
 	{:else}
@@ -42,6 +42,6 @@
 		class:disable-anchor={$navigating || dateIsInFuture}
 		class="grid place-items-center rounded-full"
 		aria-label="Next date">
-		<icon class="i-akar-icons:arrow-right text-orange-500"></icon>
+		<icon class="i-octicon:arrow-right-16 text-orange-500"></icon>
 	</a>
 </div>
