@@ -22,7 +22,7 @@ services:
       - traefik.http.routers.food-tracker.middlewares=compressor@docker
     networks: [foodtracker, traefik]
   foodtrackerdb:
-    image: postgres
+    image: postgres:17
     restart: unless-stopped
     environment:
       POSTGRES_DB: foodtracker
